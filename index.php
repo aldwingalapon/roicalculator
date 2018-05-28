@@ -88,6 +88,16 @@
 <p>{{salesallstr}}</p>
 <h4>Sales (Merged String to JSON)</h4>
 <p>{{salesjson | json}}</p>
+
+<table class="salesjson">
+	<tr>
+		<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
+	</tr>
+	<tr ng-repeat="x in salesjson">
+		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current}}</td><td>{{x.month1}}</td><td>{{x.month2}}</td><td>{{x.month3}}</td><td>{{x.month4}}</td><td>{{x.month5}}</td><td>{{x.month6}}</td><td>{{x.month7}}</td><td>{{x.month8}}</td><td>{{x.month9}}</td><td>{{x.month10}}</td><td>{{x.month11}}</td><td>{{x.month12}}</td><td>{{x.total}}</td>
+	</tr>
+</table>
+
 <h4>Gross Profit</h4>
 <p>{{grossprofitbestjson | json}}</p>
 <p>{{grossprofitexpectedjson | json}}</p>
@@ -112,6 +122,14 @@
 <p>{{cpaallstr}}</p>
 <h4>CPA (Merged String to JSON)</h4>
 <p>{{cpajson | json}}</p>
+<table class="cpajson">
+	<tr>
+		<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
+	</tr>
+	<tr ng-repeat="x in cpajson">
+		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current}}</td><td>{{x.month1}}</td><td>{{x.month2}}</td><td>{{x.month3}}</td><td>{{x.month4}}</td><td>{{x.month5}}</td><td>{{x.month6}}</td><td>{{x.month7}}</td><td>{{x.month8}}</td><td>{{x.month9}}</td><td>{{x.month10}}</td><td>{{x.month11}}</td><td>{{x.month12}}</td><td>{{x.total}}</td>
+	</tr>
+</table>
 <h4>Budget</h4>
 <p>{{budgetbestjson | json}}</p>
 <p>{{budgetexpectedjson | json}}</p>
@@ -489,44 +507,44 @@
 			
 			var salesbestbase = $scope.monthlysales;
 			var salesbestbasetotal = 0;
-			$scope.salesbeststr = '{' + '"Name": "Sales Best", "Current":' + round(salesbestbase,0) + '';
+			$scope.salesbeststr = '{' + '"name": "Sales Best", "current":' + round(salesbestbase,0) + '';
 			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
 				$scope.salesbestjson.push((salesbestbase + (salesbestbase * $scope.getSalesYesTotalBestFactor())));
 				salesbestbase = salesbestbase + (salesbestbase * $scope.getSalesYesTotalBestFactor());
 				salesbestbasetotal += salesbestbase;
-				$scope.salesbeststr += ', "Month ' + (i+1).toString() + '":' + round(salesbestbase,0);
+				$scope.salesbeststr += ', "month' + (i+1).toString() + '":' + round(salesbestbase,0);
 			}
-			$scope.salesbeststr += ', "Total":' + round((salesbestbasetotal),0) + '}';
+			$scope.salesbeststr += ', "total":' + round((salesbestbasetotal),0) + '}';
 			var salesexpectedbase = $scope.monthlysales;
 			var salesexpectedbasetotal = 0;
-			$scope.salesexpectedstr = '{' + '"Name": "Sales Expected", "Current":' + round(salesbestbase,0) + '';
+			$scope.salesexpectedstr = '{' + '"name": "Sales Expected", "current":' + round(salesexpectedbase,0) + '';
 			for (i = 0; i < $scope.getSalesYesTotalTFExpected(); i++){
 				$scope.salesexpectedjson.push((salesexpectedbase + (salesexpectedbase * $scope.getSalesYesTotalExpectedFactor())));
 				salesexpectedbase = salesexpectedbase + (salesexpectedbase * $scope.getSalesYesTotalExpectedFactor());
 				salesexpectedbasetotal += salesexpectedbase;
-				$scope.salesexpectedstr += ', "Month ' + (i+1).toString() + '":' + round(salesexpectedbase,0);
+				$scope.salesexpectedstr += ', "month' + (i+1).toString() + '":' + round(salesexpectedbase,0);
 			}		
-			$scope.salesexpectedstr += ', "Total":' + round((salesexpectedbasetotal),0) + '}';
+			$scope.salesexpectedstr += ', "total":' + round((salesexpectedbasetotal),0) + '}';
 			var salesworstbase = $scope.monthlysales;
 			var salesworstbasetotal = 0;
-			$scope.salesworststr = '{' + '"Name": "Sales Worst", "Current":' + round(salesbestbase,0) + '';
+			$scope.salesworststr = '{' + '"name": "Sales Worst", "current":' + round(salesworstbase,0) + '';
 			for (i = 0; i < $scope.getSalesYesTotalTFWorst(); i++){
 				$scope.salesworstjson.push((salesworstbase + (salesworstbase * $scope.getSalesYesTotalWorstFactor())));
 				salesworstbase = salesworstbase + (salesworstbase * $scope.getSalesYesTotalWorstFactor());
 				salesworstbasetotal += salesworstbase;
-				$scope.salesworststr += ', "Month ' + (i+1).toString() + '":' + round(salesworstbase,0);
+				$scope.salesworststr += ', "month' + (i+1).toString() + '":' + round(salesworstbase,0);
 			}
-			$scope.salesworststr += ', "Total":' + round((salesworstbasetotal),0) + '}';
+			$scope.salesworststr += ', "total":' + round((salesworstbasetotal),0) + '}';
 			var salesallbase = $scope.monthlysales;
 			var salesallbasetotal = 0;
-			$scope.salesallstr = '{' + '"Name": "Sales All Options", "Current":' + round(salesbestbase,0) + '';
+			$scope.salesallstr = '{' + '"name": "Sales All Options", "current":' + round(salesallbase,0) + '';
 			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
 				$scope.salesalljson.push((salesallbase + (salesallbase * $scope.getSalesAllBestFactor())));
 				salesallbase = salesallbase + (salesallbase * $scope.getSalesAllBestFactor());
 				salesallbasetotal += salesallbase;
-				$scope.salesallstr += ', "Month ' + (i+1).toString() + '":' + round(salesallbase,0);
+				$scope.salesallstr += ', "month' + (i+1).toString() + '":' + round(salesallbase,0);
 			}		
-			$scope.salesallstr += ', "Total":' + round((salesallbasetotal),0) + '}';
+			$scope.salesallstr += ', "total":' + round((salesallbasetotal),0) + '}';
 			
 			$scope.salesjson.push(JSON.parse($scope.salesbeststr));
 			$scope.salesjson.push(JSON.parse($scope.salesexpectedstr));
@@ -565,51 +583,51 @@
 			var cpabestbase = $scope.cpa;
 			var cpabestbasetotal = 0;
 			var count = 0;
-			$scope.cpabeststr = '{' + '"Name": "CPA Best", "Current":' + round(cpabestbase,2) + '';
+			$scope.cpabeststr = '{' + '"name": "CPA Best", "current":' + round(cpabestbase,2) + '';
 			for (i = 0; i < $scope.getCPAYesTotalTFBest(); i++){
 				$scope.cpabestjson.push((cpabestbase + (cpabestbase * $scope.getCPAYesTotalBestFactor())));
 				cpabestbase = cpabestbase + (cpabestbase * $scope.getCPAYesTotalBestFactor());
 				cpabestbasetotal += cpabestbase;
 				count += 1;
-				$scope.cpabeststr += ', "Month ' + (i+1).toString() + '":' + round(cpabestbase,2);
+				$scope.cpabeststr += ', "month' + (i+1).toString() + '":' + round(cpabestbase,2);
 			}
-			$scope.cpabeststr += ', "Total":' + round((cpabestbasetotal/count),2) + '}';
+			$scope.cpabeststr += ', "total":' + round((cpabestbasetotal/count),2) + '}';
 			var cpaexpectedbase = $scope.cpa;
 			var cpaexpectedbasetotal = 0;
 			var count = 0;
-			$scope.cpaexpectedstr = '{' + '"Name": "CPA Expected", "Current":' + round(cpabestbase,2) + '';
+			$scope.cpaexpectedstr = '{' + '"name": "CPA Expected", "current":' + round(cpaexpectedbase,2) + '';
 			for (i = 0; i < $scope.getCPAYesTotalTFExpected(); i++){
 				$scope.cpaexpectedjson.push((cpaexpectedbase + (cpaexpectedbase * $scope.getCPAYesTotalExpectedFactor())));
 				cpaexpectedbase = cpaexpectedbase + (cpaexpectedbase * $scope.getCPAYesTotalExpectedFactor());
 				cpaexpectedbasetotal += cpaexpectedbase;
 				count += 1;
-				$scope.cpaexpectedstr += ', "Month ' + (i+1).toString() + '":' + round(cpaexpectedbase,2);
+				$scope.cpaexpectedstr += ', "month' + (i+1).toString() + '":' + round(cpaexpectedbase,2);
 			}		
-			$scope.cpaexpectedstr += ', "Total":' + round((cpaexpectedbasetotal/count),2) + '}';
+			$scope.cpaexpectedstr += ', "total":' + round((cpaexpectedbasetotal/count),2) + '}';
 			var cpaworstbase = $scope.cpa;
 			var cpaworstbasetotal = 0;
 			var count = 0;
-			$scope.cpaworststr = '{' + '"Name": "CPA Worst", "Current":' + round(cpabestbase,2) + '';
+			$scope.cpaworststr = '{' + '"name": "CPA Worst", "current":' + round(cpaworstbase,2) + '';
 			for (i = 0; i < $scope.getCPAYesTotalTFWorst(); i++){
 				$scope.cpaworstjson.push((cpaworstbase + (cpaworstbase * $scope.getCPAYesTotalWorstFactor())));
 				cpaworstbase = cpaworstbase + (cpaworstbase * $scope.getCPAYesTotalWorstFactor());
 				cpaworstbasetotal += cpaworstbase;
 				count += 1;
-				$scope.cpaworststr += ', "Month ' + (i+1).toString() + '":' + round(cpaworstbase,2);
+				$scope.cpaworststr += ', "month' + (i+1).toString() + '":' + round(cpaworstbase,2);
 			}
-			$scope.cpaworststr += ', "Total":' + round((cpaworstbasetotal/count),2) + '}';
+			$scope.cpaworststr += ', "total":' + round((cpaworstbasetotal/count),2) + '}';
 			var cpaallbase = $scope.cpa;
 			var cpaallbasetotal = 0;
 			var count = 0;
-			$scope.cpaallstr = '{' + '"Name": "CPA All Options", "Current":' + round(cpabestbase,2) + '';
+			$scope.cpaallstr = '{' + '"name": "CPA All Options", "current":' + round(cpaallbase,2) + '';
 			for (i = 0; i < $scope.getCPAYesTotalTFBest(); i++){
 				$scope.cpaalljson.push((cpaallbase + (cpaallbase * $scope.getCPAAllBestFactor())));
 				cpaallbase = cpaallbase + (cpaallbase * $scope.getCPAAllBestFactor());
 				cpaallbasetotal += cpaallbase;
 				count += 1;
-				$scope.cpaallstr += ', "Month ' + (i+1).toString() + '":' + round(cpaallbase,2);
+				$scope.cpaallstr += ', "month' + (i+1).toString() + '":' + round(cpaallbase,2);
 			}		
-			$scope.cpaallstr += ', "Total":' + round((cpaallbasetotal/count),2) + '}';
+			$scope.cpaallstr += ', "total":' + round((cpaallbasetotal/count),2) + '}';
 			
 			$scope.cpajson.push(JSON.parse($scope.cpabeststr));
 			$scope.cpajson.push(JSON.parse($scope.cpaexpectedstr));
