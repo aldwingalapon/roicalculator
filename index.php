@@ -75,11 +75,22 @@
 </table>
 
 <h3>Projected Numbers</h3>
+<div>
 <h4>Sales</h4>
 <p>{{salesbestjson | json}}</p>
 <p>{{salesexpectedjson | json}}</p>
 <p>{{salesworstjson | json}}</p>
 <p>{{salesalljson | json}}</p>
+<h4>Gross Profit</h4>
+<p>{{grossprofitbestjson | json}}</p>
+<p>{{grossprofitexpectedjson | json}}</p>
+<p>{{grossprofitworstjson | json}}</p>
+<p>{{grossprofitalljson | json}}</p>
+<h4>ROA</h4>
+<p>{{roabestjson | json}}</p>
+<p>{{roaexpectedjson | json}}</p>
+<p>{{roaworstjson | json}}</p>
+<p>{{roaalljson | json}}</p>
 <h4>CPA</h4>
 <p>{{cpabestjson | json}}</p>
 <p>{{cpaexpectedjson | json}}</p>
@@ -90,6 +101,7 @@
 <p>{{budgetexpectedjson | json}}</p>
 <p>{{budgetworstjson | json}}</p>
 <p>{{budgetalljson | json}}</p>
+</div>
 </div>
 
 <script src="js/angular.min.js" type='text/javascript'></script>
@@ -479,7 +491,35 @@
 				salesallbase = salesallbase + (salesallbase * $scope.getSalesAllBestFactor());
 			}		
 
+			
+			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
+				$scope.grossprofitbestjson.push($scope.salesbestjson[i] * $scope.aveordervalue);
+			}			
+			for (i = 0; i < $scope.getSalesYesTotalTFExpected(); i++){
+				$scope.grossprofitexpectedjson.push($scope.salesexpectedjson[i] * $scope.aveordervalue);
+			}
+			for (i = 0; i < $scope.getSalesYesTotalTFWorst(); i++){
+				$scope.grossprofitworstjson.push($scope.salesworstjson[i] * $scope.aveordervalue);
+			}
+			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
+				$scope.grossprofitalljson.push($scope.salesalljson[i] * $scope.aveordervalue);
+			}
 
+
+			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
+				$scope.roabestjson.push($scope.grossprofitbestjson[i] / $scope.monthlyadspend);
+			}
+			for (i = 0; i < $scope.getSalesYesTotalTFExpected(); i++){
+				$scope.roaexpectedjson.push($scope.grossprofitexpectedjson[i] / $scope.monthlyadspend);
+			}
+			for (i = 0; i < $scope.getSalesYesTotalTFWorst(); i++){
+				$scope.roaworstjson.push($scope.grossprofitworstjson[i] / $scope.monthlyadspend);
+			}
+			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
+				$scope.roaalljson.push($scope.grossprofitalljson[i] / $scope.monthlyadspend);
+			}
+
+			
 			var cpabestbase = $scope.cpa;
 			for (i = 0; i < $scope.getCPAYesTotalTFBest(); i++){
 				$scope.cpabestjson.push((cpabestbase + (cpabestbase * $scope.getCPAYesTotalBestFactor())));
@@ -501,6 +541,7 @@
 				cpaallbase = cpaallbase + (cpaallbase * $scope.getCPAAllBestFactor());
 			}			
 
+			
 			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
 				$scope.budgetbestjson.push($scope.salesbestjson[i] * $scope.cpabestjson[i]);
 			}		
@@ -521,6 +562,14 @@
 		return $filter('number')(input * 100, decimals);
 	  };
 	}]);
+	function round(value, precision) {
+	  if (Number.isInteger(precision)) {
+		var shift = Math.pow(10, precision);
+		return Math.round(value * shift) / shift;
+	  } else {
+		return Math.round(value);
+	  }
+	}
 </script>
 </body>
 </html>
