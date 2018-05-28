@@ -13,6 +13,7 @@
 <p>Monthly Ad Spend ($) <input type="number" ng-model="monthlyadspend"/></p>
 <p>Current ROA (%) <span class="currentroa">{{newroa() | percentage:2}}</span><input type="number" ng-model="currentroa" bound-model="newroa()" disabled /></p>
 <p>Current Gross ($) <span class="currentgross">{{newgross()}}</span><input type="number" ng-model="currentgross" bound-model="newgross()" disabled /></p>
+<p>Gross Profit ($) <span class="currentgrossprofit">{{newgrossprofit()}}</span><input type="number" ng-model="currentgrossprofit" bound-model="newgrossprofit()" disabled /></p>
 </form>
 <h3>Options</h3>
 <table class="options">
@@ -36,6 +37,7 @@
   <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:0, l:'N'}, {k:1,l:'Y'}]">
     </select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
 	<tr><td colspan="3">TOTALS</td><td ng-model="SalesYesTotalBest">{{getSalesYesTotalBest()}}</td><td ng-model="SalesYesTotalExpected">{{getSalesYesTotalExpected()}}</td><td ng-model="SalesYesTotalWorst">{{getSalesYesTotalWorst()}}</td><td ng-model="SalesYesTotalTFBest">{{getSalesYesTotalTFBest()}}</td><td ng-model="SalesYesTotalTFExpected">{{getSalesYesTotalTFExpected()}}</td><td ng-model="SalesYesTotalTFWorst">{{getSalesYesTotalTFWorst()}}</td><td></td></tr>
+	<tr><td colspan="3">Factor</td><td ng-model="SalesYesTotalBestFactor">{{getSalesYesTotalBestFactor()}}</td><td ng-model="SalesYesTotalExpectedFactor">{{getSalesYesTotalExpectedFactor()}}</td><td ng-model="SalesYesTotalWorstFactor">{{getSalesYesTotalWorstFactor()}}</td><td></td><td></td><td></td><td></td></tr>
 </table>
 <h3>Sales Data (ALL)</h3>
 <table class="optionssalesall">
@@ -43,7 +45,8 @@
   <tr ng-repeat="x in newoptionssalesall">
   <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:0, l:'N'}, {k:1,l:'Y'}]">
     </select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
-	<tr><td colspan="3">TOTALS</td><td ng-model="SalesAllBest">{{getSalesAllBest()}}</td><td ng-model="SalesAllExpected">{{getSalesAllExpected()}}</td><td ng-model="SalesAllWorst">{{getSalesAllWorst()}}</td><td ng-model="SalesAllTFBest">{{getSalesAllTFBest()}}</td><td ng-model="SalesAllTFExpected">{{getSalesAllTFExpected()}}</td><td ng-model="SalesAllTFWorst">{{getSalesAllTFWorst()}}</td><td></td></tr>	
+	<tr><td colspan="3">TOTALS</td><td ng-model="SalesAllBest">{{getSalesAllBest()}}</td><td ng-model="SalesAllExpected">{{getSalesAllExpected()}}</td><td ng-model="SalesAllWorst">{{getSalesAllWorst()}}</td><td ng-model="SalesAllTFBest">{{getSalesAllTFBest()}}</td><td ng-model="SalesAllTFExpected">{{getSalesAllTFExpected()}}</td><td ng-model="SalesAllTFWorst">{{getSalesAllTFWorst()}}</td><td></td></tr>
+	<tr><td colspan="3">Factor</td><td ng-model="SalesAllBestFactor">{{getSalesAllBestFactor()}}</td><td ng-model="SalesAllExpectedFactor">{{getSalesAllExpectedFactor()}}</td><td ng-model="SalesAllWorstFactor">{{getSalesAllWorstFactor()}}</td><td></td><td></td><td></td><td></td></tr>	
 </table>
 <h3>CPA Data (Yes Only)</h3>
 <table class="optionscpaonly">
@@ -51,7 +54,8 @@
   <tr ng-repeat="x in newoptionscpayes">
   <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:0, l:'N'}, {k:1,l:'Y'}]">
     </select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
-	<tr><td colspan="3">TOTALS</td><td ng-model="CPAYesTotalBest">{{getCPAYesTotalBest()}}</td><td ng-model="CPAYesTotalExpected">{{getCPAYesTotalExpected()}}</td><td ng-model="CPAYesTotalWorst">{{getCPAYesTotalWorst()}}</td><td ng-model="CPAYesTotalTFBest">{{getCPAYesTotalTFBest()}}</td><td ng-model="CPAYesTotalTFExpected">{{getCPAYesTotalTFExpected()}}</td><td ng-model="CPAYesTotalTFWorst">{{getCPAYesTotalTFWorst()}}</td><td></td></tr>	
+	<tr><td colspan="3">TOTALS</td><td ng-model="CPAYesTotalBest">{{getCPAYesTotalBest()}}</td><td ng-model="CPAYesTotalExpected">{{getCPAYesTotalExpected()}}</td><td ng-model="CPAYesTotalWorst">{{getCPAYesTotalWorst()}}</td><td ng-model="CPAYesTotalTFBest">{{getCPAYesTotalTFBest()}}</td><td ng-model="CPAYesTotalTFExpected">{{getCPAYesTotalTFExpected()}}</td><td ng-model="CPAYesTotalTFWorst">{{getCPAYesTotalTFWorst()}}</td><td></td></tr>
+	<tr><td colspan="3">Factor</td><td ng-model="CPAYesTotalBestFactor">{{getCPAYesTotalBestFactor()}}</td><td ng-model="CPAYesTotalExpectedFactor">{{getCPAYesTotalExpectedFactor()}}</td><td ng-model="CPAYesTotalWorstFactor">{{getCPAYesTotalWorstFactor()}}</td><td></td><td></td><td></td><td></td></tr>	
 </table>
 <h3>CPA Data (ALL)</h3>
 <table class="optionscpaall">
@@ -59,7 +63,8 @@
   <tr ng-repeat="x in newoptionscpaall">
   <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:0, l:'N'}, {k:1,l:'Y'}]">
     </select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
-	<tr><td colspan="3">TOTALS</td><td ng-model="CPAAllBest">{{getCPAAllBest()}}</td><td ng-model="CPAAllExpected">{{getCPAAllExpected()}}</td><td ng-model="CPAAllWorst">{{getCPAAllWorst()}}</td><td ng-model="CPAAllTFBest">{{getCPAAllTFBest()}}</td><td ng-model="CPAAllTFExpected">{{getCPAAllTFExpected()}}</td><td ng-model="CPAAllTFWorst">{{getCPAAllTFWorst()}}</td><td></td></tr>	
+	<tr><td colspan="3">TOTALS</td><td ng-model="CPAAllBest">{{getCPAAllBest()}}</td><td ng-model="CPAAllExpected">{{getCPAAllExpected()}}</td><td ng-model="CPAAllWorst">{{getCPAAllWorst()}}</td><td ng-model="CPAAllTFBest">{{getCPAAllTFBest()}}</td><td ng-model="CPAAllTFExpected">{{getCPAAllTFExpected()}}</td><td ng-model="CPAAllTFWorst">{{getCPAAllTFWorst()}}</td><td></td></tr>
+	<tr><td colspan="3">Factor</td><td ng-model="CPAAllBestFactor">{{getCPAAllBestFactor()}}</td><td ng-model="CPAAllExpectedFactor">{{getCPAAllExpectedFactor()}}</td><td ng-model="CPAAllWorstFactor">{{getCPAAllWorstFactor()}}</td><td></td><td></td><td></td><td></td></tr>		
 </table>
 </div>
 
@@ -83,7 +88,8 @@
 		$scope.monthlyadspend = 6000;
 		$scope.newgross = function() { $scope.currentgross = $scope.cpa * $scope.monthlysales; return $scope.currentgross};
 		$scope.newroa = function() { $scope.currentroa = $scope.monthlyadspend / $scope.currentgross; return $scope.currentroa};
-
+		$scope.newgrossprofit = function() { $scope.currentgrossprofit = $scope.monthlysales * $scope.aveordervalue; return $scope.currentgrossprofit};
+			
  		$scope.update = function (){
 			$scope.newoptions = [];
 			$scope.newoptionssalesyes = [];
@@ -105,203 +111,292 @@
 				
                 $scope.newoptions.push({ mod: value.mod, metric: value.metric, needed: value.needed, best: value.best, expected: value.expected, worst: value.worst, timeframeb: value.timeframeb, timeframee: value.timeframee, timeframew: value.timeframew  });
                });
-		}
-		
-		$scope.getSalesYesTotalBest = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
-				var x = $scope.newoptionssalesyes[i];
-				total += (x.best);
+			   
+			$scope.getSalesYesTotalBest = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
+					var x = $scope.newoptionssalesyes[i];
+					total += (x.best);
+				}
+				return total.toFixed(2);
 			}
-			return total.toFixed(2);
-		}
-		$scope.getSalesYesTotalExpected = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
-				var x = $scope.newoptionssalesyes[i];
-				total += (x.expected);
+			$scope.getSalesYesTotalExpected = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
+					var x = $scope.newoptionssalesyes[i];
+					total += (x.expected);
+				}
+				return total.toFixed(2);
 			}
-			return total.toFixed(2);
-		}
-		$scope.getSalesYesTotalWorst = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
-				var x = $scope.newoptionssalesyes[i];
-				total += (x.worst);
+			$scope.getSalesYesTotalWorst = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
+					var x = $scope.newoptionssalesyes[i];
+					total += (x.worst);
+				}
+				return total.toFixed(2);
 			}
-			return total.toFixed(2);
-		}
-		$scope.getSalesYesTotalTFBest = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
-				var x = $scope.newoptionssalesyes[i];
-				total += (x.timeframeb);
+			$scope.getSalesYesTotalTFBest = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
+					var x = $scope.newoptionssalesyes[i];
+					total += (x.timeframeb);
+				}
+				return total.toFixed(0);
 			}
-			return total.toFixed(0);
-		}
-		$scope.getSalesYesTotalTFExpected = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
-				var x = $scope.newoptionssalesyes[i];
-				total += (x.timeframee);
+			$scope.getSalesYesTotalTFExpected = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
+					var x = $scope.newoptionssalesyes[i];
+					total += (x.timeframee);
+				}
+				return total.toFixed(0);
 			}
-			return total.toFixed(0);
-		}
-		$scope.getSalesYesTotalTFWorst = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
-				var x = $scope.newoptionssalesyes[i];
-				total += (x.timeframew);
+			$scope.getSalesYesTotalTFWorst = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
+					var x = $scope.newoptionssalesyes[i];
+					total += (x.timeframew);
+				}
+				return total.toFixed(0);
 			}
-			return total.toFixed(0);
-		}
-		
-		$scope.getSalesAllBest = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesall.length; i++){
-				var x = $scope.newoptionssalesall[i];
-				total += (x.best);
-			}
-			return total.toFixed(2);
-		}
-		$scope.getSalesAllExpected = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesall.length; i++){
-				var x = $scope.newoptionssalesall[i];
-				total += (x.expected);
-			}
-			return total.toFixed(2);
-		}
-		$scope.getSalesAllWorst = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesall.length; i++){
-				var x = $scope.newoptionssalesall[i];
-				total += (x.worst);
-			}
-			return total.toFixed(2);
-		}
-		$scope.getSalesAllTFBest = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesall.length; i++){
-				var x = $scope.newoptionssalesall[i];
-				total += (x.timeframeb);
-			}
-			return total.toFixed(0);
-		}
-		$scope.getSalesAllTFExpected = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesall.length; i++){
-				var x = $scope.newoptionssalesall[i];
-				total += (x.timeframee);
-			}
-			return total.toFixed(0);
-		}
-		$scope.getSalesAllTFWorst = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionssalesall.length; i++){
-				var x = $scope.newoptionssalesall[i];
-				total += (x.timeframew);
-			}
-			return total.toFixed(0);
-		}			
-		
-		$scope.getCPAYesTotalBest = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpayes.length; i++){
-				var x = $scope.newoptionscpayes[i];
-				total += (x.best);
-			}
-			return total.toFixed(2);
-		}
-		$scope.getCPAYesTotalExpected = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpayes.length; i++){
-				var x = $scope.newoptionscpayes[i];
-				total += (x.expected);
-			}
-			return total.toFixed(2);
-		}
-		$scope.getCPAYesTotalWorst = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpayes.length; i++){
-				var x = $scope.newoptionscpayes[i];
-				total += (x.worst);
-			}
-			return total.toFixed(2);
-		}
-		$scope.getCPAYesTotalTFBest = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpayes.length; i++){
-				var x = $scope.newoptionscpayes[i];
-				total += (x.timeframeb);
-			}
-			return total.toFixed(0);
-		}
-		$scope.getCPAYesTotalTFExpected = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpayes.length; i++){
-				var x = $scope.newoptionscpayes[i];
-				total += (x.timeframee);
-			}
-			return total.toFixed(0);
-		}
-		$scope.getCPAYesTotalTFWorst = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpayes.length; i++){
-				var x = $scope.newoptionscpayes[i];
-				total += (x.timeframew);
-			}
-			return total.toFixed(0);
-		}
 
-		$scope.getCPAAllBest = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpaall.length; i++){
-				var x = $scope.newoptionscpaall[i];
-				total += (x.best);
+			
+			$scope.getSalesAllBest = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesall.length; i++){
+					var x = $scope.newoptionssalesall[i];
+					total += (x.best);
+				}
+				return total.toFixed(2);
 			}
-			return total.toFixed(2);
+			$scope.getSalesAllExpected = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesall.length; i++){
+					var x = $scope.newoptionssalesall[i];
+					total += (x.expected);
+				}
+				return total.toFixed(2);
+			}
+			$scope.getSalesAllWorst = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesall.length; i++){
+					var x = $scope.newoptionssalesall[i];
+					total += (x.worst);
+				}
+				return total.toFixed(2);
+			}
+			$scope.getSalesAllTFBest = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesall.length; i++){
+					var x = $scope.newoptionssalesall[i];
+					total += (x.timeframeb);
+				}
+				return total.toFixed(0);
+			}
+			$scope.getSalesAllTFExpected = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesall.length; i++){
+					var x = $scope.newoptionssalesall[i];
+					total += (x.timeframee);
+				}
+				return total.toFixed(0);
+			}
+			$scope.getSalesAllTFWorst = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionssalesall.length; i++){
+					var x = $scope.newoptionssalesall[i];
+					total += (x.timeframew);
+				}
+				return total.toFixed(0);
+			}			
+			
+			$scope.getCPAYesTotalBest = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpayes.length; i++){
+					var x = $scope.newoptionscpayes[i];
+					total += (x.best);
+				}
+				return total.toFixed(2);
+			}
+			$scope.getCPAYesTotalExpected = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpayes.length; i++){
+					var x = $scope.newoptionscpayes[i];
+					total += (x.expected);
+				}
+				return total.toFixed(2);
+			}
+			$scope.getCPAYesTotalWorst = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpayes.length; i++){
+					var x = $scope.newoptionscpayes[i];
+					total += (x.worst);
+				}
+				return total.toFixed(2);
+			}
+			$scope.getCPAYesTotalTFBest = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpayes.length; i++){
+					var x = $scope.newoptionscpayes[i];
+					total += (x.timeframeb);
+				}
+				return total.toFixed(0);
+			}
+			$scope.getCPAYesTotalTFExpected = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpayes.length; i++){
+					var x = $scope.newoptionscpayes[i];
+					total += (x.timeframee);
+				}
+				return total.toFixed(0);
+			}
+			$scope.getCPAYesTotalTFWorst = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpayes.length; i++){
+					var x = $scope.newoptionscpayes[i];
+					total += (x.timeframew);
+				}
+				return total.toFixed(0);
+			}
+
+			$scope.getCPAAllBest = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpaall.length; i++){
+					var x = $scope.newoptionscpaall[i];
+					total += (x.best);
+				}
+				return total.toFixed(2);
+			}
+			$scope.getCPAAllExpected = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpaall.length; i++){
+					var x = $scope.newoptionscpaall[i];
+					total += (x.expected);
+				}
+				return total.toFixed(2);
+			}
+			$scope.getCPAAllWorst = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpaall.length; i++){
+					var x = $scope.newoptionscpaall[i];
+					total += (x.worst);
+				}
+				return total.toFixed(2);
+			}
+			$scope.getCPAAllTFBest = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpaall.length; i++){
+					var x = $scope.newoptionscpaall[i];
+					total += (x.timeframeb);
+				}
+				return total.toFixed(0);
+			}
+			$scope.getCPAAllTFExpected = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpaall.length; i++){
+					var x = $scope.newoptionscpaall[i];
+					total += (x.timeframee);
+				}
+				return total.toFixed(0);
+			}
+			$scope.getCPAAllTFWorst = function(){
+				var total = 0;
+				for(var i = 0; i < $scope.newoptionscpaall.length; i++){
+					var x = $scope.newoptionscpaall[i];
+					total += (x.timeframew);
+				}
+				return total.toFixed(0);
+			}
+
+			$scope.getSalesYesTotalBestFactor = function(){
+				var factor = $scope.getSalesYesTotalBest() / $scope.getSalesYesTotalTFBest();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;
+			}
+			$scope.getSalesYesTotalExpectedFactor = function(){
+				var factor = $scope.getSalesYesTotalExpected() / $scope.getSalesYesTotalTFExpected();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;				
+			}
+			$scope.getSalesYesTotalWorstFactor = function(){
+				var factor = $scope.getSalesYesTotalWorst() / $scope.getSalesYesTotalTFWorst();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;				
+			}
+			
+			$scope.getSalesAllBestFactor = function(){
+				var factor = $scope.getSalesAllBest() / $scope.getSalesAllTFBest();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;
+			}
+			$scope.getSalesAllExpectedFactor = function(){
+				var factor = $scope.getSalesAllExpected() / $scope.getSalesAllTFExpected();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;				
+			}
+			$scope.getSalesAllWorstFactor = function(){
+				var factor = $scope.getSalesAllWorst() / $scope.getSalesAllTFWorst();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;				
+			}
+			
+			$scope.getCPAYesTotalBestFactor = function(){
+				var factor = $scope.getCPAYesTotalBest() / $scope.getCPAYesTotalTFBest();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;
+			}
+			$scope.getCPAYesTotalExpectedFactor = function(){
+				var factor = $scope.getCPAYesTotalExpected() / $scope.getCPAYesTotalTFExpected();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;				
+			}
+			$scope.getCPAYesTotalWorstFactor = function(){
+				var factor = $scope.getCPAYesTotalWorst() / $scope.getCPAYesTotalTFWorst();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;				
+			}
+
+			$scope.getCPAAllBestFactor = function(){
+				var factor = $scope.getCPAAllBest() / $scope.getCPAAllTFBest();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;
+			}
+			$scope.getCPAAllExpectedFactor = function(){
+				var factor = $scope.getCPAAllExpected() / $scope.getCPAAllTFExpected();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;				
+			}
+			$scope.getCPAAllWorstFactor = function(){
+				var factor = $scope.getCPAAllWorst() / $scope.getCPAAllTFWorst();
+				if (typeof factor === 'number' && isNaN(factor)) {
+					return (0).toFixed(2);
+				}
+				return factor;				
+			}			
 		}
-		$scope.getCPAAllExpected = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpaall.length; i++){
-				var x = $scope.newoptionscpaall[i];
-				total += (x.expected);
-			}
-			return total.toFixed(2);
-		}
-		$scope.getCPAAllWorst = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpaall.length; i++){
-				var x = $scope.newoptionscpaall[i];
-				total += (x.worst);
-			}
-			return total.toFixed(2);
-		}
-		$scope.getCPAAllTFBest = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpaall.length; i++){
-				var x = $scope.newoptionscpaall[i];
-				total += (x.timeframeb);
-			}
-			return total.toFixed(0);
-		}
-		$scope.getCPAAllTFExpected = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpaall.length; i++){
-				var x = $scope.newoptionscpaall[i];
-				total += (x.timeframee);
-			}
-			return total.toFixed(0);
-		}
-		$scope.getCPAAllTFWorst = function(){
-			var total = 0;
-			for(var i = 0; i < $scope.newoptionscpaall.length; i++){
-				var x = $scope.newoptionscpaall[i];
-				total += (x.timeframew);
-			}
-			return total.toFixed(0);
-		}			
 	});
 
 	app.filter('percentage', ['$filter', function ($filter) {
