@@ -16,21 +16,22 @@
 <p>Monthly Sales <input type="number" ng-model="monthlysales"/></p>
 <p>Average Order Value (AOV) ($) <input type="number" ng-model="aveordervalue"/></p>
 <p>Monthly Ad Spend ($) <input type="number" ng-model="monthlyadspend"/></p>
-<p>Estimated Current ROA (%) <span class="currentroa percentage">{{newroa() | percentage:2}}</span><input type="number" ng-model="currentroa" bound-model="newroa()" disabled /></p>
+<p>Estimated Current ROA (%) <span class="currentroa percentage">{{newroa() | percentage:2:'%'}}</span><input type="number" ng-model="currentroa" bound-model="newroa()" disabled /></p>
 <p>Estimated Current Spend <span class="estimatedcurrentspend currency">{{estimatednewspend() | currency}}</span><input type="number" ng-model="estimatedcurrentspend" bound-model="estimatednewspend()" disabled /></p>
 <p>Estimated Current Gross <span class="estimatedcurrentgross currency">{{estimatednewgross() | currency}}</span><input type="number" ng-model="estimatedcurrentgross" bound-model="estimatednewgross()" disabled /></p>
 </form>
 <h3>Options</h3>
 <div class="table-responsive">
 <table class="options">
-<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best</th><th>Expected</th><th>Worst</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
+<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
   <tr ng-repeat="x in options">
   <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:0, l:'N'}, {k:1,l:'Y'}]">
     </select></td><td><input type="number" ng-model="x.best" step="0.01"/></td><td><input type="number" ng-model="x.expected" step="0.01"/></td><td><input type="number" ng-model="x.worst" step="0.01"/></td><td><input type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
 </table>
 </div>
-<input type="button" id="btnreset" ng-click="reset()" value="Reset Options" /><input type="button" id="btnsubmit" ng-click="update()" value="Update Options" />
+<p><input type="button" id="btnreset" ng-click="reset()" value="Reset Options" /><input type="button" id="btnsubmit" ng-click="update()" value="Update Options" /></p>
 
+<div ng-hide="visible">
 <div class="hide">
 <p>{{newoptions | json}}</p>
 <p>{{newoptionssalesyes | json}}</p>
@@ -41,7 +42,7 @@
 <h3>Sales Data (Yes Only)</h3>
 <div class="table-responsive">
 <table class="optionssalesonly">
-<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best</th><th>Expected</th><th>Worst</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
+<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
   <tr ng-repeat="x in newoptionssalesyes">
   <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:0, l:'N'}, {k:1,l:'Y'}]">
     </select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
@@ -53,7 +54,7 @@
 <h3>Sales Data (ALL)</h3>
 <div class="table-responsive">
 <table class="optionssalesall">
-<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best</th><th>Expected</th><th>Worst</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
+<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
   <tr ng-repeat="x in newoptionssalesall">
   <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:0, l:'N'}, {k:1,l:'Y'}]">
     </select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
@@ -64,7 +65,7 @@
 <h3>CPA Data (Yes Only)</h3>
 <div class="table-responsive">
 <table class="optionscpaonly">
-<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best</th><th>Expected</th><th>Worst</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
+<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
   <tr ng-repeat="x in newoptionscpayes">
   <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:0, l:'N'}, {k:1,l:'Y'}]">
     </select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
@@ -98,14 +99,14 @@
 <p>{{salesallstr}}</p>
 <h4>Sales (Merged String to JSON)</h4>
 </div>
-<p>{{salesjson | json}}</p>
+<p><small>{{salesjson | json}}</small></p>
 <div class="table-responsive">
 <table class="salesjson">
 	<tr>
 		<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
 	</tr>
 	<tr ng-repeat="x in salesjson">
-		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current}}</td><td>{{x.month1}}</td><td>{{x.month2}}</td><td>{{x.month3}}</td><td>{{x.month4}}</td><td>{{x.month5}}</td><td>{{x.month6}}</td><td>{{x.month7}}</td><td>{{x.month8}}</td><td>{{x.month9}}</td><td>{{x.month10}}</td><td>{{x.month11}}</td><td>{{x.month12}}</td><td>{{x.total}}</td>
+		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current}}</td><td>{{x.month1}}</td><td>{{x.month2}}</td><td>{{x.month3}}</td><td>{{x.month4}}</td><td>{{x.month5}}</td><td>{{x.month6}}</td><td>{{x.month7}}</td><td>{{x.month8}}</td><td>{{x.month9}}</td><td>{{x.month10}}</td><td>{{x.month11}}</td><td>{{x.month12}}</td><td>{{x.total | number}}</td>
 	</tr>
 </table>
 </div>
@@ -122,7 +123,7 @@
 <p>{{grossprofitallstr}}</p>
 <h4>Gross Profit (Merged String to JSON)</h4>
 </div>
-<p>{{grossprofitjson | json}}</p>
+<p><small>{{grossprofitjson | json}}</small></p>
 <div class="table-responsive">
 <table class="grossprofitjson">
 	<tr>
@@ -146,14 +147,14 @@
 <p>{{roaallstr}}</p>
 <h4>ROA (Merged String to JSON)</h4>
 </div>
-<p>{{roajson | json}}</p>
+<p><small>{{roajson | json}}</small></p>
 <div class="table-responsive">
 <table class="roajson">
 	<tr>
 		<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
 	</tr>
 	<tr ng-repeat="x in roajson">
-		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current/100 | percentage:2}}</td><td>{{x.month1/100 | percentage:2}}</td><td>{{x.month2/100 | percentage:2}}</td><td>{{x.month3/100 | percentage:2}}</td><td>{{x.month4/100 | percentage:2}}</td><td>{{x.month5/100 | percentage:2}}</td><td>{{x.month6/100 | percentage:2}}</td><td>{{x.month7/100 | percentage:2}}</td><td>{{x.month8/100 | percentage:2}}</td><td>{{x.month9/100 | percentage:2}}</td><td>{{x.month10/100 | percentage:2}}</td><td>{{x.month11/100 | percentage:2}}</td><td>{{x.month12/100 | percentage:2}}</td><td>{{x.total/100 | percentage:2}}</td>
+		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current/100 | percentage:2:'%'}}</td><td>{{x.month1/100 | percentage:2:'%'}}</td><td>{{x.month2/100 | percentage:2:'%'}}</td><td>{{x.month3/100 | percentage:2:'%'}}</td><td>{{x.month4/100 | percentage:2:'%'}}</td><td>{{x.month5/100 | percentage:2:'%'}}</td><td>{{x.month6/100 | percentage:2:'%'}}</td><td>{{x.month7/100 | percentage:2:'%'}}</td><td>{{x.month8/100 | percentage:2:'%'}}</td><td>{{x.month9/100 | percentage:2:'%'}}</td><td>{{x.month10/100 | percentage:2:'%'}}</td><td>{{x.month11/100 | percentage:2:'%'}}</td><td>{{x.month12/100 | percentage:2:'%'}}</td><td>{{x.total/100 | percentage:2:'%'}}</td>
 	</tr>
 </table>
 </div>
@@ -170,7 +171,7 @@
 <p>{{cpaallstr}}</p>
 <h4>CPA (Merged String to JSON)</h4>
 </div>
-<p>{{cpajson | json}}</p>
+<p><small>{{cpajson | json}}</small></p>
 <div class="table-responsive">
 <table class="cpajson">
 	<tr>
@@ -194,7 +195,7 @@
 <p>{{budgetallstr}}</p>
 <h4>Budget (Merged String to JSON)</h4>
 </div>
-<p>{{budgetjson | json}}</p>
+<p><small>{{budgetjson | json}}</small></p>
 <div class="table-responsive">
 <table class="budgetjson">
 	<tr>
@@ -207,21 +208,32 @@
 </div>
 </div>
 </div>
+</div>
 
 <script src="js/angular.min.js" type='text/javascript'></script>
+<script src="js/angular-animate.js" type='text/javascript'></script>
 <script src="js/jquery-1.12.4.min.js" type='text/javascript'></script>
 <script src="js/bootstrap.min.js" type='text/javascript'></script>
 <script type='text/javascript'>
-	var app = angular.module('myApp', []);
+	var app = angular.module('myApp', ['ngAnimate']);
 	app.controller("myCtrl", function($scope) {
 		$scope.options = [
-			{mod:'Correct Pixel Implementation',metric:'CPA',needed:0,best:-0.05,expected:-0.02,worst:-0.01,timeframeb:6,timeframee:12,timeframew:18},
-			{mod:'DPA (Dynamic Product Ads)',metric:'Sales',needed:0,best:0.2,expected:0.1,worst:0.05,timeframeb:6,timeframee:12,timeframew:18},
-			{mod:'Naming Convention',metric:'CPA',needed:0,best:-0.05,expected:-0.02,worst:-0.01,timeframeb:6,timeframee:12,timeframew:18},
-			{mod:'Daily optimizations',metric:'Sales',needed:0,best:0.1,expected:0.05,worst:0.02,timeframeb:6,timeframee:12,timeframew:18},
-			{mod:'Dedicated person running accounts',metric:'Sales',needed:0,best:0.3,expected:0.2,worst:0.1,timeframeb:6,timeframee:12,timeframew:18}
+			{mod:'Correct Pixel Implementation',metric:'CPA',needed:0,best:-5,expected:-2,worst:-1,timeframeb:6,timeframee:12,timeframew:18},
+			{mod:'DPA (Dynamic Product Ads)',metric:'Sales',needed:0,best:20,expected:10,worst:5,timeframeb:6,timeframee:12,timeframew:18},
+			{mod:'Naming Convention',metric:'CPA',needed:0,best:-5,expected:-2,worst:-1,timeframeb:6,timeframee:12,timeframew:18},
+			{mod:'Daily optimizations',metric:'Sales',needed:0,best:10,expected:5,worst:2,timeframeb:6,timeframee:12,timeframew:18},
+			{mod:'Dedicated person running accounts',metric:'Sales',needed:0,best:30,expected:20,worst:10,timeframeb:6,timeframee:12,timeframew:18}
 		];
 		$scope.orig = angular.copy($scope.options);
+		$scope.visible = true;
+		$scope.months = 12;
+		$scope.cpa = 20;
+		$scope.monthlysales = 150;
+		$scope.aveordervalue = 65.78;
+		$scope.monthlyadspend = 6000;
+		$scope.estimatednewspend = function() { $scope.estimatedcurrentspend = $scope.cpa * $scope.monthlysales; return $scope.estimatedcurrentspend};
+		$scope.newroa = function() { $scope.currentroa =  $scope.estimatedcurrentgross / $scope.monthlyadspend; return $scope.currentroa};
+		$scope.estimatednewgross = function() { $scope.estimatedcurrentgross = $scope.monthlysales * $scope.aveordervalue; return $scope.estimatedcurrentgross};
 		
 		$scope.reset = function() {
 			$scope.options = angular.copy($scope.orig);
@@ -254,19 +266,10 @@
 			$scope.budgetbestjson = [];
 			$scope.budgetexpectedjson = [];
 			$scope.budgetworstjson = [];
-			$scope.budgetalljson = [];			
+			$scope.budgetalljson = [];
+			$scope.visible = true;			
 		};
 		
-		$scope.months = 12;
-		$scope.cpa = 20;
-		$scope.monthlysales = 150;
-		$scope.aveordervalue = 65.78;
-		$scope.monthlyadspend = 6000;
-		$scope.estimatednewspend = function() { $scope.estimatedcurrentspend = $scope.cpa * $scope.monthlysales; return $scope.estimatedcurrentspend};
-		$scope.newroa = function() { $scope.currentroa =  $scope.estimatedcurrentgross / $scope.monthlyadspend; return $scope.currentroa};
-		$scope.estimatednewgross = function() { $scope.estimatedcurrentgross = $scope.monthlysales * $scope.aveordervalue; return $scope.estimatedcurrentgross};
-		
-
  		$scope.update = function (){
 			$scope.newoptions = [];
 			$scope.newoptionssalesyes = [];
@@ -520,21 +523,21 @@
 			}
 
 			$scope.getSalesYesTotalBestFactor = function(){
-				var factor = $scope.getSalesYesTotalBest() / $scope.getSalesYesTotalTFBest();
+				var factor = ($scope.getSalesYesTotalBest()/100) / $scope.getSalesYesTotalTFBest();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
 				return factor;
 			}
 			$scope.getSalesYesTotalExpectedFactor = function(){
-				var factor = $scope.getSalesYesTotalExpected() / $scope.getSalesYesTotalTFExpected();
+				var factor = ($scope.getSalesYesTotalExpected()/100) / $scope.getSalesYesTotalTFExpected();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
 				return factor;				
 			}
 			$scope.getSalesYesTotalWorstFactor = function(){
-				var factor = $scope.getSalesYesTotalWorst() / $scope.getSalesYesTotalTFWorst();
+				var factor = ($scope.getSalesYesTotalWorst()/100) / $scope.getSalesYesTotalTFWorst();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
@@ -542,21 +545,21 @@
 			}
 			
 			$scope.getSalesAllBestFactor = function(){
-				var factor = $scope.getSalesAllBest() / $scope.getSalesAllTFBest();
+				var factor = ($scope.getSalesAllBest()/100) / $scope.getSalesAllTFBest();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
 				return factor;
 			}
 			$scope.getSalesAllExpectedFactor = function(){
-				var factor = $scope.getSalesAllExpected() / $scope.getSalesAllTFExpected();
+				var factor = ($scope.getSalesAllExpected()/100) / $scope.getSalesAllTFExpected();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
 				return factor;				
 			}
 			$scope.getSalesAllWorstFactor = function(){
-				var factor = $scope.getSalesAllWorst() / $scope.getSalesAllTFWorst();
+				var factor = ($scope.getSalesAllWorst()/100) / $scope.getSalesAllTFWorst();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
@@ -564,21 +567,21 @@
 			}
 			
 			$scope.getCPAYesTotalBestFactor = function(){
-				var factor = $scope.getCPAYesTotalBest() / $scope.getCPAYesTotalTFBest();
+				var factor = ($scope.getCPAYesTotalBest()/100) / $scope.getCPAYesTotalTFBest();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
 				return factor;
 			}
 			$scope.getCPAYesTotalExpectedFactor = function(){
-				var factor = $scope.getCPAYesTotalExpected() / $scope.getCPAYesTotalTFExpected();
+				var factor = ($scope.getCPAYesTotalExpected()/100) / $scope.getCPAYesTotalTFExpected();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
 				return factor;				
 			}
 			$scope.getCPAYesTotalWorstFactor = function(){
-				var factor = $scope.getCPAYesTotalWorst() / $scope.getCPAYesTotalTFWorst();
+				var factor = ($scope.getCPAYesTotalWorst()/100) / $scope.getCPAYesTotalTFWorst();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
@@ -586,21 +589,21 @@
 			}
 
 			$scope.getCPAAllBestFactor = function(){
-				var factor = $scope.getCPAAllBest() / $scope.getCPAAllTFBest();
+				var factor = ($scope.getCPAAllBest()/100) / $scope.getCPAAllTFBest();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
 				return factor;
 			}
 			$scope.getCPAAllExpectedFactor = function(){
-				var factor = $scope.getCPAAllExpected() / $scope.getCPAAllTFExpected();
+				var factor = ($scope.getCPAAllExpected()/100) / $scope.getCPAAllTFExpected();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
 				return factor;				
 			}
 			$scope.getCPAAllWorstFactor = function(){
-				var factor = $scope.getCPAAllWorst() / $scope.getCPAAllTFWorst();
+				var factor = ($scope.getCPAAllWorst()/100) / $scope.getCPAAllTFWorst();
 				if (typeof factor === 'number' && isNaN(factor)) {
 					return (0).toFixed(2);
 				}
@@ -891,13 +894,19 @@
 			$scope.budgetjson.push(JSON.parse($scope.budgetbeststr));
 			$scope.budgetjson.push(JSON.parse($scope.budgetexpectedstr));
 			$scope.budgetjson.push(JSON.parse($scope.budgetworststr));
-			$scope.budgetjson.push(JSON.parse($scope.budgetallstr));				
+			$scope.budgetjson.push(JSON.parse($scope.budgetallstr));
+
+			$scope.visible = false;			
 		}
 	});
 
 	app.filter('percentage', ['$filter', function ($filter) {
-	  return function (input, decimals) {
-		return $filter('number')(input * 100, decimals) + '%';
+	  return function (input, decimals, postpend) {
+		 if(postpend){
+			return $filter('number')(input * 100, decimals) + postpend;
+		 }else{
+			 return $filter('number')(input * 100, decimals);
+		 }
 	  };
 	}]);
 	function round(value, precision) {
