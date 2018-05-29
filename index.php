@@ -103,7 +103,23 @@
 <p>{{grossprofitexpectedjson | json}}</p>
 <p>{{grossprofitworstjson | json}}</p>
 <p>{{grossprofitalljson | json}}</p>
+<h4>Gross Profit String</h4>
+<p>{{grossprofitbeststr}}</p>
+<p>{{grossprofitexpectedstr}}</p>
+<p>{{grossprofitworststr}}</p>
+<p>{{grossprofitallstr}}</p>
+<h4>Gross Profit (Merged String to JSON)</h4>
 <p>{{grossprofitjson | json}}</p>
+
+<table class="grossprofitjson">
+	<tr>
+		<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
+	</tr>
+	<tr ng-repeat="x in grossprofitjson">
+		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current}}</td><td>{{x.month1}}</td><td>{{x.month2}}</td><td>{{x.month3}}</td><td>{{x.month4}}</td><td>{{x.month5}}</td><td>{{x.month6}}</td><td>{{x.month7}}</td><td>{{x.month8}}</td><td>{{x.month9}}</td><td>{{x.month10}}</td><td>{{x.month11}}</td><td>{{x.month12}}</td><td>{{x.total}}</td>
+	</tr>
+</table>
+
 <h4>ROA</h4>
 <p>{{roabestjson | json}}</p>
 <p>{{roaexpectedjson | json}}</p>
@@ -161,6 +177,31 @@
 			$scope.newoptionssalesall = [];
 			$scope.newoptionscpayes = [];
 			$scope.newoptionscpaall = [];
+			$scope.salesjson = [];
+			$scope.salesbestjson = [];
+			$scope.salesexpectedjson = [];
+			$scope.salesworstjson = [];
+			$scope.salesalljson = [];
+			$scope.grossprofitjson = [];
+			$scope.grossprofitbestjson = [];
+			$scope.grossprofitexpectedjson = [];
+			$scope.grossprofitworstjson = [];
+			$scope.grossprofitalljson = [];
+			$scope.roajson = [];
+			$scope.roabestjson = [];
+			$scope.roaexpectedjson = [];
+			$scope.roaworstjson = [];
+			$scope.roaalljson = [];
+			$scope.cpajson = [];
+			$scope.cpabestjson = [];
+			$scope.cpaexpectedjson = [];
+			$scope.cpaworstjson = [];
+			$scope.cpaalljson = [];
+			$scope.budgetjson = [];
+			$scope.budgetbestjson = [];
+			$scope.budgetexpectedjson = [];
+			$scope.budgetworstjson = [];
+			$scope.budgetalljson = [];			
 		};
 		
 		$scope.cpa = 20;
@@ -171,38 +212,40 @@
 		$scope.newroa = function() { $scope.currentroa = $scope.monthlyadspend / $scope.currentgross; return $scope.currentroa};
 		$scope.newgrossprofit = function() { $scope.currentgrossprofit = $scope.monthlysales * $scope.aveordervalue; return $scope.currentgrossprofit};
 		
-		$scope.salesjson = [];
-		$scope.salesbestjson = [];
-		$scope.salesexpectedjson = [];
-		$scope.salesworstjson = [];
-		$scope.salesalljson = [];
-		$scope.grossprofitjson = [];
-		$scope.grossprofitbestjson = [];
-		$scope.grossprofitexpectedjson = [];
-		$scope.grossprofitworstjson = [];
-		$scope.grossprofitalljson = [];
-		$scope.roajson = [];
-		$scope.roabestjson = [];
-		$scope.roaexpectedjson = [];
-		$scope.roaworstjson = [];
-		$scope.roaalljson = [];
-		$scope.cpajson = [];
-		$scope.cpabestjson = [];
-		$scope.cpaexpectedjson = [];
-		$scope.cpaworstjson = [];
-		$scope.cpaalljson = [];
-		$scope.budgetjson = [];
-		$scope.budgetbestjson = [];
-		$scope.budgetexpectedjson = [];
-		$scope.budgetworstjson = [];
-		$scope.budgetalljson = [];
-		
+
  		$scope.update = function (){
 			$scope.newoptions = [];
 			$scope.newoptionssalesyes = [];
 			$scope.newoptionssalesall = [];
 			$scope.newoptionscpayes = [];
 			$scope.newoptionscpaall = [];
+
+			$scope.salesjson = [];
+			$scope.salesbestjson = [];
+			$scope.salesexpectedjson = [];
+			$scope.salesworstjson = [];
+			$scope.salesalljson = [];
+			$scope.grossprofitjson = [];
+			$scope.grossprofitbestjson = [];
+			$scope.grossprofitexpectedjson = [];
+			$scope.grossprofitworstjson = [];
+			$scope.grossprofitalljson = [];
+			$scope.roajson = [];
+			$scope.roabestjson = [];
+			$scope.roaexpectedjson = [];
+			$scope.roaworstjson = [];
+			$scope.roaalljson = [];
+			$scope.cpajson = [];
+			$scope.cpabestjson = [];
+			$scope.cpaexpectedjson = [];
+			$scope.cpaworstjson = [];
+			$scope.cpaalljson = [];
+			$scope.budgetjson = [];
+			$scope.budgetbestjson = [];
+			$scope.budgetexpectedjson = [];
+			$scope.budgetworstjson = [];
+			$scope.budgetalljson = [];			
+
 			angular.forEach($scope.options, function (value, key) {
 				if (value.metric=='Sales'){
 					if (value.needed==1){
@@ -245,25 +288,52 @@
 			}
 			$scope.getSalesYesTotalTFBest = function(){
 				var total = 0;
-				for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
-					var x = $scope.newoptionssalesyes[i];
-					total += (x.timeframeb);
+				if ($scope.newoptionssalesyes.length == 0){
+					for(var i = 0; i < $scope.newoptionssalesall.length; i++){
+						var x = $scope.newoptionssalesall[i];
+						if (total < x.timeframeb){
+							total = x.timeframeb;
+						}
+					}
+				}else{
+					for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
+						var x = $scope.newoptionssalesyes[i];
+						total += (x.timeframeb);
+					}
 				}
 				return total.toFixed(0);
 			}
 			$scope.getSalesYesTotalTFExpected = function(){
 				var total = 0;
-				for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
-					var x = $scope.newoptionssalesyes[i];
-					total += (x.timeframee);
+				if ($scope.newoptionssalesyes.length == 0){
+					for(var i = 0; i < $scope.newoptionssalesall.length; i++){
+						var x = $scope.newoptionssalesall[i];
+						if (total < x.timeframee){
+							total = x.timeframee;
+						}
+					}
+				}else{
+					for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
+						var x = $scope.newoptionssalesyes[i];
+						total += (x.timeframee);
+					}
 				}
 				return total.toFixed(0);
 			}
 			$scope.getSalesYesTotalTFWorst = function(){
 				var total = 0;
-				for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
-					var x = $scope.newoptionssalesyes[i];
-					total += (x.timeframew);
+				if ($scope.newoptionssalesyes.length == 0){
+					for(var i = 0; i < $scope.newoptionssalesall.length; i++){
+						var x = $scope.newoptionssalesall[i];
+						if (total < x.timeframew){
+							total = x.timeframew;
+						}
+					}
+				}else{
+					for(var i = 0; i < $scope.newoptionssalesyes.length; i++){
+						var x = $scope.newoptionssalesyes[i];
+						total += (x.timeframew);
+					}
 				}
 				return total.toFixed(0);
 			}
@@ -344,25 +414,52 @@
 			}
 			$scope.getCPAYesTotalTFBest = function(){
 				var total = 0;
-				for(var i = 0; i < $scope.newoptionscpayes.length; i++){
-					var x = $scope.newoptionscpayes[i];
-					total += (x.timeframeb);
+				if ($scope.newoptionscpayes.length == 0){
+					for(var i = 0; i < $scope.newoptionscpaall.length; i++){
+						var x = $scope.newoptionscpaall[i];
+						if (total < x.timeframeb){
+							total = x.timeframeb;
+						}
+					}
+				}else{
+					for(var i = 0; i < $scope.newoptionscpayes.length; i++){
+						var x = $scope.newoptionscpayes[i];
+						total += (x.timeframeb);
+					}
 				}
 				return total.toFixed(0);
 			}
 			$scope.getCPAYesTotalTFExpected = function(){
 				var total = 0;
-				for(var i = 0; i < $scope.newoptionscpayes.length; i++){
-					var x = $scope.newoptionscpayes[i];
-					total += (x.timeframee);
+				if ($scope.newoptionscpayes.length == 0){
+					for(var i = 0; i < $scope.newoptionscpaall.length; i++){
+						var x = $scope.newoptionscpaall[i];
+						if (total < x.timeframee){
+							total = x.timeframee;
+						}
+					}
+				}else{
+					for(var i = 0; i < $scope.newoptionscpayes.length; i++){
+						var x = $scope.newoptionscpayes[i];
+						total += (x.timeframee);
+					}
 				}
 				return total.toFixed(0);
 			}
 			$scope.getCPAYesTotalTFWorst = function(){
 				var total = 0;
-				for(var i = 0; i < $scope.newoptionscpayes.length; i++){
-					var x = $scope.newoptionscpayes[i];
-					total += (x.timeframew);
+				if ($scope.newoptionscpayes.length == 0){
+					for(var i = 0; i < $scope.newoptionscpaall.length; i++){
+						var x = $scope.newoptionscpaall[i];
+						if (total < x.timeframew){
+							total = x.timeframew;
+						}
+					}
+				}else{
+					for(var i = 0; i < $scope.newoptionscpayes.length; i++){
+						var x = $scope.newoptionscpayes[i];
+						total += (x.timeframew);
+					}
 				}
 				return total.toFixed(0);
 			}
@@ -504,7 +601,7 @@
 				return factor;				
 			}
 
-			
+			//Projected Numbers (SALES)
 			var salesbestbase = $scope.monthlysales;
 			var salesbestbasetotal = 0;
 			$scope.salesbeststr = '{' + '"name": "Sales Best", "current":' + round(salesbestbase,0) + '';
@@ -546,26 +643,70 @@
 			}		
 			$scope.salesallstr += ', "total":' + round((salesallbasetotal),0) + '}';
 			
+			$scope.salesjson = [];
 			$scope.salesjson.push(JSON.parse($scope.salesbeststr));
 			$scope.salesjson.push(JSON.parse($scope.salesexpectedstr));
 			$scope.salesjson.push(JSON.parse($scope.salesworststr));
 			$scope.salesjson.push(JSON.parse($scope.salesallstr));
 			
 			
+			//Projected Numbers (Gross Profit)
+			var grossprofitbestbase = 0;
+			var grossprofitbestbasetotal = 0;
+			var count = 0;
+			$scope.grossprofitbeststr = '{' + '"name": "Gross Profit Best", "current":' + round(($scope.monthlysales * $scope.aveordervalue),2) + '';
 			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
-				$scope.grossprofitbestjson.push($scope.salesbestjson[i] * $scope.aveordervalue);
+				grossprofitbestbase = $scope.salesbestjson[i] * $scope.aveordervalue;
+				grossprofitbestbasetotal += grossprofitbestbase;
+				$scope.grossprofitbestjson.push(grossprofitbestbase);
+				$scope.grossprofitbeststr += ', "month' + (i+1).toString() + '":' + round(grossprofitbestbase,2);
 			}			
+			$scope.grossprofitbeststr += ', "total":' + round((grossprofitbestbasetotal),2) + '}';
+			
+			var grossprofitexpectedbase = 0;
+			var grossprofitexpectedbasetotal = 0;
+			var count = 0;
+			$scope.grossprofitexpectedstr = '{' + '"name": "Gross Profit Expected", "current":' + round(($scope.monthlysales * $scope.aveordervalue),2) + '';
 			for (i = 0; i < $scope.getSalesYesTotalTFExpected(); i++){
-				$scope.grossprofitexpectedjson.push($scope.salesexpectedjson[i] * $scope.aveordervalue);
-			}
+				grossprofitexpectedbase = $scope.salesexpectedjson[i] * $scope.aveordervalue;
+				grossprofitexpectedbasetotal += grossprofitexpectedbase;
+				$scope.grossprofitexpectedjson.push(grossprofitexpectedbase);
+				$scope.grossprofitexpectedstr += ', "month' + (i+1).toString() + '":' + round(grossprofitexpectedbase,2);
+			}			
+			$scope.grossprofitexpectedstr += ', "total":' + round((grossprofitexpectedbasetotal),2) + '}';
+
+			var grossprofitworstbase = 0;
+			var grossprofitworstbasetotal = 0;
+			var count = 0;
+			$scope.grossprofitworststr = '{' + '"name": "Gross Profit Worst", "current":' + round(($scope.monthlysales * $scope.aveordervalue),2) + '';
 			for (i = 0; i < $scope.getSalesYesTotalTFWorst(); i++){
-				$scope.grossprofitworstjson.push($scope.salesworstjson[i] * $scope.aveordervalue);
-			}
+				grossprofitworstbase = $scope.salesworstjson[i] * $scope.aveordervalue;
+				grossprofitworstbasetotal += grossprofitworstbase;
+				$scope.grossprofitworstjson.push(grossprofitworstbase);
+				$scope.grossprofitworststr += ', "month' + (i+1).toString() + '":' + round(grossprofitworstbase,2);
+			}			
+			$scope.grossprofitworststr += ', "total":' + round((grossprofitworstbasetotal),2) + '}';
+			
+			var grossprofitallbase = 0;
+			var grossprofitallbasetotal = 0;
+			var count = 0;
+			$scope.grossprofitallstr = '{' + '"name": "Gross Profit All Options", "current":' + round(($scope.monthlysales * $scope.aveordervalue),2) + '';
 			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
-				$scope.grossprofitalljson.push($scope.salesalljson[i] * $scope.aveordervalue);
-			}
+				grossprofitallbase = $scope.salesalljson[i] * $scope.aveordervalue;
+				grossprofitallbasetotal += grossprofitallbase;
+				$scope.grossprofitalljson.push(grossprofitallbase);
+				$scope.grossprofitallstr += ', "month' + (i+1).toString() + '":' + round(grossprofitallbase,2);
+			}			
+			$scope.grossprofitallstr += ', "total":' + round((grossprofitallbasetotal),2) + '}';
+
+			$scope.grossprofitjson = [];
+			$scope.grossprofitjson.push(JSON.parse($scope.grossprofitbeststr));
+			$scope.grossprofitjson.push(JSON.parse($scope.grossprofitexpectedstr));
+			$scope.grossprofitjson.push(JSON.parse($scope.grossprofitworststr));
+			$scope.grossprofitjson.push(JSON.parse($scope.grossprofitallstr));
 
 
+			//Projected Numbers (ROA)
 			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
 				$scope.roabestjson.push($scope.grossprofitbestjson[i] / $scope.monthlyadspend);
 			}
@@ -580,6 +721,7 @@
 			}
 
 			
+			//Projected Numbers (CPA)
 			var cpabestbase = $scope.cpa;
 			var cpabestbasetotal = 0;
 			var count = 0;
@@ -628,13 +770,15 @@
 				$scope.cpaallstr += ', "month' + (i+1).toString() + '":' + round(cpaallbase,2);
 			}		
 			$scope.cpaallstr += ', "total":' + round((cpaallbasetotal/count),2) + '}';
-			
+
+			$scope.cpajson = [];
 			$scope.cpajson.push(JSON.parse($scope.cpabeststr));
 			$scope.cpajson.push(JSON.parse($scope.cpaexpectedstr));
 			$scope.cpajson.push(JSON.parse($scope.cpaworststr));
 			$scope.cpajson.push(JSON.parse($scope.cpaallstr));			
 
 			
+			//Projected Numbers (BUDGET)
 			for (i = 0; i < $scope.getSalesYesTotalTFBest(); i++){
 				$scope.budgetbestjson.push($scope.salesbestjson[i] * $scope.cpabestjson[i]);
 			}		
