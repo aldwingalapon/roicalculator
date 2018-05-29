@@ -1,0 +1,57 @@
+/*----------------------------------------------*/
+/* Global Reset */
+/*----------------------------------------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font: inherit;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}
+table {border-collapse: collapse; border-spacing: 0;}
+
+/*----------------------------------------------*/
+/* Extra fonts */
+/*----------------------------------------------*/
+@font-face {font-family: 'ProximaNova-Black'; src: url('fonts/proximanova-black-webfont.woff2') format('woff2'), url('fonts/proximanova-black-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'ProximaNova-Bold'; src: url('fonts/proximanova-bold-webfont.woff2') format('woff2'), url('fonts/proximanova-bold-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'ProximaNova-BoldIt'; src: url('fonts/proximanova-boldit-webfont.woff2') format('woff2'), url('fonts/proximanova-boldit-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'ProximaNova-Extrabold'; src: url('fonts/proximanova-extrabold-webfont.woff2') format('woff2'), url('fonts/proximanova-extrabold-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'ProximaNova-Light'; src: url('fonts/proximanova-light-webfont.woff2') format('woff2'), url('fonts/proximanova-light-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'ProximaNova-LightItalic'; src: url('fonts/proximanova-lightitalic-webfont.woff2') format('woff2'), url('fonts/proximanova-lightitalic-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'ProximaNova-Regular'; src: url('fonts/proximanova-regular-webfont.woff2') format('woff2'), url('fonts/proximanova-regular-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'ProximaNova-RegularItalic'; src: url('fonts/proximanova-regularitalic-webfont.woff2') format('woff2'), url('fonts/proximanova-regularitalic-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'ProximaNova-Semibold'; src: url('fonts/proximanova-semibold-webfont.woff2') format('woff2'), url('fonts/proximanova-semibold-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'ProximaNova-SemiboldItalic'; src: url('fonts/proximanova-semibolditalic-webfont.woff2') format('woff2'), url('fonts/proximanova-semibolditalic-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'Arimo Bold'; src: url('fonts/arimo-bold-webfont.woff2') format('woff2'), url('fonts/arimo-bold-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'Arimo Regular'; src: url('fonts/arimo-regular-webfont.woff2') format('woff2'), url('fonts/arimo-regular-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+
+/*----------------------------------------------*/
+/* Base */
+/*----------------------------------------------*/
+html{-webkit-tap-highlight-color:transparent; -webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;margin:0;padding:0;height:100%;overflow-y: scroll;}
+body{position:relative; font-family: 'ProximaNova-Regular'; color:#00314a; background-color: #fff; padding: 0; margin: 0; font-size: 16px; height:100%;}
+img, article img, aside img, header img, section img, img[class*="align"] {max-width: 100%;}
+img, article img, aside img, header img, section img, img[class*="align"] {height: auto;}
+a, a:hover, a:active, a:focus {color:#009C84; text-decoration:underline;}
+.aligncenter, div.aligncenter{display:block;margin:0 auto;}
+.alignleft{float:left;margin:0 1rem .75rem 0;}
+.alignright{float:right;margin:0 0 .75rem 1rem;}
+.alignnone{max-width:100%;height:auto;margin:1rem 0 0 0.5rem;}
+.nopadding {padding: 0 !important;}
+.nopaddingleft {padding-left: 0 !important;}
+.nopaddingright {padding-right: 0 !important;}
+h1{font-family: 'Arimo Bold';}
+h2{font-family: 'Arimo Bold'; text-transform:uppercase;color:#00314a;font-size:2rem;line-height:1.5;margin: 0 0 1rem 0;}
+h3{font-family: 'Arimo Bold';text-transform:uppercase;color:#00314a;font-size:1.5rem;line-height:1.3;margin: 0 0 0.4rem 0;}
+h4{font-family: 'Arimo Bold'; text-transform: uppercase; position: relative; color: #00314a; font-size: 1.25rem; line-height: 1.3; padding-bottom: .1rem; margin: 0 0 1rem 0;}
+h4:after{position:absolute;content:"";background-color:#2F576B;height:1px;left:0;bottom:0;width:1.65rem;}
+h5{font-family: 'Arimo Bold'; text-transform: none; position: relative; color: #00314a; font-size: 1.1rem; line-height: 1.3; padding-bottom: .1rem; margin: 0 0 1rem 0;}
+h6{}
+p{font-size:1rem;line-height:2;margin-bottom:0.65rem;color:#00314a;}
+table{display:table;width:100%; margin:2rem 0; padding: 0;}
+table th, table td{font-size:14px;border:1px solid #57BDB0;margin:0;padding:0.5rem 1rem;}
+table th{font-family: 'ProximaNova-Bold';color:#107E6B;}
+table td{color:#234B60;}
+table tr{}
+table tr:nth-child(odd){background-color:#F2FBFA;}
+table tr:nth-child(even){}
