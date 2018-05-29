@@ -49,9 +49,8 @@ h5{font-family: 'Arimo Bold'; text-transform: none; position: relative; color: #
 h6{}
 p{font-size:1rem;line-height:2;margin-bottom:0.65rem;color:#00314a;}
 table{display:table;width:100%; margin:2rem 0; padding: 0;}
-table th, table td{font-size:14px;border:1px solid #57BDB0;margin:0;padding:0.5rem 1rem;}
+table th, table td{font-size:14px;border:1px solid #57BDB0;margin:0;padding:0.5rem 0.5rem;}
 table th{font-family: 'ProximaNova-Bold';color:#107E6B;}
 table td{color:#234B60;}
-table tr{}
 table tr:nth-child(odd){background-color:#F2FBFA;}
 table tr:nth-child(even){}

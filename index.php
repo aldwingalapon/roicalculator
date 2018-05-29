@@ -16,7 +16,7 @@
 <p>Monthly Sales <input type="number" ng-model="monthlysales"/></p>
 <p>Average Order Value (AOV) ($) <input type="number" ng-model="aveordervalue"/></p>
 <p>Monthly Ad Spend ($) <input type="number" ng-model="monthlyadspend"/></p>
-<p>Estimated Current ROA (%) <span class="currentroa percentage">{{newroa() | percentage:2}}%</span><input type="number" ng-model="currentroa" bound-model="newroa()" disabled /></p>
+<p>Estimated Current ROA (%) <span class="currentroa percentage">{{newroa() | percentage:2}}</span><input type="number" ng-model="currentroa" bound-model="newroa()" disabled /></p>
 <p>Estimated Current Spend <span class="estimatedcurrentspend currency">{{estimatednewspend() | currency}}</span><input type="number" ng-model="estimatedcurrentspend" bound-model="estimatednewspend()" disabled /></p>
 <p>Estimated Current Gross <span class="estimatedcurrentgross currency">{{estimatednewgross() | currency}}</span><input type="number" ng-model="estimatedcurrentgross" bound-model="estimatednewgross()" disabled /></p>
 </form>
@@ -153,7 +153,7 @@
 		<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
 	</tr>
 	<tr ng-repeat="x in roajson">
-		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current}}</td><td>{{x.month1}}</td><td>{{x.month2}}</td><td>{{x.month3}}</td><td>{{x.month4}}</td><td>{{x.month5}}</td><td>{{x.month6}}</td><td>{{x.month7}}</td><td>{{x.month8}}</td><td>{{x.month9}}</td><td>{{x.month10}}</td><td>{{x.month11}}</td><td>{{x.month12}}</td><td>{{x.total}}</td>
+		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current/100 | percentage:2}}</td><td>{{x.month1/100 | percentage:2}}</td><td>{{x.month2/100 | percentage:2}}</td><td>{{x.month3/100 | percentage:2}}</td><td>{{x.month4/100 | percentage:2}}</td><td>{{x.month5/100 | percentage:2}}</td><td>{{x.month6/100 | percentage:2}}</td><td>{{x.month7/100 | percentage:2}}</td><td>{{x.month8/100 | percentage:2}}</td><td>{{x.month9/100 | percentage:2}}</td><td>{{x.month10/100 | percentage:2}}</td><td>{{x.month11/100 | percentage:2}}</td><td>{{x.month12/100 | percentage:2}}</td><td>{{x.total/100 | percentage:2}}</td>
 	</tr>
 </table>
 </div>
@@ -177,7 +177,7 @@
 		<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
 	</tr>
 	<tr ng-repeat="x in cpajson">
-		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current}}</td><td>{{x.month1}}</td><td>{{x.month2}}</td><td>{{x.month3}}</td><td>{{x.month4}}</td><td>{{x.month5}}</td><td>{{x.month6}}</td><td>{{x.month7}}</td><td>{{x.month8}}</td><td>{{x.month9}}</td><td>{{x.month10}}</td><td>{{x.month11}}</td><td>{{x.month12}}</td><td>{{x.total}}</td>
+		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current | currency}}</td><td>{{x.month1 | currency}}</td><td>{{x.month2 | currency}}</td><td>{{x.month3 | currency}}</td><td>{{x.month4 | currency}}</td><td>{{x.month5 | currency}}</td><td>{{x.month6 | currency}}</td><td>{{x.month7 | currency}}</td><td>{{x.month8 | currency}}</td><td>{{x.month9 | currency}}</td><td>{{x.month10 | currency}}</td><td>{{x.month11 | currency}}</td><td>{{x.month12 | currency}}</td><td>{{x.total | currency}}</td>
 	</tr>
 </table>
 </div>
@@ -201,7 +201,7 @@
 		<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
 	</tr>
 	<tr ng-repeat="x in budgetjson">
-		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current}}</td><td>{{x.month1}}</td><td>{{x.month2}}</td><td>{{x.month3}}</td><td>{{x.month4}}</td><td>{{x.month5}}</td><td>{{x.month6}}</td><td>{{x.month7}}</td><td>{{x.month8}}</td><td>{{x.month9}}</td><td>{{x.month10}}</td><td>{{x.month11}}</td><td>{{x.month12}}</td><td>{{x.total}}</td>
+		<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current | currency}}</td><td>{{x.month1 | currency}}</td><td>{{x.month2 | currency}}</td><td>{{x.month3 | currency}}</td><td>{{x.month4 | currency}}</td><td>{{x.month5 | currency}}</td><td>{{x.month6 | currency}}</td><td>{{x.month7 | currency}}</td><td>{{x.month8 | currency}}</td><td>{{x.month9 | currency}}</td><td>{{x.month10 | currency}}</td><td>{{x.month11 | currency}}</td><td>{{x.month12 | currency}}</td><td>{{x.total | currency}}</td>
 	</tr>
 </table>
 </div>
@@ -897,7 +897,7 @@
 
 	app.filter('percentage', ['$filter', function ($filter) {
 	  return function (input, decimals) {
-		return $filter('number')(input * 100, decimals);
+		return $filter('number')(input * 100, decimals) + '%';
 	  };
 	}]);
 	function round(value, precision) {
