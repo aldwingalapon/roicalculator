@@ -29,7 +29,7 @@ table {border-collapse: collapse; border-spacing: 0;}
 /* Base */
 /*----------------------------------------------*/
 html{-webkit-tap-highlight-color:transparent; -webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;margin:0;padding:0;height:100%;overflow-y: scroll;}
-body{position:relative; font-family: 'ProximaNova-Regular'; color:#00314a; background-color: #fff; padding: 0; margin: 0; font-size: 16px; height:100%;}
+body{position:relative; font-family: 'Montserrat'; color:#00314a; background-color: #fff; padding: 0; margin: 0; font-size: 16px; height:100%;}
 img, article img, aside img, header img, section img, img[class*="align"] {max-width: 100%;}
 img, article img, aside img, header img, section img, img[class*="align"] {height: auto;}
 a, a:hover, a:active, a:focus {color:#009C84; text-decoration:underline;}
@@ -55,3 +55,11 @@ table th{font-family: 'ProximaNova-Bold';color:#107E6B;}
 table td{color:#234B60;}
 table tr:nth-child(odd){background-color:#F2FBFA;}
 table tr:nth-child(even){}
+
+/*----------------------------------------------*/
+/* Header */
+/*----------------------------------------------*/
+header#main-header{display: block; width: 100%; position: relative; background-color: #051A24; color: #FFF; margin: 0; padding: 1rem 0; box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.24); -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.24); -o-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.24);}
+header#main-header a.header-logo{display: inline-block; max-width: 163px; height: auto;}
+header#main-header .header-title{text-align:right;}
+header#main-header span.title{font-family: Montserrat; font-weight: 400; font-style: italic; font-size: 1.5rem; text-transform: uppercase; line-height: 3.375rem;}
