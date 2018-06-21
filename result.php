@@ -21,7 +21,7 @@
 				<div class="row-fluid">
 					<ul class="nav nav-tabs">
 						<li class="active"><a data-toggle="tab" href="#current">Current</a></li>
-						<li><a data-toggle="tab" href="#sales">Projected Number Sales</a></li>
+						<li><a data-toggle="tab" href="#sales">Sales</a></li>
 						<li><a data-toggle="tab" href="#profit">Gross Profit</a></li>
 						<li><a data-toggle="tab" href="#roa">ROA</a></li>
 						<li><a data-toggle="tab" href="#cpa">CPA</a></li>

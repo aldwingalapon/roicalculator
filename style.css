@@ -79,11 +79,11 @@ header#main-header span.title{font-family: Montserrat; font-weight: 400; font-st
 .main-content.result .nav-tabs li{margin:0;padding:0.5rem 0.25rem;}
 .main-content.result .nav-tabs li a{font-size: 0.75rem; text-transform: uppercase; text-decoration:none;border:0 !important;border-radius:0.25rem; margin: 0; padding: 0.5rem 1.25rem;}
 .main-content.result .nav-tabs li.active a, .main-content.result .nav-tabs li:hover a{color: #FFF; background-color:#2DA9E0;}
-.main-content.result .nav-pills{padding-top: 2.5rem;padding-bottom:14rem;}
+.main-content.result .nav-pills{padding-top: 2.5rem;padding-bottom:10rem;}
 .main-content.result .nav-pills li{}
 .main-content.result .nav-pills li a{color: #FFF; font-size: 0.75rem; text-transform: uppercase; text-decoration:none;border:0 !important;padding: 1rem;border-radius:0 !important;}
 .main-content.result .nav-pills li.active a,.main-content.result .nav-pills li:hover a{color: #FFF;background-color:#3498C4;}
-.btncalc{position: absolute; text-align: center; width: 100%; bottom: 10%;}
+.btncalc{position: relative; text-align: center; width: 100%; bottom: 10%;}
 .btncalc .btn.btn-reset{position:relative;color: #FFF; text-decoration: none; background-color: #2DA9E0; border-radius: 0; font-family: Montserrat; font-size: 0.75rem; text-transform: uppercase; width: auto; margin: 0; padding: 0.65rem 1.5rem 0.65rem 2.5rem;}
 .btncalc .btn.btn-reset:before{content:""; position: absolute; display: inline-block; left: 0.5rem; top: 0; margin: auto; bottom: 0;width:25px;height:29px;background:transparent url(images/icon-recompute@1x.png) no-repeat center / cover;}
 .main-content.result .content .main-view .tab-content{padding:1rem 0;}

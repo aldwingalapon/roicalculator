@@ -39,7 +39,7 @@
 						<div class="form-row"><input type="text" ng-model="optionsstr" id="options" name="options" style="display:none;"/><div class="form-column"><input type="submit" name="btnsubmit" id="btnsubmit" ng-click="CalculateROI()" value="Calculate ROI" title="Calculate ROI" /><a class="btn-option open">More Options</a></div></div>
 					</form>	
 					
-					<div class="table-responsive">
+					<div class="table-responsive hide">
 					<table class="options">
 					<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
 					  <tr ng-repeat="x in options">
