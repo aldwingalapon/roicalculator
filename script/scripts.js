@@ -23,14 +23,6 @@ roiapp.controller("myCalcCtrl", function($scope) {
 	
 });
 
-var roiapp = angular.module('myROIApp', ['ngAnimate']);
-roiapp.controller("myROICtrl", function($scope) {
-	$scope.estimatedcurrentspend = $scope.cpa * $scope.monthlysales;
-	$scope.estimatedcurrentgross = $scope.monthlysales * $scope.aveordervalue;
-	$scope.currentroa =  $scope.estimatedcurrentgross / $scope.monthlyadspend;
-	
-});
-
 var app = angular.module('myApp', ['ngAnimate']);
 	app.controller("myCtrl", function($scope) {
 		$scope.options = [
@@ -747,19 +739,14 @@ $(function(){
 	})
  });
  
- $('.btn-option.open').click(function(){
-	if($(this).text() == 'Hide Options'){
-		$('.showpanel').hide("slide", { direction: "right" }, 200);
-		$(this).text('More Options');
-	} else {
-		$('.showpanel').show("slide", { direction: "left" }, 200);
-		$(this).text('Hide Options');
-	}
-});
-
- $('.btn-close.open').click(function(){
-	$('.showpanel').hide("slide", { direction: "right" }, 200);
-	$('.btn-option.open').text('More Options');
+ $('.open').click(function(){
+   if($(this).text() == 'Hide Options'){
+	   $('.showpanel').hide("slide", { direction: "right" }, 200);
+	   $(this).text('More Options');
+   } else {
+	   $('.showpanel').show("slide", { direction: "left" }, 200);
+	   $(this).text('Hide Options');
+   }
 });
 
 $('input[type="checkbox"]').change(function(){

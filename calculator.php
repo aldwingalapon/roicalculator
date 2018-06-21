@@ -34,12 +34,12 @@
 				<div class="col-md-12">
 					<form id="initial-form" action="result.php" method="post">
 						<h1 class="main-title">Calculate Your<span>Return of Investment</span></h1>
-						<div class="form-row"><div class="form-column"><label for="cpa">Cost Per Acquisition</label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roicpa" id="cpa" name="cpa" style="width:220px;" /></div></div><div class="form-column"><label for="monthlysales">Monthly Sales</label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roimonthlysales" id="monthlysales" name="monthlysales"/></div></div></div>
+						<div class="form-row"><div class="form-column"><label for="cpa">Cost Per Acquisition</label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roicpa" id="cpa" name="cpa" style="width:200px;" /></div></div><div class="form-column"><label for="monthlysales">Monthly Sales</label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roimonthlysales" id="monthlysales" name="monthlysales"/></div></div></div>
 						<div class="form-row"><div class="form-column"><label for="aveordervalue">Average Order Value (AOV)</label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roiaveordervalue" id="aveordervalue" name="aveordervalue"/></div></div><div class="form-column"><label for="monthlyadspend">Monthly Ad Spend</label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roimonthlyadspend" id="monthlyadspend" name="monthlyadspend"/></div></div></div>
 						<div class="form-row"><input type="text" ng-model="optionsstr" id="options" name="options" style="display:none;"/><div class="form-column"><input type="submit" name="btnsubmit" id="btnsubmit" ng-click="CalculateROI()" value="Calculate ROI" title="Calculate ROI" /><a class="btn-option open">More Options</a></div></div>
 					</form>	
-
-					<div class="table-responsive" style="display:none;">
+					
+					<div class="table-responsive">
 					<table class="options">
 					<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
 					  <tr ng-repeat="x in options">
@@ -56,6 +56,12 @@
 	</div>
 </div>
 
+<script src="js/angular.min.js" type='text/javascript'></script>
+<script src="js/angular-animate.js" type='text/javascript'></script>
+<script src="js/jquery-1.12.4.min.js" type='text/javascript'></script>
+<script src="js/jquery-ui.min.js" type='text/javascript'></script>
+<script src="js/bootstrap.min.js" type='text/javascript'></script>
+<script src="script/scripts.js" type='text/javascript'></script>
 <?php
 	include 'includes/footer.php';
 ?>

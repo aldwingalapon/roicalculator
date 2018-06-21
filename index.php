@@ -22,6 +22,7 @@
 <p>Estimated Current Gross <span class="estimatedcurrentgross currency">{{estimatednewgross() | currency}}</span><input type="number" ng-model="estimatedcurrentgross" bound-model="estimatednewgross()" disabled /></p>
 </form>
 <h3>Options</h3>
+<p>{{options | json}}</p>
 <div class="table-responsive">
 <table class="options">
 <tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
