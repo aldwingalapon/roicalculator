@@ -747,14 +747,19 @@ $(function(){
 	})
  });
  
- $('.open').click(function(){
-   if($(this).text() == 'Hide Options'){
-	   $('.showpanel').hide("slide", { direction: "right" }, 200);
-	   $(this).text('More Options');
-   } else {
-	   $('.showpanel').show("slide", { direction: "left" }, 200);
-	   $(this).text('Hide Options');
-   }
+ $('.btn-option.open').click(function(){
+	if($(this).text() == 'Hide Options'){
+		$('.showpanel').hide("slide", { direction: "right" }, 200);
+		$(this).text('More Options');
+	} else {
+		$('.showpanel').show("slide", { direction: "left" }, 200);
+		$(this).text('Hide Options');
+	}
+});
+
+ $('.btn-close.open').click(function(){
+	$('.showpanel').hide("slide", { direction: "right" }, 200);
+	$('.btn-option.open').text('More Options');
 });
 
 $('input[type="checkbox"]').change(function(){

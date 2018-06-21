@@ -118,6 +118,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 input[type=submit]{background:#2DA9E0 url(images/icon-submit@1x.png) no-repeat center; white-space: nowrap; overflow: hidden; outline: none; font-size: 1px; text-indent: -9999px; border: 0; border-bottom: 4px solid #1F8DBD; margin: 0 2rem 0 0; padding: 2.25rem 0; width: 340px; box-shadow: 3px 5px 0px 0px rgba(31, 141, 189, 1); -webkit-box-shadow: 3px 5px 0px 0px rgba(31, 141, 189, 1); -moz-box-shadow: 3px 5px 0px 0px rgba(31, 141, 189, 1); -o-box-shadow: 3px 5px 0px 0px rgba(31, 141, 189, 1);}
 .btn-option{cursor:pointer;display:inline-block;vertical-align: middle; font-family: Montserrat; font-weight: 500; text-transform: uppercase;}
 .btn-option:before{display:inline-block;vertical-align: middle;margin: 0 0.5rem 0 0;content:"";height:34px;width:34px;background:transparent url(images/icon-option@1x.png) no-repeat center / cover;}
+.btn-close{cursor:pointer;float:right;}
+.btn-close:before{display:inline-block;vertical-align: middle;margin: 0 0.5rem 0 0;content:"";height:33px;width:33px;background:transparent url(images/icon-close@1x.png) no-repeat center / cover;}
 
 .option-item .switch {position: relative; display: inline-block; width: 73px; height: 33px;}
 .option-item .switch input {display:none;}

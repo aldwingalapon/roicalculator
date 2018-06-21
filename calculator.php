@@ -6,7 +6,7 @@
 	<div class="main-content">
 		<div id="optionsidebar" class="showpanel">
 			<div class="wrapper">
-				<h2 class="sidebar-title">Options</h2>
+				<h2 class="sidebar-title">Options</h2><a class="btn-close open"></a>
 				<div class="options-list">
 					<div ng-repeat="x in options">
 						<div class="option-item">
