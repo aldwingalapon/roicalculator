@@ -72,9 +72,9 @@ header#main-header span.title{font-family: Montserrat; font-weight: 400; font-st
 .main-title span{display:block;font-weight:600;}
 .main-title:after{content: ""; position: absolute; bottom: 0; display: inline-block; height: 4px; width: 5%; background-color: #2DA9E0;}
 .main-content.result{}
-.main-content.result .content{display:table;height: 100%;width:100%;}
-.main-content.result .content .sidebar{position:relative;display:table-cell;background-color:#1979A3;width:22%;height:100%;}
-.main-content.result .content .main-view{display:table-cell;}
+.main-content.result .content{display:table;height: 100%;width:100%;table-layout: fixed;}
+.main-content.result .content .sidebar{position:relative;display:table-cell;background-color:#1979A3;width:22% !important;height:100%;}
+.main-content.result .content .main-view{display:table-cell;width:78% !important;}
 .main-content.result .nav-tabs{background-color: #FFF; color: #1979a3; border: 0; border-radius: 0; margin: 0; padding: 0 0 0 1rem;}
 .main-content.result .nav-tabs li{margin:0;padding:0.5rem 0.25rem;}
 .main-content.result .nav-tabs li a{font-size: 0.75rem; text-transform: uppercase; text-decoration:none;border:0 !important;border-radius:0.25rem; margin: 0; padding: 0.5rem 1.25rem;}
