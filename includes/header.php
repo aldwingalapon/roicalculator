@@ -20,7 +20,7 @@
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,700,800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700,800" rel="stylesheet">
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="layout.css" />

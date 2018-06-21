@@ -1,3 +1,36 @@
+var roiapp = angular.module('myCalcApp', ['ngAnimate']);
+roiapp.controller("myCalcCtrl", function($scope) {
+	$scope.months = 12;
+	$scope.roicpa = 20;
+	$scope.roimonthlysales = 150;
+	$scope.roiaveordervalue = 65.78;
+	$scope.roimonthlyadspend = 6000;		
+	$scope.options = [
+		{mod:'Correct Pixel Implementation',metric:'CPA',needed:false,best:-5,expected:-2,worst:-1,timeframeb:6,timeframee:12,timeframew:18},
+		{mod:'DPA (Dynamic Product Ads)',metric:'Sales',needed:false,best:20,expected:10,worst:5,timeframeb:6,timeframee:12,timeframew:18},
+		{mod:'Naming Convention',metric:'CPA',needed:false,best:-5,expected:-2,worst:-1,timeframeb:6,timeframee:12,timeframew:18},
+		{mod:'Daily optimizations',metric:'Sales',needed:false,best:10,expected:5,worst:2,timeframeb:6,timeframee:12,timeframew:18},
+		{mod:'Dedicated person running accounts',metric:'Sales',needed:false,best:30,expected:20,worst:10,timeframeb:6,timeframee:12,timeframew:18}
+	];
+	$scope.orig = angular.copy($scope.options);
+	$scope.reset = function() {
+		$scope.options = angular.copy($scope.orig);
+	}
+	
+	$scope.CalculateROI = function() {
+		$scope.optionsstr = JSON.stringify($scope.options);
+	}
+	
+});
+
+var roiapp = angular.module('myROIApp', ['ngAnimate']);
+roiapp.controller("myROICtrl", function($scope) {
+	$scope.estimatedcurrentspend = $scope.cpa * $scope.monthlysales;
+	$scope.estimatedcurrentgross = $scope.monthlysales * $scope.aveordervalue;
+	$scope.currentroa =  $scope.estimatedcurrentgross / $scope.monthlyadspend;
+	
+});
+
 var app = angular.module('myApp', ['ngAnimate']);
 	app.controller("myCtrl", function($scope) {
 		$scope.options = [
@@ -700,3 +733,30 @@ var app = angular.module('myApp', ['ngAnimate']);
 		return Math.round(value);
 	  }
 	}
+	
+/* 	webshims.setOptions('forms-ext', {
+    replaceUI: 'auto',
+    types: 'number'
+	});
+	webshims.polyfill('forms forms-ext'); */
+	
+$(function(){
+    $(document).on('click.bs.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
+		e.preventDefault()
+		$('ul.nav li a[href="' + $(this).attr('href') + '"]').tab('show');
+	})
+ });
+ 
+ $('.open').click(function(){
+   if($(this).text() == 'Hide Options'){
+	   $('.showpanel').hide("slide", { direction: "right" }, 200);
+	   $(this).text('More Options');
+   } else {
+	   $('.showpanel').show("slide", { direction: "left" }, 200);
+	   $(this).text('Hide Options');
+   }
+});
+
+$('input[type="checkbox"]').change(function(){
+    this.value = (Number(this.checked));
+});
