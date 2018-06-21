@@ -31,9 +31,9 @@
 						<div class="tab-content">
 							<div id="current" class="tab-pane fade in active">
 								<ul class="tab-content-header">
-									<li><span class="title">Estimated Current Gross</span><span class="value">{{estimatedcurrentgross | currency}}</span></li>
-									<li><span class="title">Estimated Current Spend</span><span class="value">{{estimatedcurrentspend | currency}}</span></li>
-									<li><span class="title">Estimated Current ROA</span><span class="value">{{currentroa | percentage:2:'%'}}</span></li>
+									<li class="gross"><span class="title">Estimated Current Gross</span><span class="value">{{estimatedcurrentgross | currency}}</span></li>
+									<li class="spend"><span class="title">Estimated Current Spend</span><span class="value">{{estimatedcurrentspend | currency}}</span></li>
+									<li class="roa"><span class="title">Estimated Current ROA</span><span class="value">{{currentroa | percentage:2:'%'}}</span></li>
 								</ul>
 							
 							
@@ -103,10 +103,10 @@
 							</div>
 							<div id="sales" class="tab-pane fade">
 								<ul class="tab-content-header">
-									<li><span class="title">Total Sales Best</span><span class="value">{{salesbesttotal | currency}}</span></li>
-									<li><span class="title">Total Sales Expected</span><span class="value">{{salesexpectedtotal | currency}}</span></li>
-									<li><span class="title">Total Sales Worst</span><span class="value">{{salesworsttotal | currency}}</span></li>
-									<li><span class="title">Total Sales All Options</span><span class="value">{{salesalltotal | currency}}</span></li>
+									<li class="best"><span class="title">Total Sales Best</span><span class="value">{{salesbesttotal | currency}}</span></li>
+									<li class="expected"><span class="title">Total Sales Expected</span><span class="value">{{salesexpectedtotal | currency}}</span></li>
+									<li class="worst"><span class="title">Total Sales Worst</span><span class="value">{{salesworsttotal | currency}}</span></li>
+									<li class="all"><span class="title">Total Sales All Options</span><span class="value">{{salesalltotal | currency}}</span></li>
 								</ul>							
 								<h3>Projected Number Sales</h3>
 								<p>{{salesbestjson | json}}</p>
@@ -133,10 +133,10 @@
 							</div>
 							<div id="profit" class="tab-pane fade">
 								<ul class="tab-content-header">
-									<li><span class="title">Gross Profit Best</span><span class="value">{{grossprofitbesttotal | currency}}</span></li>
-									<li><span class="title">Gross Profit Expected</span><span class="value">{{grossprofitexpectedtotal | currency}}</span></li>
-									<li><span class="title">Gross Profit Worst</span><span class="value">{{grossprofitworsttotal | currency}}</span></li>
-									<li><span class="title">Gross Profit All Options</span><span class="value">{{grossprofitalltotal | currency}}</span></li>
+									<li class="best"><span class="title">Gross Profit Best</span><span class="value">{{grossprofitbesttotal | currency}}</span></li>
+									<li class="expected"><span class="title">Gross Profit Expected</span><span class="value">{{grossprofitexpectedtotal | currency}}</span></li>
+									<li class="worst"><span class="title">Gross Profit Worst</span><span class="value">{{grossprofitworsttotal | currency}}</span></li>
+									<li class="all"><span class="title">Gross Profit All Options</span><span class="value">{{grossprofitalltotal | currency}}</span></li>
 								</ul>
 								
 								<h3>Gross Profit</h3>
@@ -164,10 +164,10 @@
 							</div>
 							<div id="roa" class="tab-pane fade">
 								<ul class="tab-content-header">
-									<li><span class="title">Average ROA Best</span><span class="value">{{roabesttotal/100 | percentage:2:'%'}}</span></li>
-									<li><span class="title">Average ROA Expected</span><span class="value">{{roaexpectedtotal/100 | percentage:2:'%'}}</span></li>
-									<li><span class="title">Average ROA Worst</span><span class="value">{{roaworsttotal/100 | percentage:2:'%'}}</span></li>
-									<li><span class="title">Average ROA All Options</span><span class="value">{{roaalltotal/100 | percentage:2:'%'}}</span></li>
+									<li class="best"><span class="title">Ave. ROA Best</span><span class="value">{{roabesttotal/100 | percentage:2:'%'}}</span></li>
+									<li class="expected"><span class="title">Ave. ROA Expected</span><span class="value">{{roaexpectedtotal/100 | percentage:2:'%'}}</span></li>
+									<li class="worst"><span class="title">Ave. ROA Worst</span><span class="value">{{roaworsttotal/100 | percentage:2:'%'}}</span></li>
+									<li class="all"><span class="title">Ave. ROA All Options</span><span class="value">{{roaalltotal/100 | percentage:2:'%'}}</span></li>
 								</ul>
 								
 								<h3>ROA</h3>
@@ -195,10 +195,10 @@
 							</div>
 							<div id="cpa" class="tab-pane fade">
 								<ul class="tab-content-header">
-									<li><span class="title">Average CPA Best</span><span class="value">{{cpabesttotal | currency}}</span></li>
-									<li><span class="title">Average CPA Expected</span><span class="value">{{cpaexpectedtotal | currency}}</span></li>
-									<li><span class="title">Average CPA Worst</span><span class="value">{{cpaworsttotal | currency}}</span></li>
-									<li><span class="title">Average CPA All Options</span><span class="value">{{cpaalltotal | currency}}</span></li>
+									<li class="best"><span class="title">Ave. CPA Best</span><span class="value">{{cpabesttotal | currency}}</span></li>
+									<li class="expected"><span class="title">Ave. CPA Expected</span><span class="value">{{cpaexpectedtotal | currency}}</span></li>
+									<li class="worst"><span class="title">Ave. CPA Worst</span><span class="value">{{cpaworsttotal | currency}}</span></li>
+									<li class="all"><span class="title">Ave. CPA All Options</span><span class="value">{{cpaalltotal | currency}}</span></li>
 								</ul>
 								
 								<h3>CPA</h3>
@@ -226,10 +226,10 @@
 							</div>
 							<div id="budget" class="tab-pane fade">
 								<ul class="tab-content-header">
-									<li><span class="title">Average Budget Best</span><span class="value">{{budgetbesttotal | currency}}</span></li>
-									<li><span class="title">Average Budget Expected</span><span class="value">{{budgetexpectedtotal | currency}}</span></li>
-									<li><span class="title">Average Budget Worst</span><span class="value">{{budgetworsttotal | currency}}</span></li>
-									<li><span class="title">Average Budget All Options</span><span class="value">{{budgetalltotal | currency}}</span></li>
+									<li class="best"><span class="title">Ave. Budget Best</span><span class="value">{{budgetbesttotal | currency}}</span></li>
+									<li class="expected"><span class="title">Ave. Budget Expected</span><span class="value">{{budgetexpectedtotal | currency}}</span></li>
+									<li class="worst"><span class="title">Ave. Budget Worst</span><span class="value">{{budgetworsttotal | currency}}</span></li>
+									<li class="all"><span class="title">Ave. Budget All Options</span><span class="value">{{budgetalltotal | currency}}</span></li>
 								</ul>
 								
 								<h3>Budget</h3>
