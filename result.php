@@ -30,6 +30,13 @@
 					<div class="col-md-12">				
 						<div class="tab-content">
 							<div id="current" class="tab-pane fade in active">
+								<ul class="tab-content-header">
+									<li><span class="title">Estimated Current Gross</span><span class="value">{{estimatedcurrentgross | currency}}</span></li>
+									<li><span class="title">Estimated Current Spend</span><span class="value">{{estimatedcurrentspend | currency}}</span></li>
+									<li><span class="title">Estimated Current ROA</span><span class="value">{{currentroa | percentage:2:'%'}}</span></li>
+								</ul>
+							
+							
 								<h3>Current</h3>
 
 								<p><input type="number" ng-model="cpa" value="<?php echo $_POST['cpa'];?>"/><br>
@@ -95,6 +102,12 @@
 								</div>								
 							</div>
 							<div id="sales" class="tab-pane fade">
+								<ul class="tab-content-header">
+									<li><span class="title">Total Sales Best</span><span class="value">{{salesbesttotal | currency}}</span></li>
+									<li><span class="title">Total Sales Expected</span><span class="value">{{salesexpectedtotal | currency}}</span></li>
+									<li><span class="title">Total Sales Worst</span><span class="value">{{salesworsttotal | currency}}</span></li>
+									<li><span class="title">Total Sales All Options</span><span class="value">{{salesalltotal | currency}}</span></li>
+								</ul>							
 								<h3>Projected Number Sales</h3>
 								<p>{{salesbestjson | json}}</p>
 								<p>{{salesexpectedjson | json}}</p>
@@ -119,6 +132,13 @@
 								</div>								
 							</div>
 							<div id="profit" class="tab-pane fade">
+								<ul class="tab-content-header">
+									<li><span class="title">Gross Profit Best</span><span class="value">{{grossprofitbesttotal | currency}}</span></li>
+									<li><span class="title">Gross Profit Expected</span><span class="value">{{grossprofitexpectedtotal | currency}}</span></li>
+									<li><span class="title">Gross Profit Worst</span><span class="value">{{grossprofitworsttotal | currency}}</span></li>
+									<li><span class="title">Gross Profit All Options</span><span class="value">{{grossprofitalltotal | currency}}</span></li>
+								</ul>
+								
 								<h3>Gross Profit</h3>
 								<p>{{grossprofitbestjson | json}}</p>
 								<p>{{grossprofitexpectedjson | json}}</p>
@@ -143,6 +163,13 @@
 								</div>
 							</div>
 							<div id="roa" class="tab-pane fade">
+								<ul class="tab-content-header">
+									<li><span class="title">Average ROA Best</span><span class="value">{{roabesttotal/100 | percentage:2:'%'}}</span></li>
+									<li><span class="title">Average ROA Expected</span><span class="value">{{roaexpectedtotal/100 | percentage:2:'%'}}</span></li>
+									<li><span class="title">Average ROA Worst</span><span class="value">{{roaworsttotal/100 | percentage:2:'%'}}</span></li>
+									<li><span class="title">Average ROA All Options</span><span class="value">{{roaalltotal/100 | percentage:2:'%'}}</span></li>
+								</ul>
+								
 								<h3>ROA</h3>
 								<p>{{roabestjson | json}}</p>
 								<p>{{roaexpectedjson | json}}</p>
@@ -167,6 +194,13 @@
 								</div>
 							</div>
 							<div id="cpa" class="tab-pane fade">
+								<ul class="tab-content-header">
+									<li><span class="title">Average CPA Best</span><span class="value">{{cpabesttotal | currency}}</span></li>
+									<li><span class="title">Average CPA Expected</span><span class="value">{{cpaexpectedtotal | currency}}</span></li>
+									<li><span class="title">Average CPA Worst</span><span class="value">{{cpaworsttotal | currency}}</span></li>
+									<li><span class="title">Average CPA All Options</span><span class="value">{{cpaalltotal | currency}}</span></li>
+								</ul>
+								
 								<h3>CPA</h3>
 								<p>{{cpabestjson | json}}</p>
 								<p>{{cpaexpectedjson | json}}</p>
@@ -191,6 +225,13 @@
 								</div>
 							</div>
 							<div id="budget" class="tab-pane fade">
+								<ul class="tab-content-header">
+									<li><span class="title">Average Budget Best</span><span class="value">{{budgetbesttotal | currency}}</span></li>
+									<li><span class="title">Average Budget Expected</span><span class="value">{{budgetexpectedtotal | currency}}</span></li>
+									<li><span class="title">Average Budget Worst</span><span class="value">{{budgetworsttotal | currency}}</span></li>
+									<li><span class="title">Average Budget All Options</span><span class="value">{{budgetalltotal | currency}}</span></li>
+								</ul>
+								
 								<h3>Budget</h3>
 								<p>{{budgetbestjson | json}}</p>
 								<p>{{budgetexpectedjson | json}}</p>
@@ -588,6 +629,7 @@
 			$scope.salesbeststr += ', "month' + (i+1).toString() + '":' + round(salesbestbase,0);
 		}
 		$scope.salesbeststr += ', "total":' + round((salesbestbasetotal),0) + '}';
+		$scope.salesbesttotal = round((salesbestbasetotal),0);
 		
 		var salesexpectedbase = $scope.monthlysales;
 		var salesexpectedbasetotal = 0;
@@ -599,6 +641,7 @@
 			$scope.salesexpectedstr += ', "month' + (i+1).toString() + '":' + round(salesexpectedbase,0);
 		}		
 		$scope.salesexpectedstr += ', "total":' + round((salesexpectedbasetotal),0) + '}';
+		$scope.salesexpectedtotal = round((salesexpectedbasetotal),0);
 		
 		var salesworstbase = $scope.monthlysales;
 		var salesworstbasetotal = 0;
@@ -610,6 +653,7 @@
 			$scope.salesworststr += ', "month' + (i+1).toString() + '":' + round(salesworstbase,0);
 		}
 		$scope.salesworststr += ', "total":' + round((salesworstbasetotal),0) + '}';
+		$scope.salesworsttotal = round((salesworstbasetotal),0);
 		
 		var salesallbase = $scope.monthlysales;
 		var salesallbasetotal = 0;
@@ -621,6 +665,7 @@
 			$scope.salesallstr += ', "month' + (i+1).toString() + '":' + round(salesallbase,0);
 		}		
 		$scope.salesallstr += ', "total":' + round((salesallbasetotal),0) + '}';
+		$scope.salesalltotal = round((salesallbasetotal),0);
 		
 		$scope.salesjson = [];
 		$scope.salesjson.push(JSON.parse($scope.salesbeststr));
@@ -640,6 +685,7 @@
 			$scope.grossprofitbeststr += ', "month' + (i+1).toString() + '":' + round(grossprofitbestbase,2);
 		}			
 		$scope.grossprofitbeststr += ', "total":' + round((grossprofitbestbasetotal),2) + '}';
+		$scope.grossprofitbesttotal = round((grossprofitbestbasetotal),2);
 		
 		var grossprofitexpectedbase = 0;
 		var grossprofitexpectedbasetotal = 0;
@@ -652,7 +698,8 @@
 			$scope.grossprofitexpectedstr += ', "month' + (i+1).toString() + '":' + round(grossprofitexpectedbase,2);
 		}			
 		$scope.grossprofitexpectedstr += ', "total":' + round((grossprofitexpectedbasetotal),2) + '}';
-
+		$scope.grossprofitexpectedtotal = round((grossprofitexpectedbasetotal),2);
+		
 		var grossprofitworstbase = 0;
 		var grossprofitworstbasetotal = 0;
 		var count = 0;
@@ -664,6 +711,7 @@
 			$scope.grossprofitworststr += ', "month' + (i+1).toString() + '":' + round(grossprofitworstbase,2);
 		}			
 		$scope.grossprofitworststr += ', "total":' + round((grossprofitworstbasetotal),2) + '}';
+		$scope.grossprofitworsttotal = round((grossprofitworstbasetotal),2);
 		
 		var grossprofitallbase = 0;
 		var grossprofitallbasetotal = 0;
@@ -676,6 +724,7 @@
 			$scope.grossprofitallstr += ', "month' + (i+1).toString() + '":' + round(grossprofitallbase,2);
 		}			
 		$scope.grossprofitallstr += ', "total":' + round((grossprofitallbasetotal),2) + '}';
+		$scope.grossprofitalltotal = round((grossprofitallbasetotal),2);
 
 		$scope.grossprofitjson = [];
 		$scope.grossprofitjson.push(JSON.parse($scope.grossprofitbeststr));
@@ -697,6 +746,7 @@
 			$scope.roabeststr += ', "month' + (i+1).toString() + '":' + round((roabestbase*100),2);
 		}			
 		$scope.roabeststr += ', "total":' + round(((roabestbasetotal*100)/ count),2) + '}';
+		$scope.roabesttotal = round(((roabestbasetotal*100)/ count),2);
 		
 		var roaexpectedbase = 0;
 		var roaexpectedbasetotal = 0;
@@ -710,6 +760,7 @@
 			$scope.roaexpectedstr += ', "month' + (i+1).toString() + '":' + round((roaexpectedbase*100),2);
 		}			
 		$scope.roaexpectedstr += ', "total":' + round(((roaexpectedbasetotal*100)/ count),2) + '}';
+		$scope.roaexpectedtotal = round(((roaexpectedbasetotal*100)/ count),2);
 		
 		var roaworstbase = 0;
 		var roaworstbasetotal = 0;
@@ -723,6 +774,7 @@
 			$scope.roaworststr += ', "month' + (i+1).toString() + '":' + round((roaworstbase*100),2);
 		}			
 		$scope.roaworststr += ', "total":' + round(((roaworstbasetotal*100)/ count),2) + '}';
+		$scope.roaworsttotal = round(((roaworstbasetotal*100)/ count),2);
 		
 		var roaallbase = 0;
 		var roaallbasetotal = 0;
@@ -736,6 +788,7 @@
 			$scope.roaallstr += ', "month' + (i+1).toString() + '":' + round((roaallbase*100),2);
 		}			
 		$scope.roaallstr += ', "total":' + round(((roaallbasetotal*100)/ count),2) + '}';
+		$scope.roaalltotal = round(((roaallbasetotal*100)/ count),2);
 
 		$scope.roajson = [];
 		$scope.roajson.push(JSON.parse($scope.roabeststr));
@@ -756,6 +809,7 @@
 			$scope.cpabeststr += ', "month' + (i+1).toString() + '":' + round(cpabestbase,2);
 		}
 		$scope.cpabeststr += ', "total":' + round((cpabestbasetotal/count),2) + '}';
+		$scope.cpabesttotal = round((cpabestbasetotal/count),2);
 		
 		var cpaexpectedbase = $scope.cpa;
 		var cpaexpectedbasetotal = 0;
@@ -769,6 +823,7 @@
 			$scope.cpaexpectedstr += ', "month' + (i+1).toString() + '":' + round(cpaexpectedbase,2);
 		}		
 		$scope.cpaexpectedstr += ', "total":' + round((cpaexpectedbasetotal/count),2) + '}';
+		$scope.cpaexpectedtotal = round((cpaexpectedbasetotal/count),2);
 		
 		var cpaworstbase = $scope.cpa;
 		var cpaworstbasetotal = 0;
@@ -782,6 +837,7 @@
 			$scope.cpaworststr += ', "month' + (i+1).toString() + '":' + round(cpaworstbase,2);
 		}
 		$scope.cpaworststr += ', "total":' + round((cpaworstbasetotal/count),2) + '}';
+		$scope.cpaworsttotal = round((cpaworstbasetotal/count),2);
 		
 		var cpaallbase = $scope.cpa;
 		var cpaallbasetotal = 0;
@@ -795,6 +851,7 @@
 			$scope.cpaallstr += ', "month' + (i+1).toString() + '":' + round(cpaallbase,2);
 		}		
 		$scope.cpaallstr += ', "total":' + round((cpaallbasetotal/count),2) + '}';
+		$scope.cpaalltotal = round((cpaallbasetotal/count),2);
 
 		$scope.cpajson = [];
 		$scope.cpajson.push(JSON.parse($scope.cpabeststr));
@@ -816,6 +873,7 @@
 			$scope.budgetbeststr += ', "month' + (i+1).toString() + '":' + round(budgetbestbase,2);
 		}
 		$scope.budgetbeststr += ', "total":' + round((budgetbestbasetotal/count),2) + '}';
+		$scope.budgetbesttotal = round((budgetbestbasetotal/count),2);
 		
 		var budgetexpectedbase = $scope.monthlyadspend;
 		var budgetexpectedbasetotal = 0;
@@ -829,6 +887,7 @@
 			$scope.budgetexpectedstr += ', "month' + (i+1).toString() + '":' + round(budgetexpectedbase,2);
 		}
 		$scope.budgetexpectedstr += ', "total":' + round((budgetexpectedbasetotal/count),2) + '}';
+		$scope.budgetexpectedtotal = round((budgetexpectedbasetotal/count),2);
 		
 		var budgetworstbase = $scope.monthlyadspend;
 		var budgetworstbasetotal = 0;
@@ -842,6 +901,7 @@
 			$scope.budgetworststr += ', "month' + (i+1).toString() + '":' + round(budgetworstbase,2);
 		}
 		$scope.budgetworststr += ', "total":' + round((budgetworstbasetotal/count),2) + '}';
+		$scope.budgetworsttotal = round((budgetworstbasetotal/count),2);
 		
 		var budgetallbase = $scope.monthlyadspend;
 		var budgetallbasetotal = 0;
@@ -855,6 +915,7 @@
 			$scope.budgetallstr += ', "month' + (i+1).toString() + '":' + round(budgetallbase,2);
 		}
 		$scope.budgetallstr += ', "total":' + round((budgetallbasetotal/count),2) + '}';
+		$scope.budgetalltotal = round((budgetallbasetotal/count),2);
 		
 		$scope.budgetjson = [];
 		$scope.budgetjson.push(JSON.parse($scope.budgetbeststr));
