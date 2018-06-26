@@ -739,16 +739,14 @@ $(function(){
 	})
  });
  
- $('.open').click(function(){
+ $('.btn-option.open, .btn-close.open').click(function(){
    if($(this).text() == 'Hide Options'){
 	   $('.showpanel').hide("slide", { direction: "right" }, 200);
-	   $(this).text('More Options');
+	   $('.btn-option.open').text('More Options');
+	   $('.btn-close.open').text('More Options');
    } else {
 	   $('.showpanel').show("slide", { direction: "left" }, 200);
-	   $(this).text('Hide Options');
+	   $('.btn-option.open').text('Hide Options');
+	   $('.btn-close.open').text('Hide Options');	   
    }
-});
-
-$('input[type="checkbox"]').change(function(){
-    this.value = (Number(this.checked));
 });

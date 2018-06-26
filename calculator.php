@@ -6,7 +6,7 @@
 	<div class="main-content">
 		<div id="optionsidebar" class="showpanel">
 			<div class="wrapper">
-				<h2 class="sidebar-title">Options</h2><a class="btn-close open"></a>
+				<h2 class="sidebar-title">Options</h2><a class="btn-close open">More Options</a>
 				<div class="options-list">
 					<div ng-repeat="x in options">
 						<div class="option-item">
@@ -56,12 +56,11 @@
 	</div>
 </div>
 
-<script src="js/angular.min.js" type='text/javascript'></script>
-<script src="js/angular-animate.js" type='text/javascript'></script>
-<script src="js/jquery-1.12.4.min.js" type='text/javascript'></script>
-<script src="js/jquery-ui.min.js" type='text/javascript'></script>
-<script src="js/bootstrap.min.js" type='text/javascript'></script>
-<script src="script/scripts.js" type='text/javascript'></script>
-<?php
-	include 'includes/footer.php';
-?>
+	<script src="js/angular.min.js" type='text/javascript'></script>
+	<script src="js/angular-animate.js" type='text/javascript'></script>
+	<script src="js/jquery-1.12.4.min.js" type='text/javascript'></script>
+	<script src="js/jquery-ui.min.js" type='text/javascript'></script>
+	<script src="js/bootstrap.min.js" type='text/javascript'></script>
+	<script src="script/scripts.js" type='text/javascript'></script>
+</body>
+</html>
