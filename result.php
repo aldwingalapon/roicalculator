@@ -1059,7 +1059,7 @@
 			var green_blue_gradient = currentctx.createLinearGradient(0, 0, 0, 300);
 				green_blue_gradient.addColorStop(0, 'rgb(114,254,58)');
 				green_blue_gradient.addColorStop(1, 'rgb(45,169,224)');
-			var pink_blue_gradient = currentctx.createLinearGradient(0, 0, 0, 200);
+			var pink_blue_gradient = currentctx.createLinearGradient(0, 0, 0, 300);
 				pink_blue_gradient.addColorStop(0, 'rgb(252,109,110)');
 				pink_blue_gradient.addColorStop(1, 'rgb(141,192,252)');
 			var currentchart = new Chart(currentctx, {
@@ -1094,6 +1094,7 @@
 								fontFamily: 'Montserrat',
 								beginAtZero:true,
 								callback: function(value, index, values) {return '$' + value;},		
+								max: (Math.ceil($scope.estimatedcurrentgross / 1000) * 1000) + 2000,
 								stepSize: 2000,
 							},
 							gridLines: {
@@ -1101,6 +1102,27 @@
 								display: false,
 							},
 						}]
+					},
+					tooltips: {
+						enabled: true,
+						backgroundColor: '#FFFFFF',
+						bodyFontFamily: 'Montserrat',
+						bodyFontSize: 12,
+						bodyFontStyle: 'bold',
+						bodyFontColor: '#000000',
+						callbacks: {
+							title: function(tooltipItems, data) {
+							  return '';
+							},
+							label: function(tooltipItem, data) {
+							  var datasetLabel = '';
+							  var label = data.labels[tooltipItem.index];
+							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString("en-US",{style:"currency", currency:"USD"});
+							},							
+						},
+						xAlign: 'center',						
+						yAlign: 'bottom',
+						displayColors : false,
 					}
 				},
 				plugins: [{
@@ -1166,7 +1188,28 @@
 								display: false,
 							},
 						}]
-					}
+					},
+					tooltips: {
+						enabled: true,
+						backgroundColor: '#FFFFFF',
+						bodyFontFamily: 'Montserrat',
+						bodyFontSize: 12,
+						bodyFontStyle: 'bold',
+						bodyFontColor: '#000000',
+						callbacks: {
+							title: function(tooltipItems, data) {
+							  return '';
+							},
+							label: function(tooltipItem, data) {
+							  var datasetLabel = '';
+							  var label = data.labels[tooltipItem.index];
+							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString("en-US",{style:"currency", currency:"USD"});
+							},							
+						},
+						xAlign: 'center',						
+						yAlign: 'bottom',
+						displayColors : false,
+					},					
 				},
 				plugins: [{
 					beforeInit: function (chart) {
@@ -1231,7 +1274,28 @@
 								display: false,
 							},
 						}]
-					}
+					},
+					tooltips: {
+						enabled: true,
+						backgroundColor: '#FFFFFF',
+						bodyFontFamily: 'Montserrat',
+						bodyFontSize: 12,
+						bodyFontStyle: 'bold',
+						bodyFontColor: '#000000',
+						callbacks: {
+							title: function(tooltipItems, data) {
+							  return '';
+							},
+							label: function(tooltipItem, data) {
+							  var datasetLabel = '';
+							  var label = data.labels[tooltipItem.index];
+							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString("en-US",{style:"currency", currency:"USD"});
+							},							
+						},
+						xAlign: 'center',						
+						yAlign: 'bottom',
+						displayColors : false,
+					},	
 				},
 				plugins: [{
 					beforeInit: function (chart) {
@@ -1290,12 +1354,34 @@
 							ticks: {
 								fontFamily: 'Montserrat',
 								beginAtZero:true,
-								callback: function(value, index, values) {return value + '%';},		
+								callback: function(value, index, values) {return value + '%';},	
+								max: Math.ceil(($scope.roabestjsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,								
 							},
 							gridLines: {
 								display: false,
 							},
 						}]
+					},
+					tooltips: {
+						enabled: true,
+						backgroundColor: '#FFFFFF',
+						bodyFontFamily: 'Montserrat',
+						bodyFontSize: 12,
+						bodyFontStyle: 'bold',
+						bodyFontColor: '#000000',
+						callbacks: {
+							title: function(tooltipItems, data) {
+							  return '';
+							},
+							label: function(tooltipItem, data) {
+							  var datasetLabel = '';
+							  var label = data.labels[tooltipItem.index];
+							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '%';
+							},							
+						},
+						xAlign: 'center',						
+						yAlign: 'bottom',
+						displayColors : false,
 					}
 				},
 				plugins: [{
@@ -1355,15 +1441,36 @@
 							ticks: {
 								fontFamily: 'Montserrat',
 								beginAtZero:false,
-								max: (Math.ceil($scope.cpaworsttotal / 10) * 10) + 4,
-								min: (Math.ceil($scope.cpabesttotal / 10) * 10) - 10,
+								max: (Math.ceil($scope.cpaworsttotal / 10) * 10) + 2,
+								min: (Math.ceil($scope.cpabesttotal / 10) * 10) - 4,
 								callback: function(value, index, values) {return '$' + value;},		
 							},
 							gridLines: {
 								display: false,
 							},
 						}]
-					}
+					},
+					tooltips: {
+						enabled: true,
+						backgroundColor: '#FFFFFF',
+						bodyFontFamily: 'Montserrat',
+						bodyFontSize: 12,
+						bodyFontStyle: 'bold',
+						bodyFontColor: '#000000',
+						callbacks: {
+							title: function(tooltipItems, data) {
+							  return '';
+							},
+							label: function(tooltipItem, data) {
+							  var datasetLabel = '';
+							  var label = data.labels[tooltipItem.index];
+							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString("en-US",{style:"currency", currency:"USD"});
+							},							
+						},
+						xAlign: 'center',						
+						yAlign: 'bottom',
+						displayColors : false,
+					},	
 				},
 				plugins: [{
 					beforeInit: function (chart) {
@@ -1421,14 +1528,37 @@
 						yAxes: [{
 							ticks: {
 								fontFamily: 'Montserrat',
-								beginAtZero:true,
-								callback: function(value, index, values) {return '$' + value;},		
+								beginAtZero:false,
+								callback: function(value, index, values) {return '$' + value;},	
+								min: (Math.ceil($scope.budgetworsttotal / 1000) * 1000) - 2000,
+								max: (Math.ceil($scope.monthlyadspend / 1000) * 1000) + 500,
 							},
 							gridLines: {
 								display: false,
 							},
 						}]
-					}
+					},
+					tooltips: {
+						enabled: true,
+						backgroundColor: '#FFFFFF',
+						bodyFontFamily: 'Montserrat',
+						bodyFontSize: 12,
+						bodyFontStyle: 'bold',
+						bodyFontColor: '#000000',
+						callbacks: {
+							title: function(tooltipItems, data) {
+							  return '';
+							},
+							label: function(tooltipItem, data) {
+							  var datasetLabel = '';
+							  var label = data.labels[tooltipItem.index];
+							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString("en-US",{style:"currency", currency:"USD"});
+							},							
+						},
+						xAlign: 'center',						
+						yAlign: 'bottom',
+						displayColors : false,
+					},	
 				},
 				plugins: [{
 					beforeInit: function (chart) {
