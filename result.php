@@ -165,26 +165,39 @@
 								</ul>
 								
 								<h3>Gross Profit</h3>
-								<p>{{grossprofitbestjson | json}}</p>
-								<p>{{grossprofitexpectedjson | json}}</p>
-								<p>{{grossprofitworstjson | json}}</p>
-								<p>{{grossprofitalljson | json}}</p>
-								<h4>Gross Profit String</h4>
-								<p>{{grossprofitbeststr}}</p>
-								<p>{{grossprofitexpectedstr}}</p>
-								<p>{{grossprofitworststr}}</p>
-								<p>{{grossprofitallstr}}</p>
-								<h4>Gross Profit (Merged String to JSON)</h4>
-								<p><small>{{grossprofitjson | json}}</small></p>
-								<div class="table-responsive">
-								<table class="grossprofitjson">
-									<tr>
-										<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
-									</tr>
-									<tr ng-repeat="x in grossprofitjson">
-										<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current | currency}}</td><td>{{x.month1 | currency}}</td><td>{{x.month2 | currency}}</td><td>{{x.month3 | currency}}</td><td>{{x.month4 | currency}}</td><td>{{x.month5 | currency}}</td><td>{{x.month6 | currency}}</td><td>{{x.month7 | currency}}</td><td>{{x.month8 | currency}}</td><td>{{x.month9 | currency}}</td><td>{{x.month10 | currency}}</td><td>{{x.month11 | currency}}</td><td>{{x.month12 | currency}}</td><td>{{x.total | currency}}</td>
-									</tr>
-								</table>
+								<div class="row-fluid">
+									<div class="col-md-12">	
+										<canvas id="myGrossProfitChart"></canvas>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div class="clearfix"></div>
+								
+								<div class="hide">								
+									<p>{{grossprofitbestjson | json}}</p>
+									<p>{{grossprofitbestjsonchart | json}}</p>
+									<p>{{grossprofitexpectedjson | json}}</p>
+									<p>{{grossprofitexpectedjsonchart | json}}</p>
+									<p>{{grossprofitworstjson | json}}</p>
+									<p>{{grossprofitworstjsonchart | json}}</p>
+									<p>{{grossprofitalljson | json}}</p>
+									<h4>Gross Profit String</h4>
+									<p>{{grossprofitbeststr}}</p>
+									<p>{{grossprofitexpectedstr}}</p>
+									<p>{{grossprofitworststr}}</p>
+									<p>{{grossprofitallstr}}</p>
+									<h4>Gross Profit (Merged String to JSON)</h4>
+									<p><small>{{grossprofitjson | json}}</small></p>
+									<div class="table-responsive">
+									<table class="grossprofitjson">
+										<tr>
+											<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
+										</tr>
+										<tr ng-repeat="x in grossprofitjson">
+											<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current | currency}}</td><td>{{x.month1 | currency}}</td><td>{{x.month2 | currency}}</td><td>{{x.month3 | currency}}</td><td>{{x.month4 | currency}}</td><td>{{x.month5 | currency}}</td><td>{{x.month6 | currency}}</td><td>{{x.month7 | currency}}</td><td>{{x.month8 | currency}}</td><td>{{x.month9 | currency}}</td><td>{{x.month10 | currency}}</td><td>{{x.month11 | currency}}</td><td>{{x.month12 | currency}}</td><td>{{x.total | currency}}</td>
+										</tr>
+									</table>
+									</div>
 								</div>
 							</div>
 							<div id="roa" class="tab-pane fade">
@@ -196,26 +209,39 @@
 								</ul>
 								
 								<h3>ROA</h3>
-								<p>{{roabestjson | json}}</p>
-								<p>{{roaexpectedjson | json}}</p>
-								<p>{{roaworstjson | json}}</p>
-								<p>{{roaalljson | json}}</p>
-								<h4>ROA String</h4>
-								<p>{{roabeststr}}</p>
-								<p>{{roaexpectedstr}}</p>
-								<p>{{roaworststr}}</p>
-								<p>{{roaallstr}}</p>
-								<h4>ROA (Merged String to JSON)</h4>
-								<p><small>{{roajson | json}}</small></p>
-								<div class="table-responsive">
-								<table class="roajson">
-									<tr>
-										<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
-									</tr>
-									<tr ng-repeat="x in roajson">
-										<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current/100 | percentage:2:'%'}}</td><td>{{x.month1/100 | percentage:2:'%'}}</td><td>{{x.month2/100 | percentage:2:'%'}}</td><td>{{x.month3/100 | percentage:2:'%'}}</td><td>{{x.month4/100 | percentage:2:'%'}}</td><td>{{x.month5/100 | percentage:2:'%'}}</td><td>{{x.month6/100 | percentage:2:'%'}}</td><td>{{x.month7/100 | percentage:2:'%'}}</td><td>{{x.month8/100 | percentage:2:'%'}}</td><td>{{x.month9/100 | percentage:2:'%'}}</td><td>{{x.month10/100 | percentage:2:'%'}}</td><td>{{x.month11/100 | percentage:2:'%'}}</td><td>{{x.month12/100 | percentage:2:'%'}}</td><td>{{x.total/100 | percentage:2:'%'}}</td>
-									</tr>
-								</table>
+								<div class="row-fluid">
+									<div class="col-md-12">	
+										<canvas id="myROAChart"></canvas>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div class="clearfix"></div>
+								
+								<div class="hide">								
+									<p>{{roabestjson | json}}</p>
+									<p>{{roabestjsonchart | json}}</p>
+									<p>{{roaexpectedjson | json}}</p>
+									<p>{{roaexpectedjsonchart | json}}</p>
+									<p>{{roaworstjson | json}}</p>
+									<p>{{roaworstjsonchart | json}}</p>
+									<p>{{roaalljson | json}}</p>
+									<h4>ROA String</h4>
+									<p>{{roabeststr}}</p>
+									<p>{{roaexpectedstr}}</p>
+									<p>{{roaworststr}}</p>
+									<p>{{roaallstr}}</p>
+									<h4>ROA (Merged String to JSON)</h4>
+									<p><small>{{roajson | json}}</small></p>
+									<div class="table-responsive">
+									<table class="roajson">
+										<tr>
+											<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
+										</tr>
+										<tr ng-repeat="x in roajson">
+											<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current/100 | percentage:2:'%'}}</td><td>{{x.month1/100 | percentage:2:'%'}}</td><td>{{x.month2/100 | percentage:2:'%'}}</td><td>{{x.month3/100 | percentage:2:'%'}}</td><td>{{x.month4/100 | percentage:2:'%'}}</td><td>{{x.month5/100 | percentage:2:'%'}}</td><td>{{x.month6/100 | percentage:2:'%'}}</td><td>{{x.month7/100 | percentage:2:'%'}}</td><td>{{x.month8/100 | percentage:2:'%'}}</td><td>{{x.month9/100 | percentage:2:'%'}}</td><td>{{x.month10/100 | percentage:2:'%'}}</td><td>{{x.month11/100 | percentage:2:'%'}}</td><td>{{x.month12/100 | percentage:2:'%'}}</td><td>{{x.total/100 | percentage:2:'%'}}</td>
+										</tr>
+									</table>
+									</div>
 								</div>
 							</div>
 							<div id="cpa" class="tab-pane fade">
@@ -227,26 +253,39 @@
 								</ul>
 								
 								<h3>CPA</h3>
-								<p>{{cpabestjson | json}}</p>
-								<p>{{cpaexpectedjson | json}}</p>
-								<p>{{cpaworstjson | json}}</p>
-								<p>{{cpaalljson | json}}</p>
-								<h4>CPA String</h4>
-								<p>{{cpabeststr}}</p>
-								<p>{{cpaexpectedstr}}</p>
-								<p>{{cpaworststr}}</p>
-								<p>{{cpaallstr}}</p>
-								<h4>CPA (Merged String to JSON)</h4>
-								<p><small>{{cpajson | json}}</small></p>
-								<div class="table-responsive">
-								<table class="cpajson">
-									<tr>
-										<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
-									</tr>
-									<tr ng-repeat="x in cpajson">
-										<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current | currency}}</td><td>{{x.month1 | currency}}</td><td>{{x.month2 | currency}}</td><td>{{x.month3 | currency}}</td><td>{{x.month4 | currency}}</td><td>{{x.month5 | currency}}</td><td>{{x.month6 | currency}}</td><td>{{x.month7 | currency}}</td><td>{{x.month8 | currency}}</td><td>{{x.month9 | currency}}</td><td>{{x.month10 | currency}}</td><td>{{x.month11 | currency}}</td><td>{{x.month12 | currency}}</td><td>{{x.total | currency}}</td>
-									</tr>
-								</table>
+								<div class="row-fluid">
+									<div class="col-md-12">	
+										<canvas id="myCPAChart"></canvas>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div class="clearfix"></div>
+								
+								<div class="hide">								
+									<p>{{cpabestjson | json}}</p>
+									<p>{{cpabestjsonchart | json}}</p>
+									<p>{{cpaexpectedjson | json}}</p>
+									<p>{{cpaexpectedjsonchart | json}}</p>
+									<p>{{cpaworstjson | json}}</p>
+									<p>{{cpaworstjsonchart | json}}</p>
+									<p>{{cpaalljson | json}}</p>
+									<h4>CPA String</h4>
+									<p>{{cpabeststr}}</p>
+									<p>{{cpaexpectedstr}}</p>
+									<p>{{cpaworststr}}</p>
+									<p>{{cpaallstr}}</p>
+									<h4>CPA (Merged String to JSON)</h4>
+									<p><small>{{cpajson | json}}</small></p>
+									<div class="table-responsive">
+									<table class="cpajson">
+										<tr>
+											<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
+										</tr>
+										<tr ng-repeat="x in cpajson">
+											<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current | currency}}</td><td>{{x.month1 | currency}}</td><td>{{x.month2 | currency}}</td><td>{{x.month3 | currency}}</td><td>{{x.month4 | currency}}</td><td>{{x.month5 | currency}}</td><td>{{x.month6 | currency}}</td><td>{{x.month7 | currency}}</td><td>{{x.month8 | currency}}</td><td>{{x.month9 | currency}}</td><td>{{x.month10 | currency}}</td><td>{{x.month11 | currency}}</td><td>{{x.month12 | currency}}</td><td>{{x.total | currency}}</td>
+										</tr>
+									</table>
+									</div>
 								</div>
 							</div>
 							<div id="budget" class="tab-pane fade">
@@ -258,26 +297,39 @@
 								</ul>
 								
 								<h3>Budget</h3>
-								<p>{{budgetbestjson | json}}</p>
-								<p>{{budgetexpectedjson | json}}</p>
-								<p>{{budgetworstjson | json}}</p>
-								<p>{{budgetalljson | json}}</p>
-								<h4>Budget String</h4>
-								<p>{{budgetbeststr}}</p>
-								<p>{{budgetexpectedstr}}</p>
-								<p>{{budgetworststr}}</p>
-								<p>{{budgetallstr}}</p>
-								<h4>Budget (Merged String to JSON)</h4>
-								<p><small>{{budgetjson | json}}</small></p>
-								<div class="table-responsive">
-								<table class="budgetjson">
-									<tr>
-										<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
-									</tr>
-									<tr ng-repeat="x in budgetjson">
-										<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current | currency}}</td><td>{{x.month1 | currency}}</td><td>{{x.month2 | currency}}</td><td>{{x.month3 | currency}}</td><td>{{x.month4 | currency}}</td><td>{{x.month5 | currency}}</td><td>{{x.month6 | currency}}</td><td>{{x.month7 | currency}}</td><td>{{x.month8 | currency}}</td><td>{{x.month9 | currency}}</td><td>{{x.month10 | currency}}</td><td>{{x.month11 | currency}}</td><td>{{x.month12 | currency}}</td><td>{{x.total | currency}}</td>
-									</tr>
-								</table>
+								<div class="row-fluid">
+									<div class="col-md-12">	
+										<canvas id="myBudgetChart"></canvas>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div class="clearfix"></div>
+								
+								<div class="hide">								
+									<p>{{budgetbestjson | json}}</p>
+									<p>{{budgetbestjsonchart | json}}</p>
+									<p>{{budgetexpectedjson | json}}</p>
+									<p>{{budgetexpectedjsonchart | json}}</p>
+									<p>{{budgetworstjson | json}}</p>
+									<p>{{budgetworstjsonchart | json}}</p>
+									<p>{{budgetalljson | json}}</p>
+									<h4>Budget String</h4>
+									<p>{{budgetbeststr}}</p>
+									<p>{{budgetexpectedstr}}</p>
+									<p>{{budgetworststr}}</p>
+									<p>{{budgetallstr}}</p>
+									<h4>Budget (Merged String to JSON)</h4>
+									<p><small>{{budgetjson | json}}</small></p>
+									<div class="table-responsive">
+									<table class="budgetjson">
+										<tr>
+											<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
+										</tr>
+										<tr ng-repeat="x in budgetjson">
+											<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current | currency}}</td><td>{{x.month1 | currency}}</td><td>{{x.month2 | currency}}</td><td>{{x.month3 | currency}}</td><td>{{x.month4 | currency}}</td><td>{{x.month5 | currency}}</td><td>{{x.month6 | currency}}</td><td>{{x.month7 | currency}}</td><td>{{x.month8 | currency}}</td><td>{{x.month9 | currency}}</td><td>{{x.month10 | currency}}</td><td>{{x.month11 | currency}}</td><td>{{x.month12 | currency}}</td><td>{{x.total | currency}}</td>
+										</tr>
+									</table>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -328,21 +380,40 @@
 			$scope.grossprofitexpectedjson = [];
 			$scope.grossprofitworstjson = [];
 			$scope.grossprofitalljson = [];
+			$scope.grossprofitbestjsonchart = [];
+			$scope.grossprofitexpectedjsonchart = [];
+			$scope.grossprofitworstjsonchart = [];
+			$scope.grossprofitalljsonchart = [];
+			
 			$scope.roajson = [];
 			$scope.roabestjson = [];
 			$scope.roaexpectedjson = [];
 			$scope.roaworstjson = [];
 			$scope.roaalljson = [];
+			$scope.roabestjsonchart = [];
+			$scope.roaexpectedjsonchart = [];
+			$scope.roaworstjsonchart = [];
+			$scope.roaalljsonchart = [];
+			
 			$scope.cpajson = [];
 			$scope.cpabestjson = [];
 			$scope.cpaexpectedjson = [];
 			$scope.cpaworstjson = [];
 			$scope.cpaalljson = [];
+			$scope.cpabestjsonchart = [];
+			$scope.cpaexpectedjsonchart = [];
+			$scope.cpaworstjsonchart = [];
+			$scope.cpaalljsonchart = [];
+			
 			$scope.budgetjson = [];
 			$scope.budgetbestjson = [];
 			$scope.budgetexpectedjson = [];
 			$scope.budgetworstjson = [];
 			$scope.budgetalljson = [];			
+			$scope.budgetbestjsonchart = [];
+			$scope.budgetexpectedjsonchart = [];
+			$scope.budgetworstjsonchart = [];
+			$scope.budgetalljsonchart = [];			
 
 			angular.forEach($scope.newoptions, function (value, key) {
 				if (value.metric=='Sales'){
@@ -713,10 +784,12 @@
 			//Projected Numbers (Gross Profit)
 			var grossprofitbestbase = 0;
 			var grossprofitbestbasetotal = 0;
+			$scope.grossprofitbestjsonchart.push(round(($scope.monthlysales * $scope.aveordervalue),2));
 			var count = 0;
 			$scope.grossprofitbeststr = '{' + '"name": "Gross Profit Best", "current":' + round(($scope.monthlysales * $scope.aveordervalue),2) + '';
 			for (i = 0; i < $scope.months; i++){
 				grossprofitbestbase = $scope.salesbestjson[i] * $scope.aveordervalue;
+				$scope.grossprofitbestjsonchart.push(round(grossprofitbestbase,2));
 				grossprofitbestbasetotal += grossprofitbestbase;
 				$scope.grossprofitbestjson.push(grossprofitbestbase);
 				$scope.grossprofitbeststr += ', "month' + (i+1).toString() + '":' + round(grossprofitbestbase,2);
@@ -726,10 +799,12 @@
 			
 			var grossprofitexpectedbase = 0;
 			var grossprofitexpectedbasetotal = 0;
+			$scope.grossprofitexpectedjsonchart.push(round(($scope.monthlysales * $scope.aveordervalue),2));
 			var count = 0;
 			$scope.grossprofitexpectedstr = '{' + '"name": "Gross Profit Expected", "current":' + round(($scope.monthlysales * $scope.aveordervalue),2) + '';
 			for (i = 0; i < $scope.months; i++){
 				grossprofitexpectedbase = $scope.salesexpectedjson[i] * $scope.aveordervalue;
+				$scope.grossprofitexpectedjsonchart.push(round(grossprofitexpectedbase,2));
 				grossprofitexpectedbasetotal += grossprofitexpectedbase;
 				$scope.grossprofitexpectedjson.push(grossprofitexpectedbase);
 				$scope.grossprofitexpectedstr += ', "month' + (i+1).toString() + '":' + round(grossprofitexpectedbase,2);
@@ -739,10 +814,12 @@
 			
 			var grossprofitworstbase = 0;
 			var grossprofitworstbasetotal = 0;
+			$scope.grossprofitworstjsonchart.push(round(($scope.monthlysales * $scope.aveordervalue),2));
 			var count = 0;
 			$scope.grossprofitworststr = '{' + '"name": "Gross Profit Worst", "current":' + round(($scope.monthlysales * $scope.aveordervalue),2) + '';
 			for (i = 0; i < $scope.months; i++){
 				grossprofitworstbase = $scope.salesworstjson[i] * $scope.aveordervalue;
+				$scope.grossprofitworstjsonchart.push(round(grossprofitworstbase,2));
 				grossprofitworstbasetotal += grossprofitworstbase;
 				$scope.grossprofitworstjson.push(grossprofitworstbase);
 				$scope.grossprofitworststr += ', "month' + (i+1).toString() + '":' + round(grossprofitworstbase,2);
@@ -773,10 +850,12 @@
 			//Projected Numbers (ROA)
 			var roabestbase = 0;
 			var roabestbasetotal = 0;
+			$scope.roabestjsonchart.push(round((($scope.estimatedcurrentgross / $scope.monthlyadspend)*100),2));
 			var count = 0;
 			$scope.roabeststr = '{' + '"name": "ROA Best", "current":' + round((($scope.estimatedcurrentgross / $scope.monthlyadspend)*100),2) + '';
 			for (i = 0; i < $scope.months; i++){
 				roabestbase = $scope.grossprofitbestjson[i] / $scope.monthlyadspend;
+				$scope.roabestjsonchart.push(round((roabestbase*100),2));
 				roabestbasetotal += roabestbase;
 				$scope.roabestjson.push(roabestbase);
 				count += 1;
@@ -787,10 +866,12 @@
 			
 			var roaexpectedbase = 0;
 			var roaexpectedbasetotal = 0;
+			$scope.roaexpectedjsonchart.push(round((($scope.estimatedcurrentgross / $scope.monthlyadspend)*100),2));
 			var count = 0;
 			$scope.roaexpectedstr = '{' + '"name": "ROA Expected", "current":' + round((($scope.estimatedcurrentgross / $scope.monthlyadspend)*100),2) + '';
 			for (i = 0; i < $scope.months; i++){
 				roaexpectedbase = $scope.grossprofitexpectedjson[i] / $scope.monthlyadspend;
+				$scope.roaexpectedjsonchart.push(round((roaexpectedbase*100),2));
 				roaexpectedbasetotal += roaexpectedbase;
 				$scope.roaexpectedjson.push(roaexpectedbase);
 				count += 1;
@@ -801,10 +882,12 @@
 			
 			var roaworstbase = 0;
 			var roaworstbasetotal = 0;
+			$scope.roaworstjsonchart.push(round((($scope.estimatedcurrentgross / $scope.monthlyadspend)*100),2));
 			var count = 0;
 			$scope.roaworststr = '{' + '"name": "ROA Worst", "current":' + round((($scope.estimatedcurrentgross / $scope.monthlyadspend)*100),2) + '';
 			for (i = 0; i < $scope.months; i++){
 				roaworstbase = $scope.grossprofitworstjson[i] / $scope.monthlyadspend;
+				$scope.roaworstjsonchart.push(round((roaworstbase*100),2));
 				roaworstbasetotal += roaworstbase;
 				$scope.roaworstjson.push(roaworstbase);
 				count += 1;
@@ -836,10 +919,12 @@
 			//Projected Numbers (CPA)
 			var cpabestbase = $scope.cpa;
 			var cpabestbasetotal = 0;
+			$scope.cpabestjsonchart.push(round($scope.cpa,2));
 			var count = 0;
 			$scope.cpabeststr = '{' + '"name": "CPA Best", "current":' + round(cpabestbase,2) + '';
 			for (i = 0; i < $scope.months; i++){
 				cpabestbase = cpabestbase + (cpabestbase * $scope.getCPAYesTotalBestFactor());
+				$scope.cpabestjsonchart.push(round(cpabestbase,2));
 				$scope.cpabestjson.push((cpabestbase));
 				cpabestbasetotal += cpabestbase;
 				count += 1;
@@ -850,10 +935,12 @@
 			
 			var cpaexpectedbase = $scope.cpa;
 			var cpaexpectedbasetotal = 0;
+			$scope.cpaexpectedjsonchart.push(round((cpaexpectedbase),2));
 			var count = 0;
 			$scope.cpaexpectedstr = '{' + '"name": "CPA Expected", "current":' + round(cpaexpectedbase,2) + '';
 			for (i = 0; i < $scope.months; i++){
 				cpaexpectedbase = cpaexpectedbase + (cpaexpectedbase * $scope.getCPAYesTotalExpectedFactor());
+				$scope.cpaexpectedjsonchart.push(round((cpaexpectedbase),2));
 				$scope.cpaexpectedjson.push((cpaexpectedbase));
 				cpaexpectedbasetotal += cpaexpectedbase;
 				count += 1;
@@ -864,10 +951,12 @@
 			
 			var cpaworstbase = $scope.cpa;
 			var cpaworstbasetotal = 0;
+			$scope.cpaworstjsonchart.push(round(cpaworstbase,2));
 			var count = 0;
 			$scope.cpaworststr = '{' + '"name": "CPA Worst", "current":' + round(cpaworstbase,2) + '';
 			for (i = 0; i < $scope.months; i++){
 				cpaworstbase = cpaworstbase + (cpaworstbase * $scope.getCPAYesTotalWorstFactor());
+				$scope.cpaworstjsonchart.push(round(cpaworstbase,2));
 				$scope.cpaworstjson.push((cpaworstbase));
 				cpaworstbasetotal += cpaworstbase;
 				count += 1;
@@ -900,11 +989,13 @@
 			//Projected Numbers (BUDGET)
 			var budgetbestbase = $scope.monthlyadspend;
 			var budgetbestbasetotal = 0;
+			$scope.budgetbestjsonchart.push(round($scope.monthlyadspend,2));
 			var count = 0;
 			$scope.budgetbeststr = '{' + '"name": "Budget Best", "current":' + round(budgetbestbase,2) + '';
 			for (i = 0; i < $scope.months; i++){
 				budgetbestbase = $scope.salesbestjson[i] * $scope.cpabestjson[i];
 				$scope.budgetbestjson.push((budgetbestbase));
+				$scope.budgetbestjsonchart.push(round(budgetbestbase,2));
 				budgetbestbasetotal += budgetbestbase;
 				count += 1;
 				$scope.budgetbeststr += ', "month' + (i+1).toString() + '":' + round(budgetbestbase,2);
@@ -914,11 +1005,13 @@
 			
 			var budgetexpectedbase = $scope.monthlyadspend;
 			var budgetexpectedbasetotal = 0;
+			$scope.budgetexpectedjsonchart.push(round($scope.monthlyadspend,2));
 			var count = 0;
 			$scope.budgetexpectedstr = '{' + '"name": "Budget Expected", "current":' + round(budgetexpectedbase,2) + '';
 			for (i = 0; i < $scope.months; i++){
 				budgetexpectedbase = $scope.salesexpectedjson[i] * $scope.cpaexpectedjson[i];
 				$scope.budgetexpectedjson.push((budgetexpectedbase));
+				$scope.budgetexpectedjsonchart.push(round(budgetexpectedbase,2));
 				budgetexpectedbasetotal += budgetexpectedbase;
 				count += 1;
 				$scope.budgetexpectedstr += ', "month' + (i+1).toString() + '":' + round(budgetexpectedbase,2);
@@ -928,11 +1021,13 @@
 			
 			var budgetworstbase = $scope.monthlyadspend;
 			var budgetworstbasetotal = 0;
+			$scope.budgetworstjsonchart.push(round($scope.monthlyadspend,2));
 			var count = 0;
 			$scope.budgetworststr = '{' + '"name": "Budget Worst", "current":' + round(budgetworstbase,2) + '';
 			for (i = 0; i < $scope.months; i++){
 				budgetworstbase = $scope.salesworstjson[i] * $scope.cpaworstjson[i];
 				$scope.budgetworstjson.push((budgetworstbase));
+				$scope.budgetworstjsonchart.push(round(budgetworstbase,2));
 				budgetworstbasetotal += budgetworstbase;
 				count += 1;
 				$scope.budgetworststr += ', "month' + (i+1).toString() + '":' + round(budgetworstbase,2);
@@ -1082,7 +1177,269 @@
 						})
 					}
 				}]			
+			});			
+
+			var grossprofitctx = document.getElementById('myGrossProfitChart').getContext('2d');
+			var grossprofitchart = new Chart(grossprofitctx, {
+				type: 'line',
+				data: {
+					labels: ["Current", "Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12"],
+					datasets: [{
+						backgroundColor: '#33C853',
+						borderColor: '#33C853',						
+						data: $scope.grossprofitbestjsonchart,	
+						fill: false,
+					},
+					{
+						backgroundColor: '#2DA9E0',
+						borderColor: '#2DA9E0',									
+						data: $scope.grossprofitexpectedjsonchart,						
+						fill: false,
+					},
+					{
+						backgroundColor: '#DD4F81',
+						borderColor: '#DD4F81',									
+						data: $scope.grossprofitworstjsonchart,						
+						fill: false,
+					}]
+				},
+				options: {
+					legend: {
+								display: false,
+							},
+					scales: {
+						xAxes: [{
+							ticks:{
+								fontFamily: 'Montserrat',
+								fontSize: 12,
+							},
+							barPercentage: 0.5,
+							categoryPercentage: 0.5,
+							gridLines: {
+								borderDash: [8, 4],
+								color: "#92C0D8",
+								display: true,
+							},
+						}],
+						yAxes: [{
+							ticks: {
+								fontFamily: 'Montserrat',
+								beginAtZero:true,
+								callback: function(value, index, values) {return '$' + value;},		
+							},
+							gridLines: {
+								display: false,
+							},
+						}]
+					}
+				},
+				plugins: [{
+					beforeInit: function (chart) {
+						chart.data.labels.forEach(function (e, i, a) {
+							if (/\n/.test(e)) {
+							a[i] = e.split(/\n/)
+							}
+						})
+					}
+				}]			
+			});	
+
+			var roactx = document.getElementById('myROAChart').getContext('2d');
+			var roachart = new Chart(roactx, {
+				type: 'line',
+				data: {
+					labels: ["Current", "Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12"],
+					datasets: [{
+						backgroundColor: '#33C853',
+						borderColor: '#33C853',						
+						data: $scope.roabestjsonchart,	
+						fill: false,
+					},
+					{
+						backgroundColor: '#2DA9E0',
+						borderColor: '#2DA9E0',									
+						data: $scope.roaexpectedjsonchart,						
+						fill: false,
+					},
+					{
+						backgroundColor: '#DD4F81',
+						borderColor: '#DD4F81',									
+						data: $scope.roaworstjsonchart,						
+						fill: false,
+					}]
+				},
+				options: {
+					legend: {
+								display: false,
+							},
+					scales: {
+						xAxes: [{
+							ticks:{
+								fontFamily: 'Montserrat',
+								fontSize: 12,
+							},
+							barPercentage: 0.5,
+							categoryPercentage: 0.5,
+							gridLines: {
+								borderDash: [8, 4],
+								color: "#92C0D8",
+								display: true,
+							},
+						}],
+						yAxes: [{
+							ticks: {
+								fontFamily: 'Montserrat',
+								beginAtZero:true,
+								callback: function(value, index, values) {return value + '%';},		
+							},
+							gridLines: {
+								display: false,
+							},
+						}]
+					}
+				},
+				plugins: [{
+					beforeInit: function (chart) {
+						chart.data.labels.forEach(function (e, i, a) {
+							if (/\n/.test(e)) {
+							a[i] = e.split(/\n/)
+							}
+						})
+					}
+				}]			
+			});	
+
+			var cpactx = document.getElementById('myCPAChart').getContext('2d');
+			var cpachart = new Chart(cpactx, {
+				type: 'line',
+				data: {
+					labels: ["Current", "Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12"],
+					datasets: [{
+						backgroundColor: '#33C853',
+						borderColor: '#33C853',						
+						data: $scope.cpabestjsonchart,	
+						fill: false,
+					},
+					{
+						backgroundColor: '#2DA9E0',
+						borderColor: '#2DA9E0',									
+						data: $scope.cpaexpectedjsonchart,						
+						fill: false,
+					},
+					{
+						backgroundColor: '#DD4F81',
+						borderColor: '#DD4F81',									
+						data: $scope.cpaworstjsonchart,						
+						fill: false,
+					}]
+				},
+				options: {
+					legend: {
+								display: false,
+							},
+					scales: {
+						xAxes: [{
+							ticks:{
+								fontFamily: 'Montserrat',
+								fontSize: 12,
+							},
+							barPercentage: 0.5,
+							categoryPercentage: 0.5,
+							gridLines: {
+								borderDash: [8, 4],
+								color: "#92C0D8",
+								display: true,
+							},
+						}],
+						yAxes: [{
+							ticks: {
+								fontFamily: 'Montserrat',
+								beginAtZero:false,
+								max: (Math.ceil($scope.cpaworsttotal / 10) * 10) + 4,
+								min: (Math.ceil($scope.cpabesttotal / 10) * 10) - 10,
+								callback: function(value, index, values) {return '$' + value;},		
+							},
+							gridLines: {
+								display: false,
+							},
+						}]
+					}
+				},
+				plugins: [{
+					beforeInit: function (chart) {
+						chart.data.labels.forEach(function (e, i, a) {
+							if (/\n/.test(e)) {
+							a[i] = e.split(/\n/)
+							}
+						})
+					}
+				}]			
 			});				
+			
+			var budgetctx = document.getElementById('myBudgetChart').getContext('2d');
+			var budgetchart = new Chart(budgetctx, {
+				type: 'line',
+				data: {
+					labels: ["Current", "Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12"],
+					datasets: [{
+						backgroundColor: '#33C853',
+						borderColor: '#33C853',						
+						data: $scope.budgetbestjsonchart,	
+						fill: false,
+					},
+					{
+						backgroundColor: '#2DA9E0',
+						borderColor: '#2DA9E0',									
+						data: $scope.budgetexpectedjsonchart,						
+						fill: false,
+					},
+					{
+						backgroundColor: '#DD4F81',
+						borderColor: '#DD4F81',									
+						data: $scope.budgetworstjsonchart,						
+						fill: false,
+					}]
+				},
+				options: {
+					legend: {
+								display: false,
+							},
+					scales: {
+						xAxes: [{
+							ticks:{
+								fontFamily: 'Montserrat',
+								fontSize: 12,
+							},
+							barPercentage: 0.5,
+							categoryPercentage: 0.5,
+							gridLines: {
+								borderDash: [8, 4],
+								color: "#92C0D8",
+								display: true,
+							},
+						}],
+						yAxes: [{
+							ticks: {
+								fontFamily: 'Montserrat',
+								beginAtZero:true,
+								callback: function(value, index, values) {return '$' + value;},		
+							},
+							gridLines: {
+								display: false,
+							},
+						}]
+					}
+				},
+				plugins: [{
+					beforeInit: function (chart) {
+						chart.data.labels.forEach(function (e, i, a) {
+							if (/\n/.test(e)) {
+							a[i] = e.split(/\n/)
+							}
+						})
+					}
+				}]			
+			});			
 		});
 
 			
