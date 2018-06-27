@@ -1166,6 +1166,7 @@
 							},
 					scales: {
 						xAxes: [{
+							offset: true,
 							ticks:{
 								fontFamily: 'Montserrat',
 								fontSize: 12,
@@ -1173,7 +1174,7 @@
 							barPercentage: 0.5,
 							categoryPercentage: 0.5,
 							gridLines: {
-								borderDash: [8, 4],
+								borderDash: [8, 6],
 								color: "#92C0D8",
 								display: true,
 							},
@@ -1186,6 +1187,7 @@
 							},
 							gridLines: {
 								display: false,
+								color: "#92C0D8",
 							},
 						}]
 					},
@@ -1252,6 +1254,7 @@
 							},
 					scales: {
 						xAxes: [{
+							offset: true,
 							ticks:{
 								fontFamily: 'Montserrat',
 								fontSize: 12,
@@ -1259,7 +1262,7 @@
 							barPercentage: 0.5,
 							categoryPercentage: 0.5,
 							gridLines: {
-								borderDash: [8, 4],
+								borderDash: [8, 6],
 								color: "#92C0D8",
 								display: true,
 							},
@@ -1272,6 +1275,7 @@
 							},
 							gridLines: {
 								display: false,
+								color: "#92C0D8",
 							},
 						}]
 					},
@@ -1338,6 +1342,7 @@
 							},
 					scales: {
 						xAxes: [{
+							offset: true,
 							ticks:{
 								fontFamily: 'Montserrat',
 								fontSize: 12,
@@ -1345,7 +1350,7 @@
 							barPercentage: 0.5,
 							categoryPercentage: 0.5,
 							gridLines: {
-								borderDash: [8, 4],
+								borderDash: [8, 6],
 								color: "#92C0D8",
 								display: true,
 							},
@@ -1359,6 +1364,7 @@
 							},
 							gridLines: {
 								display: false,
+								color: "#92C0D8",
 							},
 						}]
 					},
@@ -1425,6 +1431,7 @@
 							},
 					scales: {
 						xAxes: [{
+							offset: true,
 							ticks:{
 								fontFamily: 'Montserrat',
 								fontSize: 12,
@@ -1432,7 +1439,7 @@
 							barPercentage: 0.5,
 							categoryPercentage: 0.5,
 							gridLines: {
-								borderDash: [8, 4],
+								borderDash: [8, 6],
 								color: "#92C0D8",
 								display: true,
 							},
@@ -1441,12 +1448,13 @@
 							ticks: {
 								fontFamily: 'Montserrat',
 								beginAtZero:false,
-								max: (Math.ceil($scope.cpaworsttotal / 10) * 10) + 2,
-								min: (Math.ceil($scope.cpabesttotal / 10) * 10) - 4,
+								min: (Math.ceil(($scope.cpabestjsonchart.reduce(function(a, b) { return Math.min(a, b);}))*0.875)),
+								max: (Math.ceil(($scope.cpaworstjsonchart.reduce(function(a, b) { return Math.max(a, b);}))*1.125)),
 								callback: function(value, index, values) {return '$' + value;},		
 							},
 							gridLines: {
 								display: false,
+								color: "#92C0D8",
 							},
 						}]
 					},
@@ -1513,6 +1521,7 @@
 							},
 					scales: {
 						xAxes: [{
+							offset: true,
 							ticks:{
 								fontFamily: 'Montserrat',
 								fontSize: 12,
@@ -1520,9 +1529,11 @@
 							barPercentage: 0.5,
 							categoryPercentage: 0.5,
 							gridLines: {
-								borderDash: [8, 4],
+								borderDash: [8, 6],
 								color: "#92C0D8",
 								display: true,
+								drawBorder: true,
+								lineWidth: 1,
 							},
 						}],
 						yAxes: [{
@@ -1535,6 +1546,8 @@
 							},
 							gridLines: {
 								display: false,
+								color: "#92C0D8",
+								drawBorder: true,
 							},
 						}]
 					},
