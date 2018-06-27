@@ -42,7 +42,7 @@ a, a:hover, a:active, a:focus {color:#2da9e0; text-decoration:underline;}
 .nopaddingright {padding-right: 0 !important;}
 h1{font-family: Montserrat; font-size:1.75rem}
 h2{font-family: Montserrat; text-transform:uppercase;color:#00314a;font-size:1.65rem;line-height:1.5;margin: 0 0 1rem 0;}
-h3{font-family: Montserrat;text-transform:uppercase;color:#00314a;font-size:1.25rem;line-height:1.3;margin: 0 0 0.4rem 0;}
+h3{font-family: Montserrat;text-transform:uppercase;color:#00314a;font-size:1.125rem;font-weight:500;line-height:1.3;margin: 0 0 0.4rem 0;}
 h4{font-family: Montserrat; text-transform: uppercase; position: relative; color: #00314a; font-size: 1.125rem; line-height: 1.3; padding-bottom: .1rem; margin: 0 0 1rem 0;}
 h4:after{position:absolute;content:"";background-color:#2F576B;height:1px;left:0;bottom:0;width:1.65rem;}
 h5{font-family: Montserrat; text-transform: none; position: relative; color: #00314a; font-size: 1.1rem; line-height: 1.3; padding-bottom: .1rem; margin: 0 0 1rem 0;}
@@ -110,7 +110,7 @@ header#main-header span.title{font-family: Montserrat; font-weight: 400; font-st
 .main-content.result .content .main-view .tab-content ul.tab-content-header li.expected:before{background-color: #2DA9E0;}
 .main-content.result .content .main-view .tab-content ul.tab-content-header li.worst:before{background-color: #DD4F81;}
 .main-content.result .content .main-view .tab-content ul.tab-content-header li span{display: block;}
-.main-content.result .content .main-view .tab-content ul.tab-content-header li .title{font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;}
+.main-content.result .content .main-view .tab-content ul.tab-content-header li .title{font-size: 0.75rem; font-weight: 500; margin-bottom: 0.75rem;}
 .main-content.result .content .main-view .tab-content ul.tab-content-header li .value{font-weight: 600; font-size: 2.25rem;}
 
 /*----------------------------------------------*/

@@ -202,10 +202,10 @@
 							</div>
 							<div id="roa" class="tab-pane fade">
 								<ul class="tab-content-header">
-									<li class="best"><span class="title">Ave. ROA Best</span><span class="value">{{roabesttotal/100 | percentage:2:'%'}}</span></li>
-									<li class="expected"><span class="title">Ave. ROA Expected</span><span class="value">{{roaexpectedtotal/100 | percentage:2:'%'}}</span></li>
-									<li class="worst"><span class="title">Ave. ROA Worst</span><span class="value">{{roaworsttotal/100 | percentage:2:'%'}}</span></li>
-									<li class="all"><span class="title">Ave. ROA All Options</span><span class="value">{{roaalltotal/100 | percentage:2:'%'}}</span></li>
+									<li class="best"><span class="title">Average ROA Best</span><span class="value">{{roabesttotal/100 | percentage:2:'%'}}</span></li>
+									<li class="expected"><span class="title">Average ROA Expected</span><span class="value">{{roaexpectedtotal/100 | percentage:2:'%'}}</span></li>
+									<li class="worst"><span class="title">Average ROA Worst</span><span class="value">{{roaworsttotal/100 | percentage:2:'%'}}</span></li>
+									<li class="all"><span class="title">Average ROA All Options</span><span class="value">{{roaalltotal/100 | percentage:2:'%'}}</span></li>
 								</ul>
 								
 								<h3>ROA</h3>
@@ -246,10 +246,10 @@
 							</div>
 							<div id="cpa" class="tab-pane fade">
 								<ul class="tab-content-header">
-									<li class="best"><span class="title">Ave. CPA Best</span><span class="value">{{cpabesttotal | currency}}</span></li>
-									<li class="expected"><span class="title">Ave. CPA Expected</span><span class="value">{{cpaexpectedtotal | currency}}</span></li>
-									<li class="worst"><span class="title">Ave. CPA Worst</span><span class="value">{{cpaworsttotal | currency}}</span></li>
-									<li class="all"><span class="title">Ave. CPA All Options</span><span class="value">{{cpaalltotal | currency}}</span></li>
+									<li class="best"><span class="title">Average CPA Best</span><span class="value">{{cpabesttotal | currency}}</span></li>
+									<li class="expected"><span class="title">Average CPA Expected</span><span class="value">{{cpaexpectedtotal | currency}}</span></li>
+									<li class="worst"><span class="title">Average CPA Worst</span><span class="value">{{cpaworsttotal | currency}}</span></li>
+									<li class="all"><span class="title">Average CPA All Options</span><span class="value">{{cpaalltotal | currency}}</span></li>
 								</ul>
 								
 								<h3>CPA</h3>
@@ -290,10 +290,10 @@
 							</div>
 							<div id="budget" class="tab-pane fade">
 								<ul class="tab-content-header">
-									<li class="best"><span class="title">Ave. Budget Best</span><span class="value">{{budgetbesttotal | currency}}</span></li>
-									<li class="expected"><span class="title">Ave. Budget Expected</span><span class="value">{{budgetexpectedtotal | currency}}</span></li>
-									<li class="worst"><span class="title">Ave. Budget Worst</span><span class="value">{{budgetworsttotal | currency}}</span></li>
-									<li class="all"><span class="title">Ave. Budget All Options</span><span class="value">{{budgetalltotal | currency}}</span></li>
+									<li class="best"><span class="title">Average Budget Best</span><span class="value">{{budgetbesttotal | currency}}</span></li>
+									<li class="expected"><span class="title">Average Budget Expected</span><span class="value">{{budgetexpectedtotal | currency}}</span></li>
+									<li class="worst"><span class="title">Average Budget Worst</span><span class="value">{{budgetworsttotal | currency}}</span></li>
+									<li class="all"><span class="title">Average Budget All Options</span><span class="value">{{budgetalltotal | currency}}</span></li>
 								</ul>
 								
 								<h3>Budget</h3>
@@ -1076,6 +1076,13 @@
 					legend: {
 								display: false,
 							},
+					hover: {
+						onHover: function(e) {
+							var point = this.getElementAtEvent(e);
+							if (point.length) e.target.style.cursor = 'pointer';
+								else e.target.style.cursor = 'default';
+						}
+					},						
 					scales: {
 						xAxes: [{
 							ticks:{
@@ -1164,6 +1171,13 @@
 					legend: {
 								display: false,
 							},
+					hover: {
+						onHover: function(e) {
+							var point = this.getElementAtEvent(e);
+							if (point.length) e.target.style.cursor = 'pointer';
+								else e.target.style.cursor = 'default';
+						}
+					},						
 					scales: {
 						xAxes: [{
 							offset: true,
@@ -1252,6 +1266,13 @@
 					legend: {
 								display: false,
 							},
+					hover: {
+						onHover: function(e) {
+							var point = this.getElementAtEvent(e);
+							if (point.length) e.target.style.cursor = 'pointer';
+								else e.target.style.cursor = 'default';
+						}
+					},						
 					scales: {
 						xAxes: [{
 							offset: true,
@@ -1340,6 +1361,13 @@
 					legend: {
 								display: false,
 							},
+					hover: {
+						onHover: function(e) {
+							var point = this.getElementAtEvent(e);
+							if (point.length) e.target.style.cursor = 'pointer';
+								else e.target.style.cursor = 'default';
+						}
+					},						
 					scales: {
 						xAxes: [{
 							offset: true,
@@ -1429,6 +1457,13 @@
 					legend: {
 								display: false,
 							},
+					hover: {
+						onHover: function(e) {
+							var point = this.getElementAtEvent(e);
+							if (point.length) e.target.style.cursor = 'pointer';
+								else e.target.style.cursor = 'default';
+						}
+					},						
 					scales: {
 						xAxes: [{
 							offset: true,
@@ -1519,6 +1554,13 @@
 					legend: {
 								display: false,
 							},
+					hover: {
+						onHover: function(e) {
+							var point = this.getElementAtEvent(e);
+							if (point.length) e.target.style.cursor = 'pointer';
+								else e.target.style.cursor = 'default';
+						}
+					},						
 					scales: {
 						xAxes: [{
 							offset: true,
