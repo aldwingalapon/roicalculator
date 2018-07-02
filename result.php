@@ -1584,7 +1584,7 @@
 								beginAtZero:false,
 								callback: function(value, index, values) {return '$' + value;},	
 								min: (Math.ceil($scope.budgetworsttotal / 1000) * 1000) - 2000,
-								max: (Math.ceil($scope.monthlyadspend / 1000) * 1000) + 500,
+								max: (Math.ceil($scope.monthlyadspend / 1000) * 1000) + 2000,
 							},
 							gridLines: {
 								display: false,
