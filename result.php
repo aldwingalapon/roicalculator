@@ -38,11 +38,12 @@
 							
 							
 								<h3>Current</h3>
-								<div class="row-fluid">
+								<div class="row-fluid sameheight">
 									<div class="col-md-8">	
 										<canvas id="myCurrentChart"></canvas>
 									</div>
 									<div class="col-md-4">	
+										<canvas id="myCurrentChart2"></canvas>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -1142,7 +1143,91 @@
 					}
 				}]				
 			});			
-
+			
+			var currentctx2 = document.getElementById('myCurrentChart2').getContext('2d');
+			var currentchart2 = new Chart(currentctx2, {
+				type: 'bar',
+				data: {
+					labels: ["ESTIMATED \nCURRENT ROA"],
+					datasets: [{
+						backgroundColor: '#54A401',
+						hoverBackgroundColor: '#54A401',
+						data: [$scope.currentroa*100],						
+					}]
+				},
+				options: {
+					legend: {
+								display: false,
+							},
+					hover: {
+						onHover: function(e) {
+							var point = this.getElementAtEvent(e);
+							if (point.length) e.target.style.cursor = 'pointer';
+								else e.target.style.cursor = 'default';
+						}
+					},						
+					scales: {
+						xAxes: [{
+							ticks:{
+								fontFamily: 'Montserrat',
+								fontSize: 12,
+							},
+							barPercentage: 0.5,
+							categoryPercentage: 0.5,
+							gridLines: {
+								drawBorder: false,
+								zeroLineColor: 'rgb(173,207,220)',
+								display: false,
+							},
+						}],
+						yAxes: [{
+							ticks: {
+								display: false,
+								fontFamily: 'Montserrat',
+								beginAtZero:true,
+								callback: function(value, index, values) {return value + '%';},		
+								max: (Math.ceil($scope.currentroa / 100) * 100)*3,
+							},
+							gridLines: {
+								drawBorder: false,
+								zeroLineColor: 'rgb(173,207,220)',
+								display: false,
+							},
+						}]
+					},
+					tooltips: {
+						enabled: true,
+						backgroundColor: '#FFFFFF',
+						bodyFontFamily: 'Montserrat',
+						bodyFontSize: 12,
+						bodyFontStyle: 'bold',
+						bodyFontColor: '#000000',
+						callbacks: {
+							title: function(tooltipItems, data) {
+							  return '';
+							},
+							label: function(tooltipItem, data) {
+							  var datasetLabel = '';
+							  var label = data.labels[tooltipItem.index];
+							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '%';
+							},							
+						},
+						xAlign: 'center',						
+						yAlign: 'bottom',
+						displayColors : false,
+					}
+				},
+				plugins: [{
+					beforeInit: function (chart) {
+						chart.data.labels.forEach(function (e, i, a) {
+							if (/\n/.test(e)) {
+							a[i] = e.split(/\n/)
+							}
+						})
+					}
+				}]				
+			});
+			
 			var salesctx = document.getElementById('mySalesChart').getContext('2d');
 			var saleschart = new Chart(salesctx, {
 				type: 'line',
