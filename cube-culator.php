@@ -58,7 +58,7 @@
 							<p>We've run over 1000 media buying campaigns. Based on our data and experience, we've created a ROI calculator that can help you estimate your CPAs, ROAS based on your current optmization.</p>
 							<p>While we know no calculator can take the place of the actual data of your unique campaign, this calculator can give you an estimate based on your numbers, your set up, and whether you have everything optimized.  <strong>Let's go!</strong></p>
 							<p class="lastp"><strong>Put your info below, and we'll show you how much more you can make if you optimize - as well as the steps you can take to optimize.</strong></p>
-							<div class="form-row"><div class="form-column column-half"><label for="fullname">Your Fullname</label><div class="input-group"><input class="text" type="text" ng-model="fullname" id="fullname" name="fullname" /></div></div><div class="form-column column-half column-last"><label for="emailaddress">Email Address</label><div class="input-group"><input class="text" type="text" ng-model="emailaddress" id="emailaddress" name="emailaddress"/></div></div></div>
+							<div class="form-row"><div class="form-column column-half"><label for="fullname">Your Fullname</label><div class="input-group"><input class="text" type="text" ng-model="fullname" id="fullname" name="fullname" /></div></div><div class="form-column column-half column-last"><label for="emailaddress">Email Address</label><div class="input-group"><input class="text" type="text" ng-model="emailaddress" id="emailaddress" name="emailaddress" /></div></div></div>
 							<div class="form-row"><div class="form-column"><input type="button" name="btncontactdetail" class="next btn btn-right" id="btncontactdetail" value="Let's Go" title="Let's Go" /></div><div class="error_message"></div><p class="privacy">Your privacy is kept safe and anonymous. <span><a href="#" title="Read our privacy policy here">Read our privacy policy here</a></span></p></div>
 						</div>
 						<div class="col-md-4">
@@ -73,12 +73,14 @@
 				<fieldset id="currentdata">
 					<div class="container">
 						<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<a class="previous btn-previous"></a>
 							<h2 class="section-title"><span>Use this Calculator to find out</span> <span>how high your ROI can go</span></h2>
+							<div class="form-row"><div class="form-column column-half"><label for="cpa">What's your cost per acquisition? <span class="info" data-toggle="tooltip" data-placement="top" title="Place text here for more information" data-original-title="Place text here for more information"></span></label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roicpa" id="cpa" name="cpa" /></div></div><div class="form-column column-half column-last"><label for="aveordervalue">Put your average order value here <span class="info" data-toggle="tooltip" data-placement="top" title="Place text here for more information" data-original-title="Place text here for more information"></span></label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roiaveordervalue" id="aveordervalue" name="aveordervalue"/></div></div></div>
+							<div class="form-row"><div class="form-column column-half"><label for="monthlysales">Your monthly sales <span class="info" data-toggle="tooltip" data-placement="top" title="Place text here for more information" data-original-title="Place text here for more information"></span></label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roimonthlysales" id="monthlysales" name="monthlysales"/></div></div><div class="form-column column-half column-last"><label for="monthlyadspend">Monthly ad spend <span class="info" data-toggle="tooltip" data-placement="top" title="Place text here for more information" data-original-title="Place text here for more information"></span></label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roimonthlyadspend" id="monthlyadspend" name="monthlyadspend"/></div></div></div>
 							<div class="form-row"><div class="form-column"><input type="button" name="btncurrentdata" class="next btn btn-right" id="btncurrentdata" value="Next" title="Next" /></div><div class="error_message"></div></div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-4">
 						</div>				
 						<div class="clearfix"></div>						
 							<div class="clearfix"></div>

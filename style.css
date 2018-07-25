@@ -175,10 +175,10 @@ input.text{font-family: Montserrat; font-size: 1.875rem; line-height:1; font-wei
 .input-group{display: inline-block; font-family: Montserrat; vertical-align: middle; margin-bottom: 0.75rem;}
 .form-column.column-half{}
 .form-column.column-half.column-last{margin-right:0;}
-.column-half input.text{max-width: 360px;}
+.column-half input.text, .column-half input.currency{max-width: 360px;}
 fieldset#contactdetail{}
 fieldset#contactdetail .form-row{}
-fieldset input[type=button],fieldset input[type=submit]{background:#2DA9E0 url(images/arrowright@1x.png) 10rem center no-repeat; font-size:1.875rem; font-weight:600; color:#FFF !important; border: 0; border-bottom: 4px solid #1F8DBD; margin: 0 2rem 0 0; padding: 0.675rem 8rem 0.675rem 5rem; border-radius: 0; width: auto;}
+fieldset input[type=button],fieldset input[type=submit]{background:#2DA9E0 url(images/arrowright@1x.png) 11rem center no-repeat; font-size:1.875rem; font-weight:600; color:#FFF !important; border: 0; border-bottom: 4px solid #1F8DBD; margin: 0 2rem 0 0; padding: 0.675rem 9rem 0.675rem 6rem; border-radius: 0; width: auto;}
 fieldset input[type=button]#btncontactdetail{background:#2DA9E0 url(images/arrowright@1x.png) 12rem center no-repeat;padding: 0.675rem 8rem 0.675rem 4rem;}
 fieldset input[type=button]:hover, fieldset input[type=submit]:hover, fieldset input[type=button]:active, fieldset input[type=submit]:active{color:#FFF;}
 fieldset#contactdetail p.privacy{font-size:0.75rem;position:relative; line-height: 1.1; padding: 1rem 2rem 1rem 3rem;}
@@ -187,7 +187,15 @@ fieldset#contactdetail p.privacy span{display:block;}
 a.btn-previous{cursor:pointer;}
 a.btn-previous:before{background:transparent url(images/arrowleft@3x.png) center / cover no-repeat;content:"";display:inline-block;width:77px;height:40px;margin-bottom:1rem;}
 fieldset#currentdata{}
+fieldset#currentdata label{font-size:1rem;font-weight:700;text-transform:none;}
+fieldset#currentdata label span.info{cursor:pointer;display:inline-block;vertical-align:bottom;width:16px;height:16px;background:transparent url(images/info@3x.png) center / cover no-repeat;}
 fieldset#optionitem{}
+form#cube-culator input.currency{font-family: Montserrat; font-size:2.5rem; font-weight: 500; border: none; vertical-align: middle; margin: 0; padding: 0.75rem 0.75rem 0.75rem 4rem;}
+form#cube-culator .input-group{display: inline-block; font-family: Montserrat; vertical-align: middle; margin-bottom: 0.75rem;}
+form#cube-culator .input-group-addon{display: inline-block; vertical-align: middle; border-radius: 0; font-size: 2.5rem; font-weight: 500; color: #1488bb; border: none; background-color: transparent; position: absolute; top: 1rem; margin: 0; padding: 0; left: 1.75rem;}
+form#cube-culator input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none; margin: 0;}
+.tooltip-inner{font-family: Montserrat; font-size:0.75rem; font-style:italic;text-align:left;width:300px;padding:0.5rem;border-radius:2px;background-color:#2DA9E0;margin-left:160px !important;}
+.tooltip.top .tooltip-arrow{border-top-color:#2DA9E0;}
 
 /*----------------------------------------------*/
 /* Footer */

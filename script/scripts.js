@@ -777,6 +777,11 @@ $(function(){
 });
 
 $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+
+$(document).ready(function(){
+  
   var current = 1,current_step,next_step,steps;
   steps = $("fieldset").length;
   $(".next").click(function(){
