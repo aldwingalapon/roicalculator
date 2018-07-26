@@ -31,11 +31,12 @@ cubeculator.controller("myCubaticaCtrl", function($scope) {
 	$scope.roiaveordervalue = 65.78;
 	$scope.roimonthlyadspend = 6000;		
 	$scope.options = [
-		{mod:'Correct Pixel Implementation',metric:'CPA',needed:false,best:-5,expected:-2,worst:-1,timeframeb:6,timeframee:12,timeframew:18},
-		{mod:'DPA (Dynamic Product Ads)',metric:'Sales',needed:false,best:20,expected:10,worst:5,timeframeb:6,timeframee:12,timeframew:18},
-		{mod:'Naming Convention',metric:'CPA',needed:false,best:-5,expected:-2,worst:-1,timeframeb:6,timeframee:12,timeframew:18},
-		{mod:'Daily optimizations',metric:'Sales',needed:false,best:10,expected:5,worst:2,timeframeb:6,timeframee:12,timeframew:18},
-		{mod:'Dedicated person running accounts',metric:'Sales',needed:false,best:30,expected:20,worst:10,timeframeb:6,timeframee:12,timeframew:18}
+		{id:0,title:'Did you correctly implement the pixels',info:'Place text here for more information',mod:'Correct Pixel Implementation',metric:'CPA',needed:[{id:0,label:'Yes',answer:false},{id:1,label:'No',answer:false},{id:2,label:'Maybe',answer:false},{id:3,label:'What is a pixel',answer:false}],best:-5,expected:-2,worst:-1,timeframeb:6,timeframee:12,timeframew:18},
+		{id:1,title:'Are you using DPA(dynamic product ads)?',info:'Place text here for more information',mod:'DPA (Dynamic Product Ads)',metric:'Sales',needed:[{id:0,label:'Yes',answer:false},{id:1,label:'No',answer:false},{id:2,label:'Maybe',answer:false},{id:3,label:'I\'m not sure what that is',answer:false}],best:20,expected:10,worst:5,timeframeb:6,timeframee:12,timeframew:18},
+		{id:2,title:'Did you organize your campaign with a Naming Convention?',info:'Place text here for more information',mod:'Naming Convention',metric:'CPA',needed:[{id:0,label:'Yes',answer:false},{id:1,label:'No',answer:false},{id:2,label:'Maybe',answer:false},{id:3,label:'I call mine "Jim"',answer:false}],best:-5,expected:-2,worst:-1,timeframeb:6,timeframee:12,timeframew:18},
+		{id:3,title:'Daily Optimization',info:'Place text here for more information',mod:'Daily optimizations',metric:'Sales',needed:[{id:0,label:'Yes',answer:false},{id:1,label:'No',answer:false},{id:2,label:'Maybe',answer:false},{id:3,label:'I\'m suppose to optimize?',answer:false}],best:10,expected:5,worst:2,timeframeb:6,timeframee:12,timeframew:18},
+		{id:4,title:'Dedicated Person Running Accounts',info:'Place text here for more information',mod:'Dedicated person running accounts',metric:'Sales',needed:[{id:0,label:'Yes',answer:false},{id:1,label:'No',answer:false},{id:2,label:'Maybe',answer:false},{id:3,label:'I\'m pretty dedicated',answer:false}],best:30,expected:20,worst:10,timeframeb:6,timeframee:12,timeframew:18}		
+
 	];
 	$scope.orig = angular.copy($scope.options);
 	$scope.reset = function() {
@@ -55,7 +56,7 @@ var app = angular.module('myApp', ['ngAnimate']);
 			{mod:'DPA (Dynamic Product Ads)',metric:'Sales',needed:0,best:20,expected:10,worst:5,timeframeb:6,timeframee:12,timeframew:18},
 			{mod:'Naming Convention',metric:'CPA',needed:0,best:-5,expected:-2,worst:-1,timeframeb:6,timeframee:12,timeframew:18},
 			{mod:'Daily optimizations',metric:'Sales',needed:0,best:10,expected:5,worst:2,timeframeb:6,timeframee:12,timeframew:18},
-			{mod:'Dedicated person running accounts',metric:'Sales',needed:0,best:30,expected:20,worst:10,timeframeb:6,timeframee:12,timeframew:18}
+			{mod:'Dedicated person running accounts',metric:'Sales',needed:0,best:30,expected:20,worst:10,timeframeb:6,timeframee:12,timeframew:18}		
 		];
 		$scope.orig = angular.copy($scope.options);
 		$scope.visible = true;
@@ -789,11 +790,15 @@ $(document).ready(function(){
     next_step = $(this).closest("fieldset").next();
     next_step.show();
     current_step.hide();
+	console.log("The current fieldset is " + current_step.attr('id'));
+	console.log("The next fieldset is " + next_step.attr('id'));
   });
   $(".previous").click(function(){
     current_step = $(this).closest("fieldset");
     next_step = $(this).closest("fieldset").prev();
     next_step.show();
     current_step.hide();
+	console.log("The current fieldset is " + current_step.attr('id'));
+	console.log("The previous fieldset is " + next_step.attr('id'));	
   });
 });

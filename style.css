@@ -160,7 +160,7 @@ form#cube-culator fieldset:not(:first-of-type) {display: none;}
 form#cube-culator img.roiimg{padding-top:5rem;}
 form#cube-culator .main-title{font-size:3.5rem;margin-top:0; margin-bottom:1rem;}
 form#cube-culator .main-title:after{width:8%;}
-form#cube-culator .section-title{position:relative;font-size:2.25rem;line-height:1.1;font-weight:600;text-transform:none;margin-bottom:1rem;padding-bottom: 0.75rem;}
+form#cube-culator .section-title{position:relative;font-size:2.25rem;line-height:1.1;font-weight:700;text-transform:none;margin-bottom:1rem;padding-bottom: 0.75rem;}
 form#cube-culator .section-title span{display:block;}
 form#cube-culator .section-title:after{width:10%;}
 form#cube-culator p{font-size:0.8125rem;line-height:1.5;margin-bottom:1rem;}
@@ -181,21 +181,32 @@ fieldset#contactdetail .form-row{}
 fieldset input[type=button],fieldset input[type=submit]{background:#2DA9E0 url(images/arrowright@1x.png) 11rem center no-repeat; font-size:1.875rem; font-weight:600; color:#FFF !important; border: 0; border-bottom: 4px solid #1F8DBD; margin: 0 2rem 0 0; padding: 0.675rem 9rem 0.675rem 6rem; border-radius: 0; width: auto;}
 fieldset input[type=button]#btncontactdetail{background:#2DA9E0 url(images/arrowright@1x.png) 12rem center no-repeat;padding: 0.675rem 8rem 0.675rem 4rem;}
 fieldset input[type=button]:hover, fieldset input[type=submit]:hover, fieldset input[type=button]:active, fieldset input[type=submit]:active{color:#FFF;}
-fieldset#contactdetail p.privacy{font-size:0.75rem;position:relative; line-height: 1.1; padding: 1rem 2rem 1rem 3rem;}
-fieldset#contactdetail p.privacy:before{position:absolute;left:1.5rem;background:transparent url(images/privacy@3x.png) center / cover no-repeat;content:"";display:inline-block;width:19px;height:24px;vertical-align:middle;}
+fieldset#contactdetail p.privacy{font-size:0.75rem;position:relative; line-height: 1.1; padding: 1rem 2rem 1rem 4rem;}
+fieldset#contactdetail p.privacy:before{position:absolute;left:2.25rem;background:transparent url(images/privacy@3x.png) center / cover no-repeat;content:"";display:inline-block;width:19px;height:24px;vertical-align:middle;}
 fieldset#contactdetail p.privacy span{display:block;}
-a.btn-previous{cursor:pointer;}
-a.btn-previous:before{background:transparent url(images/arrowleft@3x.png) center / cover no-repeat;content:"";display:inline-block;width:77px;height:40px;margin-bottom:1rem;}
+a.btn-previous{display:inline-block;cursor:pointer;margin-bottom:1rem;}
+a.btn-previous:before{background:transparent url(images/arrowleft@3x.png) center / cover no-repeat;content:"";display:inline-block;width:77px;height:40px;}
 fieldset#currentdata{}
-fieldset#currentdata label{font-size:1rem;font-weight:700;text-transform:none;}
+fieldset#currentdata label{font-size:1rem;font-weight:600;text-transform:none;}
 fieldset#currentdata label span.info{cursor:pointer;display:inline-block;vertical-align:bottom;width:16px;height:16px;background:transparent url(images/info@3x.png) center / cover no-repeat;}
 fieldset#optionitem{}
+fieldset#optionitem .option-item{}
+fieldset#optionitem .option-item .option-header{font-size: 1.125rem; font-weight: 700; line-height: 1; margin-bottom: 0.5rem;}
+fieldset#optionitem .option-item .option-header span.info{cursor:pointer;display:inline-block;vertical-align:middle;width:16px;height:16px;background:transparent url(images/info@3x.png) center / cover no-repeat;}
 form#cube-culator input.currency{font-family: Montserrat; font-size:2.5rem; font-weight: 500; border: none; vertical-align: middle; margin: 0; padding: 0.75rem 0.75rem 0.75rem 4rem;}
 form#cube-culator .input-group{display: inline-block; font-family: Montserrat; vertical-align: middle; margin-bottom: 0.75rem;}
 form#cube-culator .input-group-addon{display: inline-block; vertical-align: middle; border-radius: 0; font-size: 2.5rem; font-weight: 500; color: #1488bb; border: none; background-color: transparent; position: absolute; top: 1rem; margin: 0; padding: 0; left: 1.75rem;}
 form#cube-culator input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none; margin: 0;}
-.tooltip-inner{font-family: Montserrat; font-size:0.75rem; font-style:italic;text-align:left;width:300px;padding:0.5rem;border-radius:2px;background-color:#2DA9E0;margin-left:160px !important;}
-.tooltip.top .tooltip-arrow{border-top-color:#2DA9E0;}
+form#cube-culator .tooltip-inner{font-family: Montserrat; font-size:0.75rem; font-style:italic;text-align:left;width:320px;padding:0.5rem;border-radius:2px;background-color:#2DA9E0;margin-left:160px !important;}
+form#cube-culator .tooltip.top .tooltip-arrow{border-top-color:#2DA9E0;}
+form#cube-culator .error_message{position: relative;font-size: 0.65rem;line-height: 1.5;font-style: italic;display:none;max-width: 330px;vertical-align: middle;padding-left: 2.5rem;}
+form#cube-culator .error_message:before{position: absolute;left: 0;content:"";cursor:pointer;display:inline-block;vertical-align:middle;width:33px;height:30px;background:transparent url(images/error@3x.png) center / cover no-repeat;}
+form#cube-culator .radiogroup{margin-bottom:1rem;}
+form#cube-culator .radiogroup .radio-item{display: inline-block; vertical-align: middle; margin:0.25rem 1.5rem 0 0;}
+form#cube-culator input[type="radio"] {-webkit-appearance: none; display: inline-block; vertical-align: middle; background: transparent url(images/radiouncheked@3x.png) no-repeat center / cover; outline: none; cursor: pointer; width: 28px; height: 28px;  margin: 0 0.75rem 0 0; box-shadow:none;}
+form#cube-culator input[type="radio"] + label{display: inline-block; vertical-align: middle; font-size:0.875rem;font-weight:500; text-transform:none; margin:0; padding:0;}
+form#cube-culator input[type="radio"]:checked{background: transparent url(images/radiochecked@3x.png) no-repeat center / cover;}
+form#cube-culator input[type="radio"]:checked + label{color:#2DA9E0;}
 
 /*----------------------------------------------*/
 /* Footer */
