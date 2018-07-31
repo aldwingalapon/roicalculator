@@ -130,7 +130,7 @@
 								</div>
 								<div class="clearfix"></div>
 								
-								<div class="hide">
+								<div class="">
 									<p>{{salesbestjson | json}}</p>
 									<p>{{salesbestjsonchart | json}}</p>
 									<p>{{salesexpectedjson | json}}</p>
@@ -174,7 +174,7 @@
 								</div>
 								<div class="clearfix"></div>
 								
-								<div class="hide">								
+								<div class="">								
 									<p>{{grossprofitbestjson | json}}</p>
 									<p>{{grossprofitbestjsonchart | json}}</p>
 									<p>{{grossprofitexpectedjson | json}}</p>
@@ -218,7 +218,7 @@
 								</div>
 								<div class="clearfix"></div>
 								
-								<div class="hide">								
+								<div class="">								
 									<p>{{roabestjson | json}}</p>
 									<p>{{roabestjsonchart | json}}</p>
 									<p>{{roaexpectedjson | json}}</p>
@@ -262,7 +262,7 @@
 								</div>
 								<div class="clearfix"></div>
 								
-								<div class="hide">								
+								<div class="">								
 									<p>{{cpabestjson | json}}</p>
 									<p>{{cpabestjsonchart | json}}</p>
 									<p>{{cpaexpectedjson | json}}</p>
@@ -306,7 +306,7 @@
 								</div>
 								<div class="clearfix"></div>
 								
-								<div class="hide">								
+								<div class="">								
 									<p>{{budgetbestjson | json}}</p>
 									<p>{{budgetbestjsonchart | json}}</p>
 									<p>{{budgetexpectedjson | json}}</p>
@@ -1075,7 +1075,7 @@
 				},
 				options: {
 					legend: {
-								display: false,
+								display: true,
 							},
 					hover: {
 						onHover: function(e) {
@@ -1157,7 +1157,7 @@
 				},
 				options: {
 					legend: {
-								display: false,
+								display: true,
 							},
 					hover: {
 						onHover: function(e) {
@@ -1254,7 +1254,7 @@
 				},
 				options: {
 					legend: {
-								display: false,
+								display: true,
 							},
 					hover: {
 						onHover: function(e) {
@@ -1349,7 +1349,7 @@
 				},
 				options: {
 					legend: {
-								display: false,
+								display: true,
 							},
 					hover: {
 						onHover: function(e) {
@@ -1444,7 +1444,7 @@
 				},
 				options: {
 					legend: {
-								display: false,
+								display: true,
 							},
 					hover: {
 						onHover: function(e) {
@@ -1540,7 +1540,7 @@
 				},
 				options: {
 					legend: {
-								display: false,
+								display: true,
 							},
 					hover: {
 						onHover: function(e) {
@@ -1637,7 +1637,7 @@
 				},
 				options: {
 					legend: {
-								display: false,
+								display: true,
 							},
 					hover: {
 						onHover: function(e) {
