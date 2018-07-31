@@ -165,22 +165,24 @@ form#cube-culator .section-title span{display:block;}
 form#cube-culator .section-title:after{width:10%;}
 form#cube-culator p{font-size:0.8125rem;line-height:1.5;margin-bottom:1rem;}
 form#cube-culator p.lastp{margin-bottom:2rem;}
-form#cube-culator p strong{font-weight:500;}
-.form-row{margin: 0.4rem 0;}
-.form-column{display: inline-block; margin-right: 1rem;}
+form#cube-culator p strong{font-weight:500;}	
+form#cube-culator .row .form-row{margin: 0.4rem 0;}
+form#cube-culator .row .form-row .form-column{display: inline-block; vertical-align: top; margin-right: 1rem;}
+form#cube-culator .row .form-row:last-child .form-column{vertical-align: middle;}
+form#cube-culator .row .form-row .form-column.column-half{}
+form#cube-culator .row .form-row .form-column.column-half.column-last{margin-right:0;}
 label{display: block; font-family: Montserrat; font-size: 0.65rem; text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem;}
 input{font-family: Montserrat; -webkit-appearance: none; color: #A7A7A7;box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-webkit-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-moz-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);}
-input:active, input:focus{color: #051A24;}
-input.text{font-family: Montserrat; font-size: 1.875rem; line-height:1; font-weight: 500; border: none; vertical-align: middle; margin: 0; padding: 0.75rem .5rem 0.75rem 2rem;}
+fieldset#contactdetail .input-group.invalid input, fieldset#currentdata .input-group.invalid input {background-color: #ffdddd;}
+input:active, input:focus{background-color:#FFF !important;color: #051A24;}
+input.text, input.email{font-family: Montserrat; font-size: 1.875rem; line-height:1; font-weight: 500; border: none; vertical-align: middle; margin: 0; padding: 0.75rem .5rem 0.75rem 2rem;}
 .input-group{display: inline-block; font-family: Montserrat; vertical-align: middle; margin-bottom: 0.75rem;}
-.form-column.column-half{}
-.form-column.column-half.column-last{margin-right:0;}
-.column-half input.text, .column-half input.currency{max-width: 360px;}
+.column-half input.text, .column-half input.email, .column-half input.currency{max-width: 360px;}
 fieldset#contactdetail{}
 fieldset#contactdetail .form-row{}
-fieldset input[type=button],fieldset input[type=submit]{background:#2DA9E0 url(images/arrowright@1x.png) 11rem center no-repeat; font-size:1.875rem; font-weight:600; color:#FFF !important; border: 0; border-bottom: 4px solid #1F8DBD; margin: 0 2rem 0 0; padding: 0.675rem 9rem 0.675rem 6rem; border-radius: 0; width: auto;}
-fieldset input[type=button]#btncontactdetail{background:#2DA9E0 url(images/arrowright@1x.png) 12rem center no-repeat;padding: 0.675rem 8rem 0.675rem 4rem;}
-fieldset input[type=button]:hover, fieldset input[type=submit]:hover, fieldset input[type=button]:active, fieldset input[type=submit]:active{color:#FFF;}
+fieldset input[type=button],fieldset input[type=submit]{background:#2DA9E0 url(images/arrowright@1x.png) 11rem center no-repeat !important; font-size:1.875rem; font-weight:600; color:#FFF !important; border: 0; border-bottom: 4px solid #1F8DBD; margin: 0 2rem 0 0; padding: 0.675rem 9rem 0.675rem 6rem; border-radius: 0; width: auto;}
+fieldset input[type=button]#btncontactdetail{background:#2DA9E0 url(images/arrowright@1x.png) 12rem center no-repeat !important;padding: 0.675rem 8rem 0.675rem 4rem;}
+fieldset input[type=button]:hover, fieldset input[type=submit]:hover, fieldset input[type=button]:active, fieldset input[type=submit]:active{background-color:#2DA9E0;color:#FFF;}
 fieldset#contactdetail p.privacy{font-size:0.75rem;position:relative; line-height: 1.1; padding: 1rem 2rem 1rem 4rem;}
 fieldset#contactdetail p.privacy:before{position:absolute;left:2.25rem;background:transparent url(images/privacy@3x.png) center / cover no-repeat;content:"";display:inline-block;width:19px;height:24px;vertical-align:middle;}
 fieldset#contactdetail p.privacy span{display:block;}
@@ -189,21 +191,30 @@ a.btn-previous:before{background:transparent url(images/arrowleft@3x.png) center
 fieldset#currentdata{}
 fieldset#currentdata label{font-size:1rem;font-weight:600;text-transform:none;}
 fieldset#currentdata label span.info{cursor:pointer;display:inline-block;vertical-align:bottom;width:16px;height:16px;background:transparent url(images/info@3x.png) center / cover no-repeat;}
+fieldset#contactdetail .field_error, fieldset#currentdata .field_error{position:relative;display:none;}
+fieldset#contactdetail .input-group.invalid + .field_error, fieldset#currentdata .input-group.invalid + .field_error{display:block;max-width: 360px;}
+fieldset#contactdetail .field_error .error_message_content, fieldset#currentdata .field_error .error_message_content{color:#FFF;background-color:#E74C3C;font-family: Montserrat; font-size:0.75rem; font-weight:400; font-style:italic;text-align:left;margin:-0.5rem 0 0.75rem;padding:0.5rem;border-radius:2px -webkit-transition: all .5s ease-in-out; -moz-transition: all .5s ease-in-out; -ms-transition: all .5s ease-in-out; -o-transition: all .5s ease-in-out;}
 fieldset#optionitem{}
 fieldset#optionitem .option-item{}
 fieldset#optionitem .option-item .option-header{font-size: 1.125rem; font-weight: 700; line-height: 1; margin-bottom: 0.5rem;}
 fieldset#optionitem .option-item .option-header span.info{cursor:pointer;display:inline-block;vertical-align:middle;width:16px;height:16px;background:transparent url(images/info@3x.png) center / cover no-repeat;}
+fieldset#optionitem .field_error{position:relative;display:none;vertical-align:middle;width:16px;height:16px;}
+fieldset#optionitem .option-item.invalid .field_error{display:inline-block;}
+fieldset#optionitem .field_error .error_message_outer{display: block; position: absolute; left: 1rem; top: 100%; transform: translateY(-50%);}
+fieldset#optionitem .field_error .error_message_outer .error_message_content{position: relative; color:#FFF;background-color:#E74C3C;font-family: Montserrat; font-size:0.75rem; font-weight:400; font-style:italic;text-align:left;margin:-0.5rem 0 0.75rem;padding:0.5rem;width: 240px;border-radius:2px; -webkit-transition: all .5s ease-in-out; -moz-transition: all .5s ease-in-out; -ms-transition: all .5s ease-in-out; -o-transition: all .5s ease-in-out;}
+fieldset#optionitem .field_error .error_message_outer .error_message_content:after{right: 100%; top: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-color: transparent; border-right-color: #E74C3C; border-width: 4px; margin-top: -4px;}
 form#cube-culator input.currency{font-family: Montserrat; font-size:2.5rem; font-weight: 500; border: none; vertical-align: middle; margin: 0; padding: 0.75rem 0.75rem 0.75rem 4rem;}
 form#cube-culator .input-group{display: inline-block; font-family: Montserrat; vertical-align: middle; margin-bottom: 0.75rem;}
 form#cube-culator .input-group-addon{display: inline-block; vertical-align: middle; border-radius: 0; font-size: 2.5rem; font-weight: 500; color: #1488bb; border: none; background-color: transparent; position: absolute; top: 1rem; margin: 0; padding: 0; left: 1.75rem;}
 form#cube-culator input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none; margin: 0;}
 form#cube-culator .tooltip-inner{font-family: Montserrat; font-size:0.75rem; font-style:italic;text-align:left;width:320px;padding:0.5rem;border-radius:2px;background-color:#2DA9E0;margin-left:160px !important;}
 form#cube-culator .tooltip.top .tooltip-arrow{border-top-color:#2DA9E0;}
-form#cube-culator .error_message{position: relative;font-size: 0.65rem;line-height: 1.5;font-style: italic;display:none;max-width: 330px;vertical-align: middle;padding-left: 2.5rem;}
+form#cube-culator .error_message{position: relative;font-size: 0.65rem;line-height: 1.5;font-style: italic;display:none;max-width: 330px;vertical-align: middle;padding-left: 2.5rem; -webkit-transition: all .5s ease-in-out; -moz-transition: all .5s ease-in-out; -ms-transition: all .5s ease-in-out; -o-transition: all .5s ease-in-out;}
+form#cube-culator fieldset.section_error .error_message{display:inline-block;}
 form#cube-culator .error_message:before{position: absolute;left: 0;content:"";cursor:pointer;display:inline-block;vertical-align:middle;width:33px;height:30px;background:transparent url(images/error@3x.png) center / cover no-repeat;}
 form#cube-culator .radiogroup{margin-bottom:1rem;}
 form#cube-culator .radiogroup .radio-item{display: inline-block; vertical-align: middle; margin:0.25rem 1.5rem 0 0;}
-form#cube-culator input[type="radio"] {-webkit-appearance: none; display: inline-block; vertical-align: middle; background: transparent url(images/radiouncheked@3x.png) no-repeat center / cover; outline: none; cursor: pointer; width: 28px; height: 28px;  margin: 0 0.75rem 0 0; box-shadow:none;}
+form#cube-culator input[type="radio"] {background-color:transparent !important;-webkit-appearance: none; display: inline-block; vertical-align: middle; background: transparent url(images/radiouncheked@3x.png) no-repeat center / cover; outline: none; cursor: pointer; width: 28px; height: 28px;  margin: 0 0.75rem 0 0; box-shadow:none;}
 form#cube-culator input[type="radio"] + label{display: inline-block; vertical-align: middle; font-size:0.875rem;font-weight:500; text-transform:none; margin:0; padding:0;}
 form#cube-culator input[type="radio"]:checked{background: transparent url(images/radiochecked@3x.png) no-repeat center / cover;}
 form#cube-culator input[type="radio"]:checked + label{color:#2DA9E0;}
