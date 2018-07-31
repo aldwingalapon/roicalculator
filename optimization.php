@@ -55,6 +55,11 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h2 class="group-title"><button class="btn group-next">Show me Optimized</button>Here's your current roi trajectory: <span class="description">This projected ROI path is based on your answers.</span></h2>
+
+								<p><input type="number" ng-model="cpa" value="<?php echo $_POST['cpa'];?>" disabled /> <input type="number" ng-model="monthlysales" value="<?php echo $_POST['monthlysales'];?>" disabled /> <input type="number" ng-model="aveordervalue" value="<?php echo $_POST['aveordervalue'];?>" disabled /> <input type="number" ng-model="monthlyadspend" value="<?php echo $_POST['monthlyadspend'];?>" disabled /></p>								
+								<p>Estimated Current ROA (%) <span class="currentroa percentage">{{currentroa | percentage:2:'%'}}</span></p>
+								<p>Estimated Current Spend <span class="estimatedcurrentspend currency">{{estimatedcurrentspend | currency}}</span></p>
+								<p>Estimated Current Gross <span class="estimatedcurrentgross currency">{{estimatedcurrentgross | currency}}</span></p>								
 								<p class="hide">{{newoptions | json}}</p>
 								<p>{{newoptionssalesyes | json}}</p>
 								<p>{{newoptionssalesall | json}}</p>
@@ -115,7 +120,7 @@
 						<div class="clearfix"></div>							
 					</div>
 					<div class="clearfix"></div>							
-					<div class="group-info">
+					<div class="group-info has-bottom">
 						<div class="container">
 							<div class="row">	
 								<div class="col-md-8">
@@ -127,8 +132,71 @@
 								<div class="clearfix"></div>							
 							</div>
 							<div class="clearfix"></div>							
-						</div>						
+						</div>
+						<div class="clearfix"></div>
+						<div class="bottom-group-info">
+							<div class="container">
+								<div class="row">	
+									<div class="col-md-12">
+										<ul class="group-tools">
+											<li class="send"><a href="#" title="Send us a Message">Send us a Message</a></li>
+											<li class="print"><a href="#" title="Print this chart">Print this chart</a></li>
+											<li class="calculate"><a href="cube-culator.php" title="Calculate a new ROI">Calculate a new ROI</a></li>
+										</ul>
+									</div>								
+									<div class="clearfix"></div>							
+								</div>
+								<div class="clearfix"></div>							
+							</div>							
+						</div>							
 					</div>					
+					<div class="clearfix"></div>
+					<div class="qa-section">
+						<div class="container">
+							<div class="row">	
+								<div class="col-md-12">
+									<h2 class="qa-title">Questions?</h2>
+									<div class="panel-group" id="accordion">
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+													<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">How was this calculated?</a>
+												</h4>
+											</div>
+											<div id="collapse1" class="panel-collapse collapse in">
+												<div class="panel-body"><p>We've created this calculator based on an average of over 300 accounts we've worked on over the past 7 years.  We based the calculations themselves over the % of increase or decrease we saw based on optimizations taken (or not taken), in order to create a simulated experience for what is likely to happen to you, where you to follow a similar path.</p></div>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+													<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Why did we do this?</a>
+												</h4>
+											</div>
+											<div id="collapse2" class="panel-collapse collapse">
+												<div class="panel-body"><p>Many people don't realize how much money is left on the table due to not fully optimizing their accounts.  We felt visually showing this would help you see how much power you really do have to influence your ROI by making calculated pivots in how your campaigns are run and managed.</p>
+												<p>Of course, this is all based on an estimation and not meant to guarantee what will happen for you.  Your ultimate campaign success depends on a lot of factors, and can be drastically changed based on ad spend, daily optimization, changes in your market, whether you work with a specialist or not, and a number of other factors.</p></div>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+													<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">What are these numbers based on?</a>
+												</h4>
+											</div>
+											<div id="collapse3" class="panel-collapse collapse">
+												<div class="panel-body"><p>We've run over 300 campaigns with real companies, big and small.  We've taken the average of each campaign at their different stages and created likely monthly returns for them.</p>
+												<p>For the unoptimized campaigns, we created average values based on what our clients were running for months or years before they worked with us, and what their returns were.</p>
+												<p>For the optimized campaigns, we created values based on the average returns we got our clients, with daily optimizations, a dedicated campaign manager, proper set up and pixel optimization.</p></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="clearfix"></div>							
+							</div>
+							<div class="clearfix"></div>							
+						</div>						
+					</div>						
 				</div>
 			</div>
 			<div class="clearfix"></div>

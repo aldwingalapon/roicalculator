@@ -29,7 +29,7 @@ table {border-collapse: collapse; border-spacing: 0;}
 /* Base */
 /*----------------------------------------------*/
 html{-webkit-tap-highlight-color:transparent; -webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;margin:0;padding:0;height:100%;overflow-y: scroll;}
-body{position:relative; font-family: 'Montserrat'; color:#00314a; background-color: #EBF9FF; padding: 0; margin: 0; font-size: 16px; height:100%;background-image:url(images/background@1x.jpg);background-size:cover;}
+body{position:relative; font-family: 'Montserrat'; color:#00314a; background-color: #EBF9FF; padding: 0; margin: 0; font-size: 16px; height:100%;background-image:url(images/bg@1x.png);background-size:cover;}
 img, article img, aside img, header img, section img, img[class*="align"] {max-width: 100%;}
 img, article img, aside img, header img, section img, img[class*="align"] {height: auto;}
 a, a:hover, a:active, a:focus {color:#2da9e0; text-decoration:underline;}
@@ -132,12 +132,37 @@ header#main-header span.title{font-family: Montserrat; font-weight: 400; font-st
 .main-content.optimization #group_container .group-info{display:block; width:100%; margin: 1rem 0; padding: 1.25rem 0; border-top: 1px solid rgba(255,255,255,.65); border-bottom: 1px solid rgba(255,255,255,.65); box-shadow: 0px 16px 21px 0px rgba(64, 64, 64, 0.16);}
 .main-content.optimization #group_container .group-info .message{position:relative;margin-right:1.5rem;margin-bottom: 0;padding-left:3.75rem;font-size: 0.875rem;font-weight: 600;text-transform:none;display:inline-block;vertical-align:middle;}
 .main-content.optimization #group_container .group-info .message:before{position:absolute;left:0;top: 50%;transform: translatey(-50%);content:"";display:inline-block;height:48px;width:46px;background:transparent url(images/infomessage@3x.png) no-repeat center / cover;}
-.main-content.optimization #group_container .group-info .message.roi{font-size: 0.8125rem;margin-right: 1.25rem;padding-left: 5.75rem;}
+.main-content.optimization #group_container .group-info .message.roi{font-size: 0.8125rem;margin-right: 1.25rem;padding-left: 5.75rem;padding-top:0.25rem;padding-bottom:0.25rem;}
 .main-content.optimization #group_container .group-info .message.roi:before{height:80px;width:80px;background:transparent url(images/growth@3x.png) no-repeat center / cover;}
 .main-content.optimization #group_container .group-info .message span{display:block;}
 .main-content.optimization #group_container .group-info .message span.title{font-size: 1.65rem; font-weight: 600; margin-bottom: 0.25rem;}
 .main-content.optimization #group_container button.btn{display: inline-block; vertical-align: middle; color: #FFF; background-color: #2DA9E0 !important; font-size: 1.125rem; font-weight: 600; padding: 0.875rem 1rem; border: 0; border-radius:0; box-shadow: 0px 4px 0px 0px rgba(31, 141, 189, 1);}
 .main-content.optimization #group_container button.btn.btn-optimize{padding: 1.5rem 0.875rem;}
+.main-content.optimization #group_container .group-info.has-bottom{padding-bottom:0;}
+.main-content.optimization #group_container .group-info .bottom-group-info{border-top: 1px solid rgba(255,255,255,.65);box-shadow: 0px -3px 9.8px 0.2px rgba(64, 64, 64, 0.58);margin-top:1.5rem;padding:1.25rem 0;}
+.main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools{display: block; list-style: none; font-size: 0.875rem; font-weight: 600; margin: 0.75rem 0; padding: 0;}
+.main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools li{position:relative; display: inline-block; vertical-align: middle; margin-right: 2rem;}
+.main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools li a{}
+.main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools li a:before{content:"";display: inline-block; vertical-align: middle;margin-right: 0.5rem;}
+.main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools li.send{}
+.main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools li.send a:before{height:30px;width:36px;background:transparent url(images/message@3x.png) no-repeat center / cover;}
+.main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools li.print{}
+.main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools li.print a:before{height:32px;width:37px;background:transparent url(images/print@3x.png) no-repeat center / cover;}
+.main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools li.calculate{}
+.main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools li.calculate a:before{height:35px;width:30px;background:transparent url(images/calculate@3x.png) no-repeat center / cover;}
+.main-content.optimization #group_container .qa-section{margin: 0; padding: 4rem 0 2rem;}
+.main-content.optimization #group_container .qa-section .qa-title{position:relative;font-size:2rem;line-height:1;font-weight:600;}
+.main-content.optimization #group_container .qa-section .qa-title:before{content:"";display: inline-block; vertical-align: middle;margin-right: 0.75rem;height:65px;width:70px;background:transparent url(images/qa@3x.png) no-repeat center / cover;}
+.main-content.optimization #group_container .qa-section p{font-weight:600;margin-bottom:1.5rem;}
+.main-content.optimization #group_container .panel-group#accordion{}
+.main-content.optimization #group_container .panel-group#accordion .panel{border:none;border-radius:0;}
+.main-content.optimization #group_container .panel-default>.panel-heading{margin: 0; padding: 0; border-left: 6px solid #2DA9E0; border-radius: 0;}
+.main-content.optimization #group_container .panel-default>.panel-heading .panel-title{margin: 0; padding: 0; border-radius: 0; font-size: 1.125rem; line-height: 1; font-weight: 600; text-transform: none;}
+.main-content.optimization #group_container .panel-default>.panel-heading .panel-title:after{display:none;}
+.main-content.optimization #group_container .panel-default>.panel-heading .panel-title a{display: block; margin: 0; padding: 0.75rem 1.5rem; color: #051A24; background-color: #F3FBFF; text-decoration: none;}
+.main-content.optimization #group_container .panel-default>.panel-heading+.panel-collapse>.panel-body{border:0;margin: 0; padding: 1.5rem 1.85rem;}
+.main-content.optimization #group_container .panel-default>.panel-heading+.panel-collapse>.panel-body p{line-height:1;font-weight:400;}
+.main-content.optimization #group_container .panel-default>.panel-heading+.panel-collapse>.panel-body p:last-child{margin-bottom:0;}
 
 /*----------------------------------------------*/
 /* Form */
