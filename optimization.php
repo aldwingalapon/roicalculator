@@ -84,8 +84,6 @@
 								
 								<canvas id="myOptimizedChart"></canvas>
 								
-								<a href="#" class="group-previous">Previous</a> <a href="#" class="group-next">Compare The Difference</a>
-
 							</div>
 							<div class="clearfix"></div>							
 						</div>
@@ -113,7 +111,6 @@
 								
 								<canvas id="myComparativeChart"></canvas>
 								
-								<a href="#" class="group-previous">Previous</a>
 							</div>
 							<div class="clearfix"></div>							
 						</div>
@@ -206,7 +203,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<p class="terms">Note: How are we collecting and storing data here? <a href="#" title="How are we collecting and storing data here?">Click here</a></p>
+						<p class="terms">Note: How are we collecting and storing data here? <a href="http://cubatica.com/wp-content/uploads/2018/04/CUB_General-Website-Terms-Conditions.pdf" title="How are we collecting and storing data here?" target="_blank">Click here</a></p>
 					</div>
 					<div class="col-md-6">
 						<p class="copyright">Cube-culator for Ad Optimization <span>|</span> Cubatica 2018</p>

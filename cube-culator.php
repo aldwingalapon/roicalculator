@@ -59,7 +59,7 @@
 								<p>While we know no calculator can take the place of the actual data of your unique campaign, this calculator can give you an estimate based on your numbers, your set up, and whether you have everything optimized.  <strong>Let's go!</strong></p>
 								<p class="lastp"><strong>Put your info below, and we'll show you how much more you can make if you optimize - as well as the steps you can take to optimize.</strong></p>
 								<div class="form-row"><div class="form-column column-half"><label for="fullname">Your Fullname</label><div class="input-group"><input class="text" type="text" ng-model="fullname" id="fullname" name="fullname" /></div><div class="field_error"><div class="error_message_content">Please answer this question...</div></div></div><div class="form-column column-half column-last"><label for="emailaddress">Email Address</label><div class="input-group"><input class="text" type="email" ng-model="emailaddress" id="emailaddress" name="emailaddress" /></div><div class="field_error"><div class="error_message_content">Please answer this question...</div></div></div></div>
-								<div class="form-row"><div class="form-column"><input type="button" name="btncontactdetail" class="next btn btn-right" id="btncontactdetail" value="Let's Go" title="Let's Go" /></div><div class="error_message">Hey! We cant proceed to the next phase. Answer all the question first before getting your ROI calculation...</div><p class="privacy">Your privacy is kept safe and anonymous. <span><a href="#" title="Read our privacy policy here">Read our privacy policy here</a></span></p></div>
+								<div class="form-row"><div class="form-column"><input type="button" name="btncontactdetail" class="next btn btn-right" id="btncontactdetail" value="Let's Go" title="Let's Go" /></div><div class="error_message">Hey! We cant proceed to the next phase. Answer all the question first before getting your ROI calculation...</div><p class="privacy">Your privacy is kept safe and anonymous. <span><a href="http://cubatica.com/privacy/" title="Read our privacy policy here" target="_blank">Read our privacy policy here</a></span></p></div>
 							</div>
 							<div class="col-md-4">
 								<img class="roiimg" title="Calculate The ROI On Your Ads" src="images/roi-logo@1x.png" />
@@ -118,7 +118,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<p class="terms">Note: How are we collecting and storing data here? <a href="#" title="How are we collecting and storing data here?">Click here</a></p>
+						<p class="terms">Note: How are we collecting and storing data here? <a href="http://cubatica.com/wp-content/uploads/2018/04/CUB_General-Website-Terms-Conditions.pdf" title="How are we collecting and storing data here?" target="_blank">Click here</a></p>
 					</div>
 					<div class="col-md-6">
 						<p class="copyright">Cube-culator for Ad Optimization <span>|</span> Cubatica 2018</p>
