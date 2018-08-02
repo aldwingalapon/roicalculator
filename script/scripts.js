@@ -790,7 +790,8 @@ $(document).ready(function(){
 		current_group = $(this).closest("div.result");
 		next_group = $(this).closest("div.result").next();	
 		next_group.show();
-		current_group.hide();			
+		current_group.hide();	
+		document.documentElement.scrollTop = 0;
 	});
 	
 	$(".group-previous").click(function(e){		
@@ -798,7 +799,8 @@ $(document).ready(function(){
 		current_group = $(this).closest("div.result");
 		next_group = $(this).closest("div.result").prev();
 		next_group.show();
-		current_group.hide();		
+		current_group.hide();
+		document.documentElement.scrollTop = 0;
 	});	
 });
 
