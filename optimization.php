@@ -221,7 +221,7 @@
 	<script src="js/jquery-ui.min.js" type='text/javascript'></script>
 	<script src="js/bootstrap.min.js" type='text/javascript'></script>
 	<script src="js/chart.min.js" type='text/javascript'></script>
-	<script src="script/scripts.js" type='text/javascript'></script>
+	<script src="script/scripts.min.js" type='text/javascript'></script>
 	<script type='text/javascript'>
 		var optimizeapp = angular.module('myOptimizationApp', ['ngAnimate']);	
 		optimizeapp.controller("myOptimizationCtrl", function($scope) {

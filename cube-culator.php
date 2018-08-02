@@ -137,6 +137,6 @@
 	<script src="js/jquery.validate.js" type='text/javascript'></script>
 	<script src="js/additional-methods.js" type='text/javascript'></script>
 	<script src="js/bootstrap.min.js" type='text/javascript'></script>
-	<script src="script/scripts.js" type='text/javascript'></script>
+	<script src="script/scripts.min.js" type='text/javascript'></script>
 </body>
 </html>
