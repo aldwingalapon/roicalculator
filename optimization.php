@@ -979,21 +979,54 @@
 
 						ctx.save();
 						ctx.fillStyle = chart.config.options.chartArea.backgroundColor;
-						ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+						ctx.fillRect(chartArea.left, chartArea.top - 60, chartArea.right - chartArea.left, chartArea.bottom + 60);
 						ctx.restore();
 					}
 				}
 			});
+
+			const ShadowLineElement = Chart.elements.Line.extend({
+			  draw () {
+					console.log(this)
+
+					const { ctx } = this._chart
+					const originalStroke = ctx.stroke
+					ctx.stroke = function () {
+						ctx.save()
+						ctx.shadowColor = 'rgba(0,0,0,0.6)';
+						ctx.shadowBlur = 20;
+						ctx.shadowOffsetX = 8;
+						ctx.shadowOffsetY = 8;
+						originalStroke.apply(this, arguments)
+						ctx.restore()
+					}
+				
+					Chart.elements.Line.prototype.draw.apply(this, arguments)
+				
+					ctx.stroke = originalStroke;
+				}
+			});
+
+			Chart.defaults.ShadowLine = Chart.defaults.line
+			Chart.controllers.ShadowLine = Chart.controllers.line.extend({
+			  datasetElementType: ShadowLineElement
+			});			
 		
 			var myroictx = document.getElementById('myROIChart').getContext('2d');
 			var myroichart = new Chart(myroictx, {
-				type: 'line',
+				type: 'ShadowLine',
 				data: {
 					labels: ["Current", "Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12"],
 					datasets: [{
 						backgroundColor: '#DD4F81',
 						borderColor: '#DD4F81',									
 						data: $scope.salesworstjsonchart,						
+						pointBackgroundColor: "#FFF",
+						pointBorderColor: "#DD4F81",
+						pointHoverBackgroundColor: "#DD4F81",
+						pointHoverBorderColor: "#FFF",
+						pointRadius: 5,
+						pointHoverRadius: 5,						
 						fill: false,
 					}]
 				},
@@ -1061,7 +1094,15 @@
 						xAlign: 'center',						
 						yAlign: 'bottom',
 						displayColors : false,
-					},					
+					},	
+					layout:{
+						padding: {
+							left: 0,
+							right: 0,
+							top: 60,
+							bottom: 40,
+						},
+					},
 				},
 				plugins: [{
 					beforeInit: function (chart) {
@@ -1076,13 +1117,19 @@
 
 			var myoptimizedctx = document.getElementById('myOptimizedChart').getContext('2d');
 			var myoptimizedchart = new Chart(myoptimizedctx, {
-				type: 'line',
+				type: 'ShadowLine',
 				data: {
 					labels: ["Current", "Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12"],
 					datasets: [{
 						backgroundColor: '#52B000',
 						borderColor: '#52B000',									
 						data: $scope.salesalljsonchart,						
+						pointBackgroundColor: "#FFF",
+						pointBorderColor: "#52B000",
+						pointHoverBackgroundColor: "#52B000",
+						pointHoverBorderColor: "#FFF",
+						pointRadius: 5,
+						pointHoverRadius: 5,						
 						fill: false,
 					}]
 				},
@@ -1150,7 +1197,15 @@
 						xAlign: 'center',						
 						yAlign: 'bottom',
 						displayColors : false,
-					},					
+					},		
+					layout:{
+						padding: {
+							left: 0,
+							right: 0,
+							top: 60,
+							bottom: 40,
+						},
+					},
 				},
 				plugins: [{
 					beforeInit: function (chart) {
@@ -1165,19 +1220,31 @@
 			
 			var mycomparativectx = document.getElementById('myComparativeChart').getContext('2d');
 			var mycomparativechart = new Chart(mycomparativectx, {
-				type: 'line',
+				type: 'ShadowLine',
 				data: {
 					labels: ["Current", "Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12"],
 					datasets: [{
 						backgroundColor: '#DD4F81',
 						borderColor: '#DD4F81',									
 						data: $scope.salesworstjsonchart,						
+						pointBackgroundColor: "#FFF",
+						pointBorderColor: "#DD4F81",
+						pointHoverBackgroundColor: "#DD4F81",
+						pointHoverBorderColor: "#FFF",
+						pointRadius: 5,
+						pointHoverRadius: 5,						
 						fill: false,
 					},
 					{
 						backgroundColor: '#52B000',
 						borderColor: '#52B000',									
 						data: $scope.salesalljsonchart,						
+						pointBackgroundColor: "#FFF",
+						pointBorderColor: "#52B000",
+						pointHoverBackgroundColor: "#52B000",
+						pointHoverBorderColor: "#FFF",
+						pointRadius: 5,
+						pointHoverRadius: 5,						
 						fill: false,
 					}]
 				},
@@ -1245,7 +1312,15 @@
 						xAlign: 'center',						
 						yAlign: 'bottom',
 						displayColors : false,
-					},					
+					},	
+					layout:{
+						padding: {
+							left: 0,
+							right: 0,
+							top: 60,
+							bottom: 40,
+						},
+					},
 				},
 				plugins: [{
 					beforeInit: function (chart) {
