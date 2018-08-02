@@ -109,7 +109,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h2 class="group-title">See the Difference <span class="description">With your ads optimized, you're getting a much higher ROI, and faster scaling. <br><br> Based on these calculations...</span></h2>
-								<h3 class="group-optimized">Your ROI could be lifted by : xx%    Your sales Could be increased by : xx%</h3>
+								<h3 class="group-optimized">Your ROI could be lifted by : {{roaincrease | percentage:2:'%'}}    Your sales Could be increased by : {{salesincrease | percentage:2:'%'}}</h3>
 								
 								<canvas id="myComparativeChart"></canvas>
 								
@@ -239,7 +239,10 @@
 			$scope.estimatedcurrentspend = $scope.cpa * $scope.monthlysales;
 			$scope.estimatedcurrentgross = $scope.monthlysales * $scope.aveordervalue;
 			$scope.currentroa =  $scope.estimatedcurrentgross / $scope.monthlyadspend;
-
+			
+			$scope.roaincrease = 0;
+			$scope.salesincrease = 0;
+			
 			$scope.newoptionssalesyes = [];
 			$scope.newoptionssalesall = [];
 			$scope.newoptionscpayes = [];
@@ -657,6 +660,8 @@
 			$scope.salesallstr += ', "total":' + round((salesallbasetotal),0) + '}';
 			$scope.salesalltotal = round((salesallbasetotal),0);
 			
+			$scope.salesincrease = salesallbasetotal / salesworstbasetotal;
+			
 			$scope.salesjson = [];
 			$scope.salesjson.push(JSON.parse($scope.salesbeststr));
 			$scope.salesjson.push(JSON.parse($scope.salesexpectedstr));
@@ -796,6 +801,8 @@
 			$scope.roaallstr += ', "total":' + round(((roaallbasetotal*100)/ count),2) + '}';
 			$scope.roaalltotal = round(((roaallbasetotal*100)/ count),2);
 
+			$scope.roaincrease = (((roaallbasetotal)/ count) - ((roaworstbasetotal)/ count));
+			
 			$scope.roajson = [];
 			$scope.roajson.push(JSON.parse($scope.roabeststr));
 			$scope.roajson.push(JSON.parse($scope.roaexpectedstr));
@@ -1038,7 +1045,7 @@
 							ticks: {
 								fontFamily: 'Montserrat',
 								beginAtZero:true,
-								callback: function(value, index, values) {return '$' + value;},	
+								callback: function(value, index, values) {return value + '%';},	
 								max: Math.ceil(($scope.roaalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
 								padding: 30,
 							},
@@ -1063,7 +1070,7 @@
 							label: function(tooltipItem, data) {
 							  var datasetLabel = '';
 							  var label = data.labels[tooltipItem.index];
-							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString("en-US",{style:"currency", currency:"USD"});
+							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '%';
 							},							
 						},
 						xAlign: 'center',						
@@ -1142,7 +1149,7 @@
 							ticks: {
 								fontFamily: 'Montserrat',
 								beginAtZero:true,
-								callback: function(value, index, values) {return '$' + value;},	
+								callback: function(value, index, values) {return value + '%';},	
 								max: Math.ceil(($scope.roaalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
 								padding: 30,
 							},
@@ -1167,7 +1174,7 @@
 							label: function(tooltipItem, data) {
 							  var datasetLabel = '';
 							  var label = data.labels[tooltipItem.index];
-							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString("en-US",{style:"currency", currency:"USD"});
+							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '%';
 							},							
 						},
 						xAlign: 'center',						
@@ -1258,7 +1265,7 @@
 							ticks: {
 								fontFamily: 'Montserrat',
 								beginAtZero:true,
-								callback: function(value, index, values) {return '$' + value;},	
+								callback: function(value, index, values) {return value + '%';},	
 								max: Math.ceil(($scope.roaalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
 								padding: 30,
 							},
@@ -1283,7 +1290,7 @@
 							label: function(tooltipItem, data) {
 							  var datasetLabel = '';
 							  var label = data.labels[tooltipItem.index];
-							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString("en-US",{style:"currency", currency:"USD"});
+							  return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '%';
 							},							
 						},
 						xAlign: 'center',						
