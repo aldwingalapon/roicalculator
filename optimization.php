@@ -107,7 +107,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h2 class="group-title">See the Difference <span class="description">With your ads optimized, you're getting a much higher ROI, and faster scaling. <br><br> Based on these calculations...</span></h2>
-								<h3 class="group-optimized">Your ROI could be lifted by : {{roaincrease | percentage:2:'%'}}    Your sales Could be increased by : {{salesincrease | percentage:2:'%'}}</h3>
+								<h3 class="group-optimized">Your ROI could be lifted by : <span style="font-weight:700;">{{roaincrease | percentage:2:'%'}}</span>    Your sales Could be increased by : <span style="font-weight:700;">{{salesincrease | percentage:2:'%'}}</span></h3>
 								
 								<canvas id="myComparativeChart"></canvas>
 								
@@ -948,7 +948,7 @@
 			$scope.budgetjson.push(JSON.parse($scope.budgetexpectedstr));
 			$scope.budgetjson.push(JSON.parse($scope.budgetworststr));
 			$scope.budgetjson.push(JSON.parse($scope.budgetallstr));
-
+		
 			Chart.pluginService.register({
 				beforeDraw: function (chart, easing) {
 					if (chart.config.options.chartArea && chart.config.options.chartArea.backgroundColor) {
@@ -956,11 +956,57 @@
 						var chartArea = chart.chartArea;
 
 						ctx.save();
+						ctx.shadowColor = 'rgba(0,0,0,0.1)';
+						ctx.shadowBlur = 20;
+						ctx.shadowOffsetX = -9;
+						ctx.shadowOffsetY = 9;
 						ctx.fillStyle = chart.config.options.chartArea.backgroundColor;
 						ctx.fillRect(chartArea.left, chartArea.top - 60, chartArea.right - chartArea.left, chartArea.bottom + 60);
 						ctx.restore();
 					}
-				}
+				},
+				beforeRender: function (chart) {
+					if (chart.config.options.showAllTooltips) {
+						// create an array of tooltips
+						// we can't use the chart tooltip because there is only one tooltip per chart
+						chart.pluginTooltips = [];
+						chart.config.data.datasets.forEach(function (dataset, i) {
+							chart.getDatasetMeta(i).data.forEach(function (sector, j) {
+								chart.pluginTooltips.push(new Chart.Tooltip({
+									_chart: chart.chart,
+									_chartInstance: chart,
+									_data: chart.data,
+									_options: chart.options.tooltips,
+									_active: [sector]
+								}, chart));
+							});
+						});
+
+						// turn off normal tooltips
+						chart.options.tooltips.enabled = false;
+					}
+				},
+				afterDraw: function (chart, easing) {
+					if (chart.config.options.showAllTooltips) {
+						// we don't want the permanent tooltips to animate, so don't do anything till the animation runs atleast once
+						if (!chart.allTooltipsOnce) {
+							if (easing !== 1)
+								return;
+							chart.allTooltipsOnce = true;
+						}
+
+						// turn on tooltips
+						chart.options.tooltips.enabled = true;
+						Chart.helpers.each(chart.pluginTooltips, function (tooltip) {
+							tooltip.initialize();
+							tooltip.update();
+							// we don't actually need this since we are not animating tooltips
+							tooltip.pivot();
+							tooltip.transition(easing).draw();
+						});
+						chart.options.tooltips.enabled = false;
+					}
+				}				
 			});
 
 			const ShadowLineElement = Chart.elements.Line.extend({
@@ -1003,12 +1049,14 @@
 						pointBorderColor: "#DD4F81",
 						pointHoverBackgroundColor: "#DD4F81",
 						pointHoverBorderColor: "#FFF",
+						pointBorderWidth: 3,
 						pointRadius: 5,
 						pointHoverRadius: 5,						
 						fill: false,
 					}]
 				},
 				options: {
+					showAllTooltips: true,
 					chartArea: {
 						backgroundColor: 'rgba(244,251,255,1)'
 					},
@@ -1027,7 +1075,7 @@
 							offset: true,
 							ticks:{
 								fontFamily: 'Montserrat',
-								fontSize: 12,
+								fontSize: 11,
 							},
 							barPercentage: 0.5,
 							categoryPercentage: 0.5,
@@ -1041,10 +1089,11 @@
 						yAxes: [{
 							ticks: {
 								fontFamily: 'Montserrat',
+								fontStyle: 'bold',
 								beginAtZero:true,
 								callback: function(value, index, values) {return value + '%';},	
 								max: Math.ceil(($scope.roaalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
-								padding: 30,
+								padding: 20,
 							},
 							gridLines: {
 								display: false,
@@ -1054,12 +1103,16 @@
 						}]
 					},
 					tooltips: {
+						caretPadding: 10,
 						enabled: true,
 						backgroundColor: '#FFFFFF',
 						bodyFontFamily: 'Montserrat',
 						bodyFontSize: 12,
 						bodyFontStyle: 'bold',
 						bodyFontColor: '#000000',
+						xPadding: 10,
+						borderColor: 'rgba(0,0,0,0.1)',
+						borderWidth: 1,
 						callbacks: {
 							title: function(tooltipItems, data) {
 							  return '';
@@ -1076,7 +1129,7 @@
 					},	
 					layout:{
 						padding: {
-							left: 0,
+							left: 10,
 							right: 0,
 							top: 60,
 							bottom: 40,
@@ -1105,14 +1158,17 @@
 						data: $scope.roaalljsonchart,						
 						pointBackgroundColor: "#FFF",
 						pointBorderColor: "#52B000",
+						pointBorderWidth: 2,
 						pointHoverBackgroundColor: "#52B000",
 						pointHoverBorderColor: "#FFF",
+						pointBorderWidth: 3,
 						pointRadius: 5,
 						pointHoverRadius: 5,						
 						fill: false,
 					}]
 				},
 				options: {
+					showAllTooltips: true,
 					chartArea: {
 						backgroundColor: 'rgba(244,251,255,1)'
 					},
@@ -1131,7 +1187,7 @@
 							offset: true,
 							ticks:{
 								fontFamily: 'Montserrat',
-								fontSize: 12,
+								fontSize: 11,
 							},
 							barPercentage: 0.5,
 							categoryPercentage: 0.5,
@@ -1145,10 +1201,11 @@
 						yAxes: [{
 							ticks: {
 								fontFamily: 'Montserrat',
+								fontStyle: 'bold',
 								beginAtZero:true,
 								callback: function(value, index, values) {return value + '%';},	
 								max: Math.ceil(($scope.roaalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
-								padding: 30,
+								padding: 20,
 							},
 							gridLines: {
 								display: false,
@@ -1158,12 +1215,16 @@
 						}]
 					},
 					tooltips: {
+						caretPadding: 10,
 						enabled: true,
 						backgroundColor: '#FFFFFF',
 						bodyFontFamily: 'Montserrat',
 						bodyFontSize: 12,
 						bodyFontStyle: 'bold',
 						bodyFontColor: '#000000',
+						xPadding: 10,
+						borderColor: 'rgba(0,0,0,0.1)',
+						borderWidth: 1,
 						callbacks: {
 							title: function(tooltipItems, data) {
 							  return '';
@@ -1180,7 +1241,7 @@
 					},		
 					layout:{
 						padding: {
-							left: 0,
+							left: 10,
 							right: 0,
 							top: 60,
 							bottom: 40,
@@ -1211,6 +1272,7 @@
 						pointBorderColor: "#DD4F81",
 						pointHoverBackgroundColor: "#DD4F81",
 						pointHoverBorderColor: "#FFF",
+						pointBorderWidth: 3,
 						pointRadius: 5,
 						pointHoverRadius: 5,						
 						fill: false,
@@ -1223,12 +1285,14 @@
 						pointBorderColor: "#52B000",
 						pointHoverBackgroundColor: "#52B000",
 						pointHoverBorderColor: "#FFF",
+						pointBorderWidth: 3,
 						pointRadius: 5,
 						pointHoverRadius: 5,						
 						fill: false,
 					}]
 				},
 				options: {
+					showAllTooltips: false,
 					chartArea: {
 						backgroundColor: 'rgba(244,251,255,1)'
 					},
@@ -1247,7 +1311,7 @@
 							offset: true,
 							ticks:{
 								fontFamily: 'Montserrat',
-								fontSize: 12,
+								fontSize: 11,
 							},
 							barPercentage: 0.5,
 							categoryPercentage: 0.5,
@@ -1261,10 +1325,11 @@
 						yAxes: [{
 							ticks: {
 								fontFamily: 'Montserrat',
+								fontStyle: 'bold',
 								beginAtZero:true,
 								callback: function(value, index, values) {return value + '%';},	
 								max: Math.ceil(($scope.roaalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
-								padding: 30,
+								padding: 20,
 							},
 							gridLines: {
 								display: false,
@@ -1274,12 +1339,16 @@
 						}]
 					},
 					tooltips: {
+						caretPadding: 10,
 						enabled: true,
 						backgroundColor: '#FFFFFF',
 						bodyFontFamily: 'Montserrat',
 						bodyFontSize: 12,
 						bodyFontStyle: 'bold',
+						xPadding: 10,
 						bodyFontColor: '#000000',
+						borderColor: 'rgba(0,0,0,0.1)',
+						borderWidth: 1,
 						callbacks: {
 							title: function(tooltipItems, data) {
 							  return '';
@@ -1296,7 +1365,7 @@
 					},	
 					layout:{
 						padding: {
-							left: 0,
+							left: 10,
 							right: 0,
 							top: 60,
 							bottom: 40,
