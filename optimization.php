@@ -57,41 +57,7 @@
 								<h2 class="group-title"><button class="btn group-next">Show me Optimized</button>Here's your current roi trajectory: <span class="description">This projected ROI path is based on your answers.</span></h2>
 
 								<canvas id="myROIChart"></canvas>
-								
-								<div class="hide">
-									<p><input type="number" ng-model="cpa" value="<?php echo $_POST['cpa'];?>" disabled /> <input type="number" ng-model="monthlysales" value="<?php echo $_POST['monthlysales'];?>" disabled /> <input type="number" ng-model="aveordervalue" value="<?php echo $_POST['aveordervalue'];?>" disabled /> <input type="number" ng-model="monthlyadspend" value="<?php echo $_POST['monthlyadspend'];?>" disabled /></p>								
-									<p>Estimated Current ROA (%) <span class="currentroa percentage">{{currentroa | percentage:2:'%'}}</span></p>
-									<p>Estimated Current Spend <span class="estimatedcurrentspend currency">{{estimatedcurrentspend | currency}}</span></p>
-									<p>Estimated Current Gross <span class="estimatedcurrentgross currency">{{estimatedcurrentgross | currency}}</span></p>								
-									<p>{{newoptionssalesyes | json}}</p>
-									<p>{{newoptionssalesall | json}}</p>
-									<p>{{newoptionscpayes | json}}</p>
-									<p>{{newoptionscpaall | json}}</p>		
-									
-									<h3>Sales Data (Yes Only)</h3>
-									<div class="table-responsive">
-									<table class="optionssalesonly">
-									<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
-									  <tr ng-repeat="x in newoptionssalesyes">
-									  <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:false, l:'N'}, {k:true, l:'Y'}]">
-										</select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
-										<tr><td colspan="3">TOTALS</td><td ng-model="SalesYesTotalBest">{{getSalesYesTotalBest()}}</td><td ng-model="SalesYesTotalExpected">{{getSalesYesTotalExpected()}}</td><td ng-model="SalesYesTotalWorst">{{getSalesYesTotalWorst()}}</td><td ng-model="SalesYesTotalTFBest">{{getSalesYesTotalTFBest()}}</td><td ng-model="SalesYesTotalTFExpected">{{getSalesYesTotalTFExpected()}}</td><td ng-model="SalesYesTotalTFWorst">{{getSalesYesTotalTFWorst()}}</td><td></td></tr>
-										<tr class=""><td colspan="3">Factor</td><td ng-model="SalesYesTotalBestFactor">{{getSalesYesTotalBestFactor()}}</td><td ng-model="SalesYesTotalExpectedFactor">{{getSalesYesTotalExpectedFactor()}}</td><td ng-model="SalesYesTotalWorstFactor">{{getSalesYesTotalWorstFactor()}}</td><td></td><td></td><td></td><td></td></tr>
-									</table>
-									</div>
-
-									<h3>Sales Data (ALL)</h3>
-									<div class="table-responsive">
-									<table class="optionssalesall">
-									<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
-									  <tr ng-repeat="x in newoptionssalesall">
-									  <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:false, l:'N'}, {k:true, l:'Y'}]">
-										</select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
-										<tr><td colspan="3">TOTALS</td><td ng-model="SalesAllBest">{{getSalesAllBest()}}</td><td ng-model="SalesAllExpected">{{getSalesAllExpected()}}</td><td ng-model="SalesAllWorst">{{getSalesAllWorst()}}</td><td ng-model="SalesAllTFBest">{{getSalesAllTFBest()}}</td><td ng-model="SalesAllTFExpected">{{getSalesAllTFExpected()}}</td><td ng-model="SalesAllTFWorst">{{getSalesAllTFWorst()}}</td><td></td></tr>
-										<tr class=""><td colspan="3">Factor</td><td ng-model="SalesAllBestFactor">{{getSalesAllBestFactor()}}</td><td ng-model="SalesAllExpectedFactor">{{getSalesAllExpectedFactor()}}</td><td ng-model="SalesAllWorstFactor">{{getSalesAllWorstFactor()}}</td><td></td><td></td><td></td><td></td></tr>	
-									</table>
-									</div>		
-								</div>								
+															
 							</div>
 							<div class="clearfix"></div>							
 						</div>
@@ -161,7 +127,7 @@
 									<h3 class="message roi"><span class="title">Want that ROI lift?</span> <span>Let us help.  We have a team campaign managers ready to</span> <span>review your site with a free customized optimization plan.</span></h3><button class="btn btn-optimize">Optimize my Campaign</button>
 								</div>
 								<div class="col-md-4">
-
+									<div id="testimonial"></div>
 								</div>								
 								<div class="clearfix"></div>							
 							</div>
@@ -745,10 +711,12 @@
 			
 			var grossprofitallbase = 0;
 			var grossprofitallbasetotal = 0;
+			$scope.grossprofitalljsonchart.push(round(($scope.monthlysales * $scope.aveordervalue),2));
 			var count = 0;
 			$scope.grossprofitallstr = '{' + '"name": "Gross Profit All Options", "current":' + round(($scope.monthlysales * $scope.aveordervalue),2) + '';
 			for (i = 0; i < $scope.months; i++){
 				grossprofitallbase = $scope.salesalljson[i] * $scope.aveordervalue;
+				$scope.grossprofitalljsonchart.push(round(grossprofitallbase,2));
 				grossprofitallbasetotal += grossprofitallbase;
 				$scope.grossprofitalljson.push(grossprofitallbase);
 				$scope.grossprofitallstr += ', "month' + (i+1).toString() + '":' + round(grossprofitallbase,2);
@@ -814,10 +782,12 @@
 			
 			var roaallbase = 0;
 			var roaallbasetotal = 0;
+			$scope.roaalljsonchart.push(round((($scope.estimatedcurrentgross / $scope.monthlyadspend)*100),2));
 			var count = 0;
 			$scope.roaallstr = '{' + '"name": "ROA All Options", "current":' + round((($scope.estimatedcurrentgross / $scope.monthlyadspend)*100),2) + '';
 			for (i = 0; i < $scope.months; i++){
 				roaallbase = $scope.grossprofitalljson[i] / $scope.monthlyadspend;
+				$scope.roaalljsonchart.push(round((roaallbase*100),2));
 				roaallbasetotal += roaallbase;
 				$scope.roaalljson.push(roaallbase);
 				count += 1;
@@ -883,10 +853,12 @@
 			
 			var cpaallbase = $scope.cpa;
 			var cpaallbasetotal = 0;
+			$scope.cpaalljsonchart.push(round(cpaallbase,2));
 			var count = 0;
 			$scope.cpaallstr = '{' + '"name": "CPA All Options", "current":' + round(cpaallbase,2) + '';
 			for (i = 0; i < $scope.months; i++){
 				cpaallbase = cpaallbase + (cpaallbase * $scope.getCPAAllBestFactor());
+				$scope.cpaalljsonchart.push(round(cpaallbase,2));
 				$scope.cpaalljson.push((cpaallbase));
 				cpaallbasetotal += cpaallbase;
 				count += 1;
@@ -953,11 +925,13 @@
 			
 			var budgetallbase = $scope.monthlyadspend;
 			var budgetallbasetotal = 0;
+			$scope.budgetalljsonchart.push(round($scope.monthlyadspend,2));
 			var count = 0;
 			$scope.budgetallstr = '{' + '"name": "Budget All Options", "current":' + round(budgetallbase,2) + '';
 			for (i = 0; i < $scope.months; i++){
 				budgetallbase = $scope.salesalljson[i] * $scope.cpaalljson[i];
 				$scope.budgetalljson.push((budgetallbase));
+				$scope.budgetalljsonchart.push(round(budgetallbase,2));
 				budgetallbasetotal += budgetallbase;
 				count += 1;
 				$scope.budgetallstr += ', "month' + (i+1).toString() + '":' + round(budgetallbase,2);
@@ -1020,7 +994,7 @@
 					datasets: [{
 						backgroundColor: '#DD4F81',
 						borderColor: '#DD4F81',									
-						data: $scope.salesworstjsonchart,						
+						data: $scope.roaworstjsonchart,						
 						pointBackgroundColor: "#FFF",
 						pointBorderColor: "#DD4F81",
 						pointHoverBackgroundColor: "#DD4F81",
@@ -1065,7 +1039,8 @@
 								fontFamily: 'Montserrat',
 								beginAtZero:true,
 								callback: function(value, index, values) {return '$' + value;},	
-								max: Math.ceil(($scope.salesalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
+								max: Math.ceil(($scope.roaalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
+								padding: 30,
 							},
 							gridLines: {
 								display: false,
@@ -1123,7 +1098,7 @@
 					datasets: [{
 						backgroundColor: '#52B000',
 						borderColor: '#52B000',									
-						data: $scope.salesalljsonchart,						
+						data: $scope.roaalljsonchart,						
 						pointBackgroundColor: "#FFF",
 						pointBorderColor: "#52B000",
 						pointHoverBackgroundColor: "#52B000",
@@ -1168,7 +1143,8 @@
 								fontFamily: 'Montserrat',
 								beginAtZero:true,
 								callback: function(value, index, values) {return '$' + value;},	
-								max: Math.ceil(($scope.salesalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
+								max: Math.ceil(($scope.roaalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
+								padding: 30,
 							},
 							gridLines: {
 								display: false,
@@ -1226,7 +1202,7 @@
 					datasets: [{
 						backgroundColor: '#DD4F81',
 						borderColor: '#DD4F81',									
-						data: $scope.salesworstjsonchart,						
+						data: $scope.roaworstjsonchart,						
 						pointBackgroundColor: "#FFF",
 						pointBorderColor: "#DD4F81",
 						pointHoverBackgroundColor: "#DD4F81",
@@ -1238,7 +1214,7 @@
 					{
 						backgroundColor: '#52B000',
 						borderColor: '#52B000',									
-						data: $scope.salesalljsonchart,						
+						data: $scope.roaalljsonchart,						
 						pointBackgroundColor: "#FFF",
 						pointBorderColor: "#52B000",
 						pointHoverBackgroundColor: "#52B000",
@@ -1283,7 +1259,8 @@
 								fontFamily: 'Montserrat',
 								beginAtZero:true,
 								callback: function(value, index, values) {return '$' + value;},	
-								max: Math.ceil(($scope.salesalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
+								max: Math.ceil(($scope.roaalljsonchart.reduce(function(a, b) { return Math.max(a, b);}) / 100)) *100,
+								padding: 30,
 							},
 							gridLines: {
 								display: false,
