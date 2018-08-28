@@ -80,7 +80,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
-								<h2 class="group-title title-list">Your ads optimized! <span class="description">Now thats looking good. you can see here here the nice bump up when your ads are optimized.<br />This takes into consideration having everything in your account run at peak performance.</span></h2>
+								<h2 class="group-title title-list">Your ads optimized! <span class="description">Now that's looking good. You can see here the nice bump up when your ads are optimized.<br />This takes into consideration having everything in your account ran at peak performance.</span></h2>
 								
 								<canvas id="myOptimizedChart"></canvas>
 								
@@ -121,7 +121,7 @@
 						<div class="container">
 							<div class="row">	
 								<div class="col-md-8">
-									<h3 class="message roi"><span class="title">Want that ROI lift?</span> <span>Let us help.  We have a team campaign managers ready to</span> <span>review your site with a free customized optimization plan.</span></h3><button class="btn btn-optimize">Optimize my Campaign</button>
+									<h3 class="message roi"><span class="title">Want that ROI lift?</span> <span>Let us help.  We have a team of campaign managers ready to</span> <span>review your site with a free customized optimization plan.</span></h3><button class="btn btn-optimize">Optimize my Campaign</button>
 								</div>
 								<div class="col-md-4">
 									<div id="testimonial"><div class="testimonial-logo"><img src="images/artnaturals@1x.png" class="" title="Art Naturals" alt="Art Naturals" /></div><div class="testimonial-content">Cubatica got our business a 400% ROAS within the first month.  Yea, it was crazy, but it happened. <span class="testimonial-by">- Art Naturals</span></div></div>
