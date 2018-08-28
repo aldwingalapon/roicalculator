@@ -124,7 +124,7 @@
 									<h3 class="message roi"><span class="title">Want that ROI lift?</span> <span>Let us help.  We have a team campaign managers ready to</span> <span>review your site with a free customized optimization plan.</span></h3><button class="btn btn-optimize">Optimize my Campaign</button>
 								</div>
 								<div class="col-md-4">
-									<div id="testimonial"></div>
+									<div id="testimonial"><div class="testimonial-logo"><img src="images/artnaturals@1x.png" class="" title="Art Naturals" alt="Art Naturals" /></div><div class="testimonial-content">Cubatica got our business a 400% ROAS within the first month.  Yea, it was crazy, but it happened. <span class="testimonial-by">- Art Naturals</span></div></div>
 								</div>								
 								<div class="clearfix"></div>							
 							</div>
@@ -137,7 +137,7 @@
 									<div class="col-md-12">
 										<ul class="group-tools">
 											<li class="send"><a href="#" title="Send us a Message">Send us a Message</a></li>
-											<li class="print"><a href="#" title="Print this chart">Print this chart</a></li>
+											<li class="print"><a href="javascript:window.print()" title="Print this chart">Print this chart</a></li>
 											<li class="calculate"><a href="cube-culator.php" title="Calculate a new ROI">Calculate a new ROI</a></li>
 										</ul>
 									</div>								

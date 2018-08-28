@@ -129,7 +129,7 @@ header#main-header span.title{font-family: Montserrat; font-weight: 400; font-st
 .main-content.optimization #group_container div.result:not(:first-of-type) {display: none;}
 .main-content.optimization #group_container p{font-size: 0.875rem; line-height: 1; margin-bottom: 1rem;}
 
-.main-content.optimization #group_container .group-info{display:block; width:100%; margin: 1rem 0; padding: 1.25rem 0; border-top: 1px solid rgba(255,255,255,.65); border-bottom: 1px solid rgba(255,255,255,.65); box-shadow: 0px 16px 21px 0px rgba(64, 64, 64, 0.16);}
+.main-content.optimization #group_container .group-info{display:block; width:100%; margin: 1rem 0; padding: 1.75rem 0; border-top: 1px solid rgba(255,255,255,.65); border-bottom: 1px solid rgba(255,255,255,.65); box-shadow: 0px 16px 21px 0px rgba(64, 64, 64, 0.16);}
 .main-content.optimization #group_container .group-info .message{position:relative;margin-right:1.5rem;margin-bottom: 0;padding-left:3.75rem;font-size: 0.875rem;font-weight: 600;text-transform:none;display:inline-block;vertical-align:middle;}
 .main-content.optimization #group_container .group-info .message:before{position:absolute;left:0;top: 50%;transform: translatey(-50%);content:"";display:inline-block;height:48px;width:46px;background:transparent url(images/infomessage@3x.png) no-repeat center / cover;}
 .main-content.optimization #group_container .group-info .message.roi{font-size: 0.8125rem;margin-right: 1.25rem;padding-left: 5.75rem;padding-top:0.25rem;padding-bottom:0.25rem;}
@@ -137,7 +137,7 @@ header#main-header span.title{font-family: Montserrat; font-weight: 400; font-st
 .main-content.optimization #group_container .group-info .message span{display:block;}
 .main-content.optimization #group_container .group-info .message span.title{font-size: 1.65rem; font-weight: 600; margin-bottom: 0.25rem;}
 .main-content.optimization #group_container button.btn{display: inline-block; vertical-align: middle; color: #FFF; background-color: #2DA9E0 !important; font-size: 1.125rem; font-weight: 600; padding: 0.875rem 1rem; border: 0; border-radius:0; box-shadow: 0px 4px 0px 0px rgba(31, 141, 189, 1);}
-.main-content.optimization #group_container button.btn.btn-optimize{padding: 1.5rem 0.875rem;}
+.main-content.optimization #group_container button.btn.btn-optimize{padding: 1.75rem 0.875rem;}
 .main-content.optimization #group_container .group-info.has-bottom{padding-bottom:0;}
 .main-content.optimization #group_container .group-info .bottom-group-info{border-top: 1px solid rgba(255,255,255,.65);box-shadow: 0px -3px 9.8px 0.2px rgba(64, 64, 64, 0.58);margin-top:1.5rem;padding:1.25rem 0;}
 .main-content.optimization #group_container .group-info .bottom-group-info ul.group-tools{display: block; list-style: none; font-size: 0.875rem; font-weight: 600; margin: 0.75rem 0; padding: 0;}
@@ -165,6 +165,12 @@ header#main-header span.title{font-family: Montserrat; font-weight: 400; font-st
 .main-content.optimization #group_container .panel-default>.panel-heading+.panel-collapse>.panel-body p:last-child{margin-bottom:0;}
 .main-content.optimization canvas{margin: 2rem 0 0; background: linear-gradient(to right, #E9F8FF 20%, transparent 60%);}
 
+.main-content.optimization #group_container .group-info #testimonial{display: table; vertical-align: middle; padding-top: 0.5rem;}
+.main-content.optimization #group_container .group-info #testimonial .testimonial-logo{display: table-cell; vertical-align: middle; width: 70px;}
+.main-content.optimization #group_container .group-info #testimonial .testimonial-content{position: relative; display: table-cell; vertical-align: middle; padding-left: 1rem; font-size: 0.875rem; font-family: Montserrat; font-style: italic; font-weight: 600;}
+.main-content.optimization #group_container .group-info #testimonial .testimonial-content:before{content:"";position: absolute; top: -21px; left:0.75rem;display: inline-block;height:20px;width:26px;background:transparent url(images/quote@3x.png) no-repeat center / cover;}
+.main-content.optimization #group_container .group-info #testimonial .testimonial-content .testimonial-by{display: block; margin-top: 0.5rem;}
+
 /*----------------------------------------------*/
 /* Form */
 /*----------------------------------------------*/
@@ -173,7 +179,7 @@ form#initial-form{}
 #initial-form .form-row{margin: 0.4rem 0;}
 #initial-form .form-column{display: inline-block; margin-right: 1rem;}
 #initial-form label{display: block; font-family: Montserrat; font-size: 0.65rem; text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem;}
-#initial-form input{font-family: Montserrat; -webkit-appearance: none; color: #A7A7A7;box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-webkit-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-moz-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);}
+#initial-form input{font-family: Montserrat; -webkit-appearance: none; color: #051A24;box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-webkit-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-moz-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);}
 #initial-form input:active, #initial-form input:focus{color: #051A24;}
 #initial-form input.currency{font-family: Montserrat; font-size: 3rem; font-weight: 500; border: none; vertical-align: middle; margin: 0; padding: 0.75rem 0.75rem 0.75rem 4rem; max-width: 280px;}
 #initial-form .input-group{display: inline-block; font-family: Montserrat; vertical-align: middle; margin-bottom: 0.75rem;}
@@ -195,7 +201,7 @@ form#initial-form input[type=submit]{background:#2DA9E0 url(images/icon-submit@1
 
 .option-item .option-header label{display:inline-block;vertical-align:middle;}
 .option-item .option-header label.label{cursor:pointer;font-family:Montserrat;font-weight:500;font-size:1.125rem;text-transform:uppercase; margin: 0; padding: 0 1rem 0 0;}
-.option-item .option-body input{font-family: Montserrat; font-weight:500; font-size: 1.75rem; -webkit-appearance: none; background-color:#D2EEFA; color: #A7A7A7;box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-webkit-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-moz-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14); display: inline-block; vertical-align: middle; border: 0; margin: 0; padding: 0.5rem 0.25rem; border-radius:0.25rem;}
+.option-item .option-body input{font-family: Montserrat; font-weight:500; font-size: 1.75rem; -webkit-appearance: none; background-color:#D2EEFA; color: #051A24;box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-webkit-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-moz-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14); display: inline-block; vertical-align: middle; border: 0; margin: 0; padding: 0.5rem 0.25rem; border-radius:0.25rem;}
 .option-item .option-body input.percentage{text-align:right;width:80px; margin: 0 1rem 0 0; padding: 0.125rem 2rem 0.125rem 0.5rem;}
 .option-item .option-body input.month{text-align:right;width:60px; margin: 0 1rem 0 0; padding: 0.25rem 0.5rem;}
 .option-item .option-body input:active, .option-item .option-body input:focus{color: #051A24;} 
@@ -222,7 +228,7 @@ form#cube-culator .row .form-row:last-child .form-column{vertical-align: middle;
 form#cube-culator .row .form-row .form-column.column-half{}
 form#cube-culator .row .form-row .form-column.column-half.column-last{margin-right:0;}
 label{display: block; font-family: Montserrat; font-size: 0.65rem; text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem;}
-input{font-family: Montserrat; -webkit-appearance: none; color: #A7A7A7;box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-webkit-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-moz-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);}
+input{font-family: Montserrat; -webkit-appearance: none; color: #051A24;box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-webkit-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);-moz-box-shadow: 0px 0px 24px 10px rgba(130, 207, 141, 0.14);}
 fieldset#contactdetail .input-group.invalid input, fieldset#currentdata .input-group.invalid input {background-color: #ffdddd;}
 input:active, input:focus{background-color:#FFF !important;color: #051A24;}
 input.text, input.email{font-family: Montserrat; font-size: 1.875rem; line-height:1; font-weight: 500; border: none; vertical-align: middle; margin: 0; padding: 0.75rem .5rem 0.75rem 2rem;}
