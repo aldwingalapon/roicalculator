@@ -55,9 +55,12 @@
 						<div class="row">
 							<div class="col-md-8">
 								<h1 class="main-title"><span>Calculate The ROI</span><span>On Your Ads</span></h1>
-								<p>We've run over 1000 media buying campaigns. Based on our data and experience, we've created a ROI calculator that can help you estimate your CPAs, ROAS based on your current optmization.</p>
-								<p>While we know no calculator can take the place of the actual data of your unique campaign, this calculator can give you an estimate based on your numbers, your set up, and whether you have everything optimized.  <strong>Let's go!</strong></p>
-								<p class="lastp"><strong>Put your info below, and we'll show you how much more you can make if you optimize - as well as the steps you can take to optimize.</strong></p>
+								<ul class="numberedlist">
+									<li class="active">Fill out your name and basic info</li>
+									<li>Answer a few simple optimization questions</li>
+									<li>Check out what your ROI path is</li>
+								</ul>
+								<p class="lastp"><strong>Ready to get started? Start by filling out your name and clicking the button.</strong></p>
 								<div class="form-row"><div class="form-column column-half"><label for="fullname">Your Fullname</label><div class="input-group"><input class="text" type="text" ng-model="fullname" id="fullname" name="fullname" /></div><div class="field_error"><div class="error_message_content">Please answer this question...</div></div></div><div class="form-column column-half column-last"><label for="emailaddress">Email Address</label><div class="input-group"><input class="text" type="email" ng-model="emailaddress" id="emailaddress" name="emailaddress" /></div><div class="field_error"><div class="error_message_content">Please answer this question...</div></div></div></div>
 								<div class="form-row"><div class="form-column"><input type="button" name="btncontactdetail" class="next btn btn-right" id="btncontactdetail" value="Let's Go" title="Let's Go" /></div><div class="error_message">Hey! We cant proceed to the next phase. Answer all the question first before getting your ROI calculation...</div><p class="privacy">Your privacy is kept safe and anonymous. <span><a href="http://cubatica.com/privacy/" title="Read our privacy policy here" target="_blank">Read our privacy policy here</a></span></p></div>
 							</div>
