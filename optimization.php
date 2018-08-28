@@ -128,7 +128,7 @@
 						<div class="container">
 							<div class="row">	
 								<div class="col-md-8">
-									<h3 class="message roi"><span class="title">Want that ROI lift?</span> <span>Let us help.  We have a team of campaign managers ready to</span> <span>review your site with a free customized optimization plan.</span></h3><button class="btn btn-optimize">Optimize my Campaign</button>
+									<h3 class="message roi"><span class="title">Want that ROI lift?</span> <span>Let us help.  We have a team of campaign managers</span> <span>ready to review your site with a free customized</span> <span>optimization plan.</span></h3><a class="btn btn-optimize" href="http://cubatica.com/?optimize=1" target="_blank">Optimize my Campaign</a>
 								</div>
 								<div class="col-md-4">
 									<div id="testimonial"><div class="testimonial-logo"><img src="images/artnaturals@1x.png" class="" title="Art Naturals" alt="Art Naturals" /></div><div class="testimonial-content">Cubatica got our business a 400% ROAS within the first month.  Yea, it was crazy, but it happened. <span class="testimonial-by">- Art Naturals</span></div></div>
