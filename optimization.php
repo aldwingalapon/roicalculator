@@ -1,3 +1,10 @@
+<?php
+	if (empty($_POST['fullname']))
+	{
+	  header('Location: cube-culator.php');
+	  exit; 
+	} 
+?>
 <!DOCTYPE html>
 <!--[if IE 6]>
 <html id="ie6" lang="en-US" prefix="og: http://ogp.me/ns#">
@@ -1292,7 +1299,7 @@
 					}]
 				},
 				options: {
-					showAllTooltips: false,
+					showAllTooltips: true,
 					chartArea: {
 						backgroundColor: 'rgba(244,251,255,1)'
 					},
