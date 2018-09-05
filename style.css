@@ -119,7 +119,7 @@ header#main-header span.title{font-family: Montserrat; font-weight: 400; font-st
 .main-content.optimization{}
 .main-content.optimization #group_container{margin-top: 2rem;}
 .main-content.optimization #group_container .group-title{position: relative; font-size: 2.125rem; line-height: 1; font-weight: 700; margin-bottom:0.5rem; padding-bottom: 0;}
-.main-content.optimization #group_container .group-title button.btn{float:right; font-size: 1rem; padding: 0.75rem 1rem; box-shadow: none;}
+.main-content.optimization #group_container .group-title button.btn{float:right; font-size: 1rem; padding: 0.75rem 1rem; margin-right: 2rem; box-shadow: none;}
 .main-content.optimization #group_container .group-title.title-list{padding-left: 4.5rem;}
 .main-content.optimization #group_container .group-title.title-list:before{position:absolute;left:0;top: 50%;transform: translatey(-50%);content:"";display:inline-block;height:64px;width:55px;background:transparent url(images/clipboard@3x.png) no-repeat center / cover;}
 .main-content.optimization #group_container .group-title span{display:block;}
