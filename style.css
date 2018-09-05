@@ -268,7 +268,7 @@ form#cube-culator input.currency{font-family: Montserrat; font-size:2.5rem; font
 form#cube-culator .input-group{display: inline-block; font-family: Montserrat; vertical-align: middle; margin-bottom: 0.75rem;}
 form#cube-culator .input-group-addon{display: inline-block; vertical-align: middle; border-radius: 0; font-size: 2.5rem; font-weight: 500; color: #1488bb; border: none; background-color: transparent; position: absolute; top: 1rem; margin: 0; padding: 0; left: 1.75rem;}
 form#cube-culator input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none; margin: 0;}
-form#cube-culator .tooltip-inner{font-family: Montserrat; font-size:0.75rem; font-style:italic;text-align:left;width:360px;padding:0.5rem;border-radius:2px;background-color:#2DA9E0;margin-left:160px !important;}
+form#cube-culator .tooltip-inner{font-family: Montserrat; font-size:0.75rem; font-style:italic;text-align:left;width:400px;padding:0.5rem;border-radius:2px;background-color:#2DA9E0;margin-left:160px !important;}
 form#cube-culator .tooltip.top .tooltip-arrow{border-top-color:#2DA9E0;}
 form#cube-culator .error_message{position: relative;font-size: 0.65rem;line-height: 1.5;font-style: italic;display:none;max-width: 330px;vertical-align: middle;padding-left: 2.5rem; -webkit-transition: all .5s ease-in-out; -moz-transition: all .5s ease-in-out; -ms-transition: all .5s ease-in-out; -o-transition: all .5s ease-in-out;}
 form#cube-culator fieldset.section_error .error_message{display:inline-block;}

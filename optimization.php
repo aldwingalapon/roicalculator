@@ -65,6 +65,86 @@
 
 								<canvas id="myROIChart"></canvas>
 															
+																							<p>Estimated Current ROA (%) <span class="currentroa percentage">{{currentroa | percentage:2:'%'}}</span></p>
+								<p>Estimated Current Spend <span class="estimatedcurrentspend currency">{{estimatedcurrentspend | currency}}</span></p>
+								<p>Estimated Current Gross <span class="estimatedcurrentgross currency">{{estimatedcurrentgross | currency}}</span></p>
+								
+								<p>{{newoptionssalesyes | json}}</p>
+								<p>{{newoptionssalesall | json}}</p>
+								<p>{{newoptionscpayes | json}}</p>
+								<p>{{newoptionscpaall | json}}</p>
+
+								<h3>Sales Data (Yes Only)</h3>
+								<div class="table-responsive">
+								<table class="optionssalesonly">
+								<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
+								  <tr ng-repeat="x in newoptionssalesyes">
+								  <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:false, l:'N'}, {k:true, l:'Y'}]">
+									</select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
+									<tr><td colspan="3">TOTALS</td><td ng-model="SalesYesTotalBest">{{getSalesYesTotalBest()}}</td><td ng-model="SalesYesTotalExpected">{{getSalesYesTotalExpected()}}</td><td ng-model="SalesYesTotalWorst">{{getSalesYesTotalWorst()}}</td><td ng-model="SalesYesTotalTFBest">{{getSalesYesTotalTFBest()}}</td><td ng-model="SalesYesTotalTFExpected">{{getSalesYesTotalTFExpected()}}</td><td ng-model="SalesYesTotalTFWorst">{{getSalesYesTotalTFWorst()}}</td><td></td></tr>
+									<tr class=""><td colspan="3">Factor</td><td ng-model="SalesYesTotalBestFactor">{{getSalesYesTotalBestFactor()}}</td><td ng-model="SalesYesTotalExpectedFactor">{{getSalesYesTotalExpectedFactor()}}</td><td ng-model="SalesYesTotalWorstFactor">{{getSalesYesTotalWorstFactor()}}</td><td></td><td></td><td></td><td></td></tr>
+								</table>
+								</div>
+
+								<h3>Sales Data (ALL)</h3>
+								<div class="table-responsive">
+								<table class="optionssalesall">
+								<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
+								  <tr ng-repeat="x in newoptionssalesall">
+								  <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:false, l:'N'}, {k:true, l:'Y'}]">
+									</select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
+									<tr><td colspan="3">TOTALS</td><td ng-model="SalesAllBest">{{getSalesAllBest()}}</td><td ng-model="SalesAllExpected">{{getSalesAllExpected()}}</td><td ng-model="SalesAllWorst">{{getSalesAllWorst()}}</td><td ng-model="SalesAllTFBest">{{getSalesAllTFBest()}}</td><td ng-model="SalesAllTFExpected">{{getSalesAllTFExpected()}}</td><td ng-model="SalesAllTFWorst">{{getSalesAllTFWorst()}}</td><td></td></tr>
+									<tr class=""><td colspan="3">Factor</td><td ng-model="SalesAllBestFactor">{{getSalesAllBestFactor()}}</td><td ng-model="SalesAllExpectedFactor">{{getSalesAllExpectedFactor()}}</td><td ng-model="SalesAllWorstFactor">{{getSalesAllWorstFactor()}}</td><td></td><td></td><td></td><td></td></tr>	
+								</table>
+								</div>
+								<h3>CPA Data (Yes Only)</h3>
+								<div class="table-responsive">
+								<table class="optionscpaonly">
+								<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best (%)</th><th>Expected (%)</th><th>Worst (%)</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
+								  <tr ng-repeat="x in newoptionscpayes">
+								  <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:false, l:'N'}, {k:true, l:'Y'}]">
+									</select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
+									<tr><td colspan="3">TOTALS</td><td ng-model="CPAYesTotalBest">{{getCPAYesTotalBest()}}</td><td ng-model="CPAYesTotalExpected">{{getCPAYesTotalExpected()}}</td><td ng-model="CPAYesTotalWorst">{{getCPAYesTotalWorst()}}</td><td ng-model="CPAYesTotalTFBest">{{getCPAYesTotalTFBest()}}</td><td ng-model="CPAYesTotalTFExpected">{{getCPAYesTotalTFExpected()}}</td><td ng-model="CPAYesTotalTFWorst">{{getCPAYesTotalTFWorst()}}</td><td></td></tr>
+									<tr class=""><td colspan="3">Factor</td><td ng-model="CPAYesTotalBestFactor">{{getCPAYesTotalBestFactor()}}</td><td ng-model="CPAYesTotalExpectedFactor">{{getCPAYesTotalExpectedFactor()}}</td><td ng-model="CPAYesTotalWorstFactor">{{getCPAYesTotalWorstFactor()}}</td><td></td><td></td><td></td><td></td></tr>	
+								</table>
+								</div>
+								<h3>CPA Data (ALL)</h3>
+								<div class="table-responsive">
+								<table class="optionscpaall">
+								<tr><th>#</th><th>Mod</th><th>Needed</th><th>Best</th><th>Expected</th><th>Worst</th><th>Time Frame <br/>(BEST)</th><th>Time Frame <br/>(EXPECTED)</th><th>Time Frame <br/>(WORST)</th><th>Metric</th></tr>
+								  <tr ng-repeat="x in newoptionscpaall">
+								  <td>{{$index + 1}}</td><td>{{x.mod}}</td><td><select disabled ng-model="x.needed" ng-options="entry.k as entry.l for entry in [{k:false, l:'N'}, {k:true, l:'Y'}]">
+									</select></td><td><input disabled type="number" ng-model="x.best" step="0.01"/></td><td><input disabled type="number" ng-model="x.expected" step="0.01"/></td><td><input disabled type="number" ng-model="x.worst" step="0.01"/></td><td><input disabled type="number" ng-model="x.timeframeb" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframee" min="3" max="24" /></td><td><input disabled type="number" ng-model="x.timeframew" min="3" max="24" /></td><td>{{x.metric}}</td></tr>
+									<tr><td colspan="3">TOTALS</td><td ng-model="CPAAllBest">{{getCPAAllBest()}}</td><td ng-model="CPAAllExpected">{{getCPAAllExpected()}}</td><td ng-model="CPAAllWorst">{{getCPAAllWorst()}}</td><td ng-model="CPAAllTFBest">{{getCPAAllTFBest()}}</td><td ng-model="CPAAllTFExpected">{{getCPAAllTFExpected()}}</td><td ng-model="CPAAllTFWorst">{{getCPAAllTFWorst()}}</td><td></td></tr>
+									<tr class=""><td colspan="3">Factor</td><td ng-model="CPAAllBestFactor">{{getCPAAllBestFactor()}}</td><td ng-model="CPAAllExpectedFactor">{{getCPAAllExpectedFactor()}}</td><td ng-model="CPAAllWorstFactor">{{getCPAAllWorstFactor()}}</td><td></td><td></td><td></td><td></td></tr>		
+								</table>
+								</div>	
+									
+								<div class="">								
+									<p>{{roabestjson | json}}</p>
+									<p>{{roabestjsonchart | json}}</p>
+									<p>{{roaexpectedjson | json}}</p>
+									<p>{{roaexpectedjsonchart | json}}</p>
+									<p>{{roaworstjson | json}}</p>
+									<p>{{roaworstjsonchart | json}}</p>
+									<p>{{roaalljson | json}}</p>
+									<h4>ROA String</h4>
+									<p>{{roabeststr}}</p>
+									<p>{{roaexpectedstr}}</p>
+									<p>{{roaworststr}}</p>
+									<p>{{roaallstr}}</p>
+									<h4>ROA (Merged String to JSON)</h4>
+									<p><small>{{roajson | json}}</small></p>
+									<div class="table-responsive">
+									<table class="roajson">
+										<tr>
+											<th>#</th><th>Name</th><th>Current</th><th>Month 1</th><th>Month 2</th><th>Month 3</th><th>Month 4</th><th>Month 5</th><th>Month 6</th><th>Month 7</th><th>Month 8</th><th>Month 9</th><th>Month 10</th><th>Month 11</th><th>Month 12</th><th>Total</th>
+										</tr>
+										<tr ng-repeat="x in roajson">
+											<td>{{$index + 1}}</td><td>{{x.name}}</td><td>{{x.current/100 | percentage:2:'%'}}</td><td>{{x.month1/100 | percentage:2:'%'}}</td><td>{{x.month2/100 | percentage:2:'%'}}</td><td>{{x.month3/100 | percentage:2:'%'}}</td><td>{{x.month4/100 | percentage:2:'%'}}</td><td>{{x.month5/100 | percentage:2:'%'}}</td><td>{{x.month6/100 | percentage:2:'%'}}</td><td>{{x.month7/100 | percentage:2:'%'}}</td><td>{{x.month8/100 | percentage:2:'%'}}</td><td>{{x.month9/100 | percentage:2:'%'}}</td><td>{{x.month10/100 | percentage:2:'%'}}</td><td>{{x.month11/100 | percentage:2:'%'}}</td><td>{{x.month12/100 | percentage:2:'%'}}</td><td>{{x.total/100 | percentage:2:'%'}}</td>
+										</tr>
+									</table>
+									</div>
 							</div>
 							<div class="clearfix"></div>							
 						</div>
@@ -90,7 +170,7 @@
 								<h2 class="group-title title-list">Your ads optimized! <span class="description">Now that's looking good. You can see here the nice bump up when your ads are optimized.<br />This takes into consideration having everything in your account ran at peak performance.</span></h2>
 								
 								<canvas id="myOptimizedChart"></canvas>
-								
+									
 							</div>
 							<div class="clearfix"></div>							
 						</div>
@@ -113,7 +193,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
-								<h2 class="group-title">See the Difference <span class="description">With your ads optimized, you're getting a much higher ROI, and faster scaling. <br><br> Based on these calculations...</span></h2>
+								<h2 class="group-title">See the Difference <span class="description"><a class="btn btn-optimize" href="http://l.cubatica.com/work-with-us/" target="_blank" style="float:right;">Optimize my Campaign</a>With your ads optimized, you're getting a much higher ROI, and faster scaling. <br><br> Based on these calculations...</span></h2>
 								<h3 class="group-optimized">Your ROI could be lifted by : <span style="font-weight:700;">{{roaincrease | percentage:2:'%'}}</span>    Your sales Could be increased by : <span style="font-weight:700;">{{salesincrease | percentage:2:'%'}}</span></h3>
 								
 								<canvas id="myComparativeChart"></canvas>
@@ -128,7 +208,7 @@
 						<div class="container">
 							<div class="row">	
 								<div class="col-md-8">
-									<h3 class="message roi"><span class="title">Want that ROI lift?</span> <span>Let us help.  We have a team of campaign managers</span> <span>ready to review your site with a free customized</span> <span>optimization plan.</span></h3><a class="btn btn-optimize" href="http://cubatica.com/?optimize=1" target="_blank">Optimize my Campaign</a>
+									<h3 class="message roi"><span class="title">Want that ROI lift?</span> <span>Let us help.  We have a team of campaign managers</span> <span>ready to review your site with a free customized</span> <span>optimization plan.</span></h3><a class="btn btn-optimize" href="http://l.cubatica.com/work-with-us/" target="_blank">Optimize my Campaign</a>
 								</div>
 								<div class="col-md-4">
 									<div id="testimonial"><div class="testimonial-logo"><img src="images/artnaturals@1x.png" class="" title="Art Naturals" alt="Art Naturals" /></div><div class="testimonial-content">Cubatica got our business a 400% ROAS within the first month.  Yea, it was crazy, but it happened. <span class="testimonial-by">- Art Naturals</span></div></div>
