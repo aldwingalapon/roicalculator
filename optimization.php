@@ -65,7 +65,7 @@
 
 								<canvas id="myROIChart"></canvas>
 
-								
+								<div class="hide">
 									<p>Estimated Current ROA (%) <span class="currentroa percentage">{{currentroa | percentage:2:'%'}}</span></p>
 									<p>Estimated Current Spend <span class="estimatedcurrentspend currency">{{estimatedcurrentspend | currency}}</span></p>
 									<p>Estimated Current Gross <span class="estimatedcurrentgross currency">{{estimatedcurrentgross | currency}}</span></p>
@@ -76,6 +76,8 @@
 									<p>{{newoptionscpayes | json}}</p>
 									<p>{{newoptionscpaall | json}}</p>
 								</div>
+									
+							</div>
 							<div class="clearfix"></div>							
 						</div>
 						<div class="clearfix"></div>							
