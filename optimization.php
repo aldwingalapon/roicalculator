@@ -65,7 +65,17 @@
 
 								<canvas id="myROIChart"></canvas>
 
-							</div>
+								
+									<p>Estimated Current ROA (%) <span class="currentroa percentage">{{currentroa | percentage:2:'%'}}</span></p>
+									<p>Estimated Current Spend <span class="estimatedcurrentspend currency">{{estimatedcurrentspend | currency}}</span></p>
+									<p>Estimated Current Gross <span class="estimatedcurrentgross currency">{{estimatedcurrentgross | currency}}</span></p>
+									
+									<p>{{newoptions | json}}</p>
+									<p>{{newoptionssalesyes | json}}</p>
+									<p>{{newoptionssalesall | json}}</p>
+									<p>{{newoptionscpayes | json}}</p>
+									<p>{{newoptionscpaall | json}}</p>
+								</div>
 							<div class="clearfix"></div>							
 						</div>
 						<div class="clearfix"></div>							
@@ -303,16 +313,21 @@
 			$scope.budgetalljsonchart = [];		
 			
 			angular.forEach($scope.newoptions, function (value, key) {
+				var valuebln = value.needed[0].answer;
+				if(value.needed[2].label == 'Maybe' && value.needed[2].answer){
+					valuebln = Math.random() >= 0.5;
+				}
+				
 				if (value.metric=='Sales'){
-					if (value.needed[0].answer){
-						$scope.newoptionssalesyes.push({ mod: value.mod, metric: value.metric, needed: value.needed[0].answer, best: value.best, expected: value.expected, worst: value.worst, timeframeb: value.timeframeb, timeframee: value.timeframee, timeframew: value.timeframew  });
+					if (valuebln){
+						$scope.newoptionssalesyes.push({ mod: value.mod, metric: value.metric, needed: valuebln, best: value.best, expected: value.expected, worst: value.worst, timeframeb: value.timeframeb, timeframee: value.timeframee, timeframew: value.timeframew  });
 					}
-					$scope.newoptionssalesall.push({ mod: value.mod, metric: value.metric, needed: value.needed[0].answer, best: value.best, expected: value.expected, worst: value.worst, timeframeb: value.timeframeb, timeframee: value.timeframee, timeframew: value.timeframew  });
+					$scope.newoptionssalesall.push({ mod: value.mod, metric: value.metric, needed: valuebln, best: value.best, expected: value.expected, worst: value.worst, timeframeb: value.timeframeb, timeframee: value.timeframee, timeframew: value.timeframew  });
 				} else if (value.metric=='CPA'){
-					if (value.needed[0].answer){
-						$scope.newoptionscpayes.push({ mod: value.mod, metric: value.metric, needed: value.needed[0].answer, best: value.best, expected: value.expected, worst: value.worst, timeframeb: value.timeframeb, timeframee: value.timeframee, timeframew: value.timeframew  });
+					if (valuebln){
+						$scope.newoptionscpayes.push({ mod: value.mod, metric: value.metric, needed: valuebln, best: value.best, expected: value.expected, worst: value.worst, timeframeb: value.timeframeb, timeframee: value.timeframee, timeframew: value.timeframew  });
 					}					
-					$scope.newoptionscpaall.push({ mod: value.mod, metric: value.metric, needed: value.needed[0].answer, best: value.best, expected: value.expected, worst: value.worst, timeframeb: value.timeframeb, timeframee: value.timeframee, timeframew: value.timeframew  });
+					$scope.newoptionscpaall.push({ mod: value.mod, metric: value.metric, needed: valuebln, best: value.best, expected: value.expected, worst: value.worst, timeframeb: value.timeframeb, timeframee: value.timeframee, timeframew: value.timeframew  });
 				}				
 			});	
 
