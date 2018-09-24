@@ -43,10 +43,8 @@
 	<header id="main-header">
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="col-md-4">
+				<div class="col-md-12 header-title"">
 					<a href="http://cubatica.com/" title="Cubatica" class="header-logo" target="_blank"><img class="main-logo lazyload" src="images/header-logo@3x.png" alt="Cubatica" title="Cubatica" /></a>
-				</div>
-				<div class="col-md-8 header-title">
 					<span class="title">The Cube-culator for Ad Optimization</span>
 				</div>
 				<div class="clearfix"></div>

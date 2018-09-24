@@ -36,10 +36,8 @@
 	<header id="main-header">
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="col-md-4">
+				<div class="col-md-12 header-title"">
 					<a href="http://cubatica.com/" title="Cubatica" class="header-logo" target="_blank"><img class="main-logo lazyload" src="images/header-logo@3x.png" alt="Cubatica" title="Cubatica" /></a>
-				</div>
-				<div class="col-md-8 header-title">
 					<span class="title">The Cube-culator for Ad Optimization</span>
 				</div>
 				<div class="clearfix"></div>
@@ -55,7 +53,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8">
-								<h1 class="main-title"><span>Calculate The ROI</span><span>On Your Ads</span></h1>
+								<h1 class="main-title"><span>Calculate The ROI </span><span>On Your Ads</span></h1>
 								<ul class="numberedlist">
 									<li class="active">Fill out your name and basic info</li>
 									<li>Answer a few simple optimization questions</li>
@@ -78,7 +76,7 @@
 						<div class="row">
 							<div class="col-md-8">
 								<a class="previous btn-previous"></a>
-								<h2 class="section-title"><span>Use this Calculator to find out</span> <span>how high your ROI can go</span></h2>
+								<h2 class="section-title"><span>Use this Calculator to find out </span> <span>how high your ROI can go</span></h2>
 								<div class="form-row"><div class="form-column column-half"><label for="cpa">What's your cost per acquisition? <span class="info" data-toggle="tooltip" data-placement="top" title="Cost per acquisition (CPA), also known as cost per action, pay per acquisition (PPA) and cost per conversion, is an online advertising pricing model where the advertiser pays for a specified acquisition - for example a sale, click, or form submit."></span></label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roicpa" id="cpa" name="cpa" /></div><div class="field_error"><div class="error_message_content">Please answer this question...</div></div></div><div class="form-column column-half column-last"><label for="aveordervalue">Put your average order value here <span class="info" data-toggle="tooltip" data-placement="top" title="Average Order Value (AOV) is an ecommerce metric that measures the average total of every order placed with a merchant over a defined period of time."></span></label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roiaveordervalue" id="aveordervalue" name="aveordervalue" /></div><div class="field_error"><div class="error_message_content">Please answer this question...</div></div></div></div>
 								<div class="form-row"><div class="form-column column-half"><label for="monthlysales">Your monthly sales <span class="info" data-toggle="tooltip" data-placement="top" title="How much you make in gross sales per month (An average is fine)"></span></label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roimonthlysales" id="monthlysales" name="monthlysales" /></div><div class="field_error"><div class="error_message_content">Please answer this question...</div></div></div><div class="form-column column-half column-last"><label for="monthlyadspend">Monthly ad spend <span class="info" data-toggle="tooltip" data-placement="top" title="How much you spend each month on your media buying."></span></label><div class="input-group"><span class="input-group-addon">$</span><input data-number-to-fixed="2" data-number-stepfactor="100" step="0.01" class="currency" type="number" ng-model="roimonthlyadspend" id="monthlyadspend" name="monthlyadspend" /></div><div class="field_error"><div class="error_message_content">Please answer this question...</div></div></div></div>
 								<div class="form-row"><div class="form-column"><input type="button" name="btncurrentdata" class="next btn btn-right" id="btncurrentdata" value="Next" title="Next" /></div><div class="error_message">Hey! We cant proceed to the next phase. Answer all the question first before getting your ROI calculation...</div></div>
