@@ -53,7 +53,8 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8">
-								<h1 class="main-title"><span>Calculate The ROI </span><span>On Your Ads</span></h1>
+								<h1 class="main-title"><span>How Much More Could You Make If Your Ads Were Optimized?</span></h1>
+								<p class="sub-title">Use our ROI Optimization Calculator and See What Kind of Earnings You Could Get.</p>
 								<ul class="numberedlist">
 									<li class="active">Fill out your name and basic info</li>
 									<li>Answer a few simple optimization questions</li>
